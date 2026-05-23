@@ -4,122 +4,75 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>PINA Water System – Pure Water Solutions</title>
-  <meta name="description" content="PINA Water System – Instalación profesional de sistemas de purificación de agua. Water Softener y Ósmosis Inversa. 786-342-4247" />
-
+  <meta name="description" content="PINA Water System – Instalación profesional de sistemas de purificación de agua. 786-342-4247" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" />
-
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     :root {
-      --black:    #0a0a0a;
-      --dark:     #111111;
-      --blue:     #0077b6;
-      --blue-mid: #0096c7;
-      --blue-lt:  #00b4d8;
-      --sky:      #caf0f8;
-      --white:    #ffffff;
-      --gray:     #f4f7fa;
-      --gray-mid: #8a9ab0;
-      --text:     #1e293b;
-      --radius:   12px;
-      --shadow:   0 8px 40px rgba(0,0,0,.12);
-      --transition: .35s cubic-bezier(.4,0,.2,1);
+      --black: #0a0a0a; --dark: #111111; --blue: #0077b6; --blue-mid: #0096c7;
+      --blue-lt: #00b4d8; --sky: #caf0f8; --white: #ffffff; --gray: #f4f7fa;
+      --gray-mid: #8a9ab0; --text: #1e293b; --radius: 12px;
+      --shadow: 0 8px 40px rgba(0,0,0,.12); --transition: .35s cubic-bezier(.4,0,.2,1);
     }
-
     html { scroll-behavior: smooth; }
     body { font-family: 'Open Sans', sans-serif; color: var(--text); background: var(--white); overflow-x: hidden; }
     h1,h2,h3,h4 { font-family: 'Montserrat', sans-serif; }
     a { text-decoration: none; color: inherit; }
     img { max-width: 100%; display: block; }
-
     .container { width: 90%; max-width: 1200px; margin: 0 auto; }
-
-    .section-tag {
-      display: inline-block;
-      background: rgba(0,119,182,.12);
-      color: var(--blue);
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 700;
-      font-size: .72rem;
-      letter-spacing: .12em;
-      text-transform: uppercase;
-      padding: .35rem .9rem;
-      border-radius: 50px;
-      margin-bottom: 1rem;
-    }
-
+    .section-tag { display: inline-block; background: rgba(0,119,182,.12); color: var(--blue); font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: .72rem; letter-spacing: .12em; text-transform: uppercase; padding: .35rem .9rem; border-radius: 50px; margin-bottom: 1rem; }
     .section-title { font-size: clamp(1.8rem, 3.5vw, 2.6rem); font-weight: 800; line-height: 1.2; margin-bottom: .8rem; }
     .section-sub { font-size: 1.05rem; color: var(--gray-mid); max-width: 560px; line-height: 1.7; }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: .5rem;
-      padding: .85rem 2rem;
-      border-radius: 50px;
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 700;
-      font-size: .95rem;
-      cursor: pointer;
-      border: none;
-      transition: var(--transition);
-    }
+    .btn { display: inline-flex; align-items: center; gap: .5rem; padding: .85rem 2rem; border-radius: 50px; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: .95rem; cursor: pointer; border: none; transition: var(--transition); }
     .btn-primary { background: linear-gradient(135deg, var(--blue) 0%, var(--blue-lt) 100%); color: var(--white); box-shadow: 0 6px 24px rgba(0,119,182,.4); }
     .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 32px rgba(0,119,182,.5); }
     .btn-outline { background: transparent; color: var(--white); border: 2px solid var(--white); }
     .btn-outline:hover { background: var(--white); color: var(--blue); }
 
-    /* ---- SPLASH ---- */
-    #splash {
-      position: fixed; inset: 0; z-index: 9999;
-      background: var(--black);
-      display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1.5rem;
-      transition: opacity .7s ease, visibility .7s ease;
-    }
+    /* SPLASH */
+    #splash { position: fixed; inset: 0; z-index: 9999; background: var(--black); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1.5rem; transition: opacity .7s ease, visibility .7s ease; }
     #splash.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
-
     .splash-logo { width: 150px; animation: splashPop .8s cubic-bezier(.34,1.56,.64,1) forwards; opacity: 0; }
     .splash-brand { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 1.8rem; color: var(--white); letter-spacing: .05em; animation: splashFade .6s .3s forwards; opacity: 0; }
     .splash-brand span { color: var(--blue-lt); }
     .splash-tagline { color: var(--gray-mid); font-size: .88rem; letter-spacing: .06em; animation: splashFade .6s .5s forwards; opacity: 0; }
     .splash-bar { width: 180px; height: 3px; background: rgba(255,255,255,.15); border-radius: 10px; overflow: hidden; margin-top: .5rem; animation: splashFade .4s .6s forwards; opacity: 0; }
     .splash-bar-fill { height: 100%; width: 0; background: linear-gradient(90deg, var(--blue), var(--blue-lt)); border-radius: 10px; animation: splashLoad 2s .7s ease forwards; }
+    @keyframes splashPop { 0%{opacity:0;transform:scale(.6)} 100%{opacity:1;transform:scale(1)} }
+    @keyframes splashFade { to{opacity:1} }
+    @keyframes splashLoad  { to{width:100%} }
 
-    @keyframes splashPop { 0% { opacity:0; transform:scale(.6); } 100% { opacity:1; transform:scale(1); } }
-    @keyframes splashFade { to { opacity: 1; } }
-    @keyframes splashLoad  { to { width: 100%; } }
-
-    /* ---- HEADER ---- */
-    #header {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
-      background: var(--black); height: 72px;
-      display: flex; align-items: center;
-      transition: box-shadow var(--transition);
-    }
+    /* HEADER */
+    #header { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: var(--black); height: 72px; display: flex; align-items: center; transition: box-shadow var(--transition); }
     #header.scrolled { box-shadow: 0 4px 24px rgba(0,0,0,.5); }
     .header-inner { display: flex; align-items: center; justify-content: space-between; width: 100%; }
     .logo-wrap { display: flex; align-items: center; gap: .75rem; }
     .logo-wrap img { height: 48px; width: auto; object-fit: contain; }
     .logo-text { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 1.1rem; color: var(--white); line-height: 1.1; }
     .logo-text span { display: block; color: rgba(255,255,255,.4); font-size: .6rem; font-weight: 500; letter-spacing: .1em; text-transform: uppercase; }
-
+    .header-right { display: flex; align-items: center; gap: 1.5rem; }
     .nav-desktop { display: flex; align-items: center; gap: 2rem; list-style: none; }
     .nav-desktop a { color: rgba(255,255,255,.75); font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: .85rem; letter-spacing: .04em; text-transform: uppercase; padding: .25rem 0; border-bottom: 2px solid transparent; transition: var(--transition); }
     .nav-desktop a:hover { color: var(--white); border-bottom-color: var(--blue-lt); }
     .nav-cta { background: linear-gradient(135deg, var(--blue), var(--blue-lt)) !important; color: var(--white) !important; border: none !important; padding: .55rem 1.3rem !important; border-radius: 50px !important; border-bottom: none !important; }
-    .nav-cta:hover { opacity: .9; transform: translateY(-1px); }
+    .nav-cta:hover { opacity: .9; }
 
+    /* LANG TOGGLE */
+    .lang-toggle { display: flex; align-items: center; background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.15); border-radius: 50px; overflow: hidden; flex-shrink: 0; }
+    .lang-btn { padding: .32rem .75rem; color: rgba(255,255,255,.45); cursor: pointer; transition: var(--transition); background: none; border: none; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: .78rem; letter-spacing: .06em; }
+    .lang-btn.active { background: rgba(255,255,255,.18); color: var(--white); }
+    .lang-btn:hover:not(.active) { color: rgba(255,255,255,.7); }
+
+    /* HAMBURGER */
     .hamburger { display: none; flex-direction: column; justify-content: center; gap: 5px; width: 42px; height: 42px; cursor: pointer; padding: .5rem; border-radius: 8px; transition: var(--transition); background: none; border: none; }
     .hamburger:hover { background: rgba(255,255,255,.1); }
     .hamburger span { display: block; height: 2px; background: var(--white); border-radius: 2px; transition: var(--transition); }
     .hamburger.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
     .hamburger.active span:nth-child(2) { opacity: 0; transform: scaleX(0); }
     .hamburger.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-
     .nav-mobile { position: fixed; top: 72px; left: 0; right: 0; background: var(--dark); padding: 1.5rem; display: flex; flex-direction: column; transform: translateY(-110%); transition: transform var(--transition); z-index: 999; box-shadow: 0 12px 40px rgba(0,0,0,.5); }
     .nav-mobile.open { transform: translateY(0); }
     .nav-mobile a { display: block; color: rgba(255,255,255,.85); font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: .95rem; text-transform: uppercase; letter-spacing: .04em; padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,.08); transition: var(--transition); }
@@ -127,14 +80,13 @@
     .nav-mobile a:last-child { border-bottom: none; }
     .nav-mobile .nav-cta-m { margin-top: 1rem; text-align: center; background: linear-gradient(135deg, var(--blue), var(--blue-lt)); color: white !important; border-radius: 50px; border-bottom: none !important; }
 
-    /* ---- HERO ---- */
+    /* HERO */
     #hero { min-height: 100vh; background: linear-gradient(135deg, var(--black) 0%, #0d1b2a 55%, #0a2744 100%); display: flex; align-items: center; padding-top: 72px; position: relative; overflow: hidden; }
     .hero-particles { position: absolute; inset: 0; overflow: hidden; pointer-events: none; }
     .hero-particles::before, .hero-particles::after { content: ''; position: absolute; border-radius: 50%; filter: blur(80px); opacity: .2; }
     .hero-particles::before { width: 500px; height: 500px; background: var(--blue); top: -100px; right: -100px; animation: float 8s ease-in-out infinite alternate; }
-    .hero-particles::after  { width: 350px; height: 350px; background: var(--blue-lt); bottom: -80px; left: 10%; animation: float 10s ease-in-out infinite alternate-reverse; }
-    @keyframes float { 0% { transform: translateY(0) scale(1); } 100% { transform: translateY(-30px) scale(1.08); } }
-
+    .hero-particles::after { width: 350px; height: 350px; background: var(--blue-lt); bottom: -80px; left: 10%; animation: float 10s ease-in-out infinite alternate-reverse; }
+    @keyframes float { 0%{transform:translateY(0) scale(1)} 100%{transform:translateY(-30px) scale(1.08)} }
     .hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; position: relative; z-index: 1; padding: 4rem 0; }
     .hero-badge { display: inline-flex; align-items: center; gap: .5rem; background: rgba(0,180,216,.15); border: 1px solid rgba(0,180,216,.3); color: var(--blue-lt); font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: .78rem; letter-spacing: .1em; text-transform: uppercase; padding: .45rem 1.1rem; border-radius: 50px; margin-bottom: 1.5rem; }
     .hero-title { font-size: clamp(2.2rem, 5vw, 3.8rem); font-weight: 900; color: var(--white); line-height: 1.1; margin-bottom: 1.2rem; }
@@ -144,26 +96,24 @@
     .hero-stats { display: grid; grid-template-columns: repeat(3,1fr); gap: 1rem; margin-top: 3rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,.1); }
     .stat-item { text-align: center; }
     .stat-number { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 2rem; color: var(--blue-lt); line-height: 1; }
-    .stat-label  { font-size: .75rem; color: rgba(255,255,255,.5); margin-top: .3rem; letter-spacing: .04em; }
-
+    .stat-label { font-size: .75rem; color: rgba(255,255,255,.5); margin-top: .3rem; letter-spacing: .04em; }
     .hero-visual { display: flex; justify-content: center; align-items: center; position: relative; }
     .hero-visual-ring { position: absolute; border-radius: 50%; border: 1px solid rgba(0,180,216,.18); animation: pulse-ring 3s ease-in-out infinite; }
-    .hero-visual-ring:nth-child(1) { width: 300px; height: 300px; animation-delay: 0s; }
-    .hero-visual-ring:nth-child(2) { width: 400px; height: 400px; animation-delay: .5s; }
-    .hero-visual-ring:nth-child(3) { width: 500px; height: 500px; animation-delay: 1s; }
-    @keyframes pulse-ring { 0%,100% { opacity:.15; transform:scale(1); } 50% { opacity:.4; transform:scale(1.04); } }
-
+    .hero-visual-ring:nth-child(1){width:300px;height:300px;animation-delay:0s}
+    .hero-visual-ring:nth-child(2){width:400px;height:400px;animation-delay:.5s}
+    .hero-visual-ring:nth-child(3){width:500px;height:500px;animation-delay:1s}
+    @keyframes pulse-ring { 0%,100%{opacity:.15;transform:scale(1)} 50%{opacity:.4;transform:scale(1.04)} }
     .hero-visual-inner { width: 260px; height: 260px; background: linear-gradient(135deg, rgba(0,119,182,.2), rgba(0,180,216,.08)); border-radius: 50%; border: 1px solid rgba(0,180,216,.25); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1rem; position: relative; z-index: 1; backdrop-filter: blur(10px); }
     .hero-logo-circle { width: 170px; height: 170px; object-fit: contain; }
     .hero-badges-row { display: flex; gap: .5rem; flex-wrap: wrap; justify-content: center; }
     .badge-pill { background: rgba(0,180,216,.12); border: 1px solid rgba(0,180,216,.25); color: var(--blue-lt); font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: .62rem; letter-spacing: .07em; text-transform: uppercase; padding: .28rem .65rem; border-radius: 50px; }
 
-    /* ---- ABOUT ---- */
+    /* ABOUT */
     #about { padding: 6rem 0; background: var(--gray); }
     .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
     .about-img-stack { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; position: relative; }
     .about-img-stack img { border-radius: var(--radius); width: 100%; height: 200px; object-fit: cover; box-shadow: var(--shadow); }
-    .about-img-stack img:first-child { grid-column: 1 / -1; height: 260px; }
+    .about-img-stack img:first-child { grid-column: 1/-1; height: 260px; }
     .about-float-card { position: absolute; bottom: -20px; right: -20px; background: var(--white); border-radius: var(--radius); padding: 1.2rem 1.5rem; box-shadow: 0 12px 40px rgba(0,0,0,.15); display: flex; align-items: center; gap: .75rem; }
     .icon-circle { width: 46px; height: 46px; background: linear-gradient(135deg, var(--blue), var(--blue-lt)); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.1rem; flex-shrink: 0; }
     .card-label { font-size: .72rem; color: var(--gray-mid); font-weight: 600; text-transform: uppercase; letter-spacing: .06em; }
@@ -175,7 +125,7 @@
     .check-list li { display: flex; align-items: flex-start; gap: .75rem; font-size: .95rem; line-height: 1.5; }
     .check-list li i { color: var(--blue); margin-top: 2px; flex-shrink: 0; }
 
-    /* ---- SERVICES ---- */
+    /* SERVICES */
     #services { padding: 6rem 0; background: var(--white); }
     .services-header { text-align: center; margin-bottom: 3.5rem; }
     .services-header .section-sub { margin: 0 auto; }
@@ -194,7 +144,7 @@
     .service-tags { display: flex; gap: .4rem; flex-wrap: wrap; margin-top: 1.2rem; }
     .service-tag { background: var(--sky); color: var(--blue); font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: .68rem; letter-spacing: .07em; text-transform: uppercase; padding: .3rem .7rem; border-radius: 50px; }
 
-    /* ---- PROCESS ---- */
+    /* PROCESS */
     #process { padding: 6rem 0; background: linear-gradient(180deg, #050d1a 0%, #0a1628 100%); position: relative; overflow: hidden; }
     #process::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 70% 50%, rgba(0,119,182,.12) 0%, transparent 60%); pointer-events: none; }
     .process-header { text-align: center; margin-bottom: 3.5rem; }
@@ -214,7 +164,7 @@
     .process-footer p { color: rgba(255,255,255,.7); font-size: .92rem; line-height: 1.6; flex: 1; }
     .process-footer strong { color: var(--white); }
 
-    /* ---- GALLERY ---- */
+    /* GALLERY */
     #gallery { padding: 6rem 0; background: var(--gray); }
     .gallery-header { text-align: center; margin-bottom: 3rem; }
     .gallery-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 1rem; }
@@ -226,14 +176,13 @@
     .gallery-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,.7) 0%, transparent 60%); opacity: 0; transition: opacity var(--transition); display: flex; align-items: flex-end; padding: 1.2rem; }
     .gallery-item:hover .gallery-overlay { opacity: 1; }
     .gallery-overlay span { color: white; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: .88rem; display: flex; align-items: center; gap: .4rem; }
-
     #lightbox { position: fixed; inset: 0; z-index: 9998; background: rgba(0,0,0,.92); display: none; align-items: center; justify-content: center; padding: 2rem; }
     #lightbox.active { display: flex; }
     #lightbox img { max-width: 900px; max-height: 85vh; object-fit: contain; border-radius: var(--radius); box-shadow: 0 0 80px rgba(0,0,0,.8); }
     #lightbox-close { position: absolute; top: 1.5rem; right: 1.5rem; background: rgba(255,255,255,.15); border: none; color: white; width: 44px; height: 44px; border-radius: 50%; font-size: 1.2rem; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: var(--transition); }
     #lightbox-close:hover { background: var(--blue); }
 
-    /* ---- BENEFITS ---- */
+    /* BENEFITS */
     #benefits { padding: 6rem 0; background: var(--white); }
     .benefits-header { text-align: center; margin-bottom: 3.5rem; }
     .benefits-header .section-sub { margin: 0 auto; }
@@ -249,7 +198,7 @@
     .guarantee-item strong { display: block; font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 1rem; margin-bottom: .25rem; }
     .guarantee-item span { font-size: .78rem; color: rgba(255,255,255,.5); }
 
-    /* ---- CONTACT ---- */
+    /* CONTACT */
     #contact { padding: 6rem 0; background: linear-gradient(135deg, #050d1a 0%, #0a1628 100%); position: relative; overflow: hidden; }
     #contact::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 30% 50%, rgba(0,119,182,.12) 0%, transparent 60%); pointer-events: none; }
     .contact-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 4rem; align-items: start; position: relative; z-index: 1; }
@@ -257,7 +206,7 @@
     .contact-info .section-title { color: var(--white); }
     .contact-info .section-sub { color: rgba(255,255,255,.5); }
     .contact-details { margin-top: 2rem; display: flex; flex-direction: column; gap: 1.2rem; }
-    .contact-item { display: flex; align-items: center; gap: 1rem; color: rgba(255,255,255,.8); }
+    .contact-item { display: flex; align-items: center; gap: 1rem; }
     .ci-icon { width: 46px; height: 46px; background: rgba(0,119,182,.18); border: 1px solid rgba(0,180,216,.22); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; color: var(--blue-lt); flex-shrink: 0; }
     .ci-text strong { display: block; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: .85rem; color: var(--white); margin-bottom: .15rem; }
     .ci-text span { font-size: .9rem; color: rgba(255,255,255,.55); }
@@ -280,7 +229,7 @@
     .form-success h4 { color: white; font-size: 1.2rem; margin-bottom: .5rem; }
     .form-success p { color: rgba(255,255,255,.55); font-size: .9rem; }
 
-    /* ---- FOOTER ---- */
+    /* FOOTER */
     #footer { background: var(--black); padding: 4rem 0 2rem; }
     .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 2.5rem; padding-bottom: 3rem; border-bottom: 1px solid rgba(255,255,255,.08); }
     .footer-logo-wrap { display: flex; align-items: center; gap: .75rem; margin-bottom: 1rem; }
@@ -301,18 +250,18 @@
     .footer-bottom-badges { display: flex; gap: .5rem; align-items: center; flex-wrap: wrap; }
     .footer-bottom-badges span { background: rgba(255,255,255,.07); color: rgba(255,255,255,.4); font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: .68rem; padding: .3rem .65rem; border-radius: 6px; letter-spacing: .04em; }
 
-    /* ---- FLOATING ---- */
+    /* FLOATING */
     .wa-float { position: fixed; bottom: 2rem; right: 2rem; z-index: 1000; width: 58px; height: 58px; background: #25D366; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.6rem; color: white; box-shadow: 0 6px 24px rgba(37,211,102,.45); transition: var(--transition); }
     .wa-float:hover { transform: scale(1.1); box-shadow: 0 10px 32px rgba(37,211,102,.6); }
     #back-top { position: fixed; bottom: 6.5rem; right: 2rem; z-index: 1000; width: 46px; height: 46px; background: var(--blue); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 1rem; cursor: pointer; opacity: 0; visibility: hidden; transition: var(--transition); border: none; box-shadow: 0 4px 16px rgba(0,119,182,.4); }
     #back-top.visible { opacity: 1; visibility: visible; }
     #back-top:hover { background: var(--blue-lt); transform: translateY(-2px); }
 
-    /* ---- REVEAL ---- */
+    /* REVEAL */
     .reveal { opacity: 0; transform: translateY(30px); transition: opacity .7s ease, transform .7s ease; }
     .reveal.visible { opacity: 1; transform: translateY(0); }
 
-    /* ---- RESPONSIVE ---- */
+    /* RESPONSIVE */
     @media (max-width: 1024px) {
       .hero-grid { grid-template-columns: 1fr; text-align: center; }
       .hero-desc { margin: 0 auto 2rem; }
@@ -351,16 +300,16 @@
 
   <!-- SPLASH -->
   <div id="splash">
-    <img class="splash-logo" src="https://drive.google.com/uc?export=view&id=1o3bArnfqG38fcdhGty3-NxjAXBvCKq86" alt="PINA Water System" onerror="this.style.display='none'" />
+    <img class="splash-logo" src="https://lh3.googleusercontent.com/d/1o3bArnfqG38fcdhGty3-NxjAXBvCKq86" alt="PINA Water System" onerror="this.style.display='none'" />
     <div class="splash-brand">PINA <span>Water System</span></div>
-    <div class="splash-tagline">Tu agua · Tu salud · Nuestra prioridad</div>
+    <div class="splash-tagline" data-i18n="splash-tagline">Tu agua · Tu salud · Nuestra prioridad</div>
     <div class="splash-bar"><div class="splash-bar-fill"></div></div>
   </div>
 
   <!-- LIGHTBOX -->
   <div id="lightbox">
     <button id="lightbox-close" aria-label="Cerrar"><i class="fa fa-times"></i></button>
-    <img id="lightbox-img" src="" alt="Instalación PINA Water System" />
+    <img id="lightbox-img" src="" alt="PINA Water System" />
   </div>
 
   <!-- HEADER -->
@@ -368,34 +317,40 @@
     <div class="container">
       <div class="header-inner">
         <a href="#hero" class="logo-wrap">
-          <img src="https://drive.google.com/uc?export=view&id=1o3bArnfqG38fcdhGty3-NxjAXBvCKq86" alt="PINA Water System" onerror="this.style.display='none'" />
+          <img src="https://lh3.googleusercontent.com/d/1o3bArnfqG38fcdhGty3-NxjAXBvCKq86" alt="PINA Water System" onerror="this.style.display='none'" />
           <div class="logo-text">PINA Water System <span>Made in USA</span></div>
         </a>
-        <nav>
-          <ul class="nav-desktop">
-            <li><a href="#about">Nosotros</a></li>
-            <li><a href="#services">Servicios</a></li>
-            <li><a href="#process">Proceso</a></li>
-            <li><a href="#gallery">Instalaciones</a></li>
-            <li><a href="#benefits">Beneficios</a></li>
-            <li><a href="#contact" class="nav-cta">Contáctanos</a></li>
-          </ul>
-        </nav>
-        <button class="hamburger" id="hamburger" aria-label="Abrir menú" aria-expanded="false">
-          <span></span><span></span><span></span>
-        </button>
+        <div class="header-right">
+          <nav>
+            <ul class="nav-desktop">
+              <li><a href="#about"    data-i18n="nav-about">Nosotros</a></li>
+              <li><a href="#services" data-i18n="nav-services">Servicios</a></li>
+              <li><a href="#process"  data-i18n="nav-process">Proceso</a></li>
+              <li><a href="#gallery"  data-i18n="nav-gallery">Instalaciones</a></li>
+              <li><a href="#benefits" data-i18n="nav-benefits">Beneficios</a></li>
+              <li><a href="#contact"  class="nav-cta" data-i18n="nav-contact">Contáctanos</a></li>
+            </ul>
+          </nav>
+          <div class="lang-toggle">
+            <button class="lang-btn active" data-lang="es" onclick="setLang('es')">ES</button>
+            <button class="lang-btn" data-lang="en" onclick="setLang('en')">EN</button>
+          </div>
+          <button class="hamburger" id="hamburger" aria-label="Abrir menú" aria-expanded="false">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
       </div>
     </div>
   </header>
 
   <!-- MOBILE NAV -->
   <nav class="nav-mobile" id="nav-mobile" aria-hidden="true">
-    <a href="#about"    class="nav-m-link">Nosotros</a>
-    <a href="#services" class="nav-m-link">Servicios</a>
-    <a href="#process"  class="nav-m-link">Proceso</a>
-    <a href="#gallery"  class="nav-m-link">Instalaciones</a>
-    <a href="#benefits" class="nav-m-link">Beneficios</a>
-    <a href="#contact"  class="nav-m-link nav-cta-m">Contáctanos</a>
+    <a href="#about"    class="nav-m-link" data-i18n="nav-about">Nosotros</a>
+    <a href="#services" class="nav-m-link" data-i18n="nav-services">Servicios</a>
+    <a href="#process"  class="nav-m-link" data-i18n="nav-process">Proceso</a>
+    <a href="#gallery"  class="nav-m-link" data-i18n="nav-gallery">Instalaciones</a>
+    <a href="#benefits" class="nav-m-link" data-i18n="nav-benefits">Beneficios</a>
+    <a href="#contact"  class="nav-m-link nav-cta-m" data-i18n="nav-contact">Contáctanos</a>
   </nav>
 
   <main>
@@ -406,25 +361,23 @@
       <div class="container">
         <div class="hero-grid">
           <div class="hero-content">
-            <div class="hero-badge"><i class="fa fa-shield-halved"></i> Made in USA · Garantía de por vida</div>
-            <h1 class="hero-title">Agua Pura y Suave<br/>para Tu <span class="accent">Hogar</span></h1>
-            <p class="hero-desc">Sistemas de filtración certificados con instalación profesional y <strong>100% garantizado</strong>. Mismos resultados, sin el sobreprecio de las grandes marcas.</p>
+            <div class="hero-badge"><i class="fa fa-shield-halved"></i> <span data-i18n="hero-badge">Made in USA · Garantía de por vida</span></div>
+            <h1 class="hero-title" data-i18n="hero-title">Agua Pura y Suave<br/>para Tu <span class="accent">Hogar</span></h1>
+            <p class="hero-desc" data-i18n="hero-desc">Sistemas de filtración certificados con instalación profesional y <strong>100% garantizado</strong>. Mismos resultados, sin el sobreprecio de las grandes marcas.</p>
             <div class="hero-actions">
-              <a href="#contact" class="btn btn-primary"><i class="fa fa-calendar-check"></i> Solicitar Cotización</a>
-              <a href="#services" class="btn btn-outline"><i class="fa fa-arrow-down"></i> Ver Servicios</a>
+              <a href="#contact" class="btn btn-primary"><i class="fa fa-calendar-check"></i> <span data-i18n="hero-btn1">Solicitar Cotización</span></a>
+              <a href="#services" class="btn btn-outline"><i class="fa fa-arrow-down"></i> <span data-i18n="hero-btn2">Ver Servicios</span></a>
             </div>
             <div class="hero-stats">
               <div class="stat-item"><div class="stat-number">A+</div><div class="stat-label">BBB Rating</div></div>
-              <div class="stat-item"><div class="stat-number">6</div><div class="stat-label">Etapas Filtración</div></div>
-              <div class="stat-item"><div class="stat-number">100%</div><div class="stat-label">Garantizado</div></div>
+              <div class="stat-item"><div class="stat-number">6</div><div class="stat-label" data-i18n="hero-stat2">Etapas Filtración</div></div>
+              <div class="stat-item"><div class="stat-number">100%</div><div class="stat-label" data-i18n="hero-stat3">Garantizado</div></div>
             </div>
           </div>
           <div class="hero-visual">
-            <div class="hero-visual-ring"></div>
-            <div class="hero-visual-ring"></div>
-            <div class="hero-visual-ring"></div>
+            <div class="hero-visual-ring"></div><div class="hero-visual-ring"></div><div class="hero-visual-ring"></div>
             <div class="hero-visual-inner">
-              <img class="hero-logo-circle" src="https://drive.google.com/uc?export=view&id=1o3bArnfqG38fcdhGty3-NxjAXBvCKq86" alt="PINA Water System" onerror="this.style.display='none'" />
+              <img class="hero-logo-circle" src="https://lh3.googleusercontent.com/d/1o3bArnfqG38fcdhGty3-NxjAXBvCKq86" alt="PINA Water System" onerror="this.style.display='none'" />
               <div class="hero-badges-row">
                 <span class="badge-pill">NSF/ANSI 44</span>
                 <span class="badge-pill">NSF 61</span>
@@ -442,9 +395,9 @@
         <div class="about-grid">
           <div class="about-img-wrap">
             <div class="about-img-stack">
-              <img src="https://drive.google.com/uc?export=view&id=1AfKvAihjbAIe7DkRECwcd_xnyujAUA2O" alt="Instalación profesional" loading="lazy" />
-              <img src="https://drive.google.com/uc?export=view&id=1KC4JU96JmBgje9AKrsqW9mMUL_cyt7Oa" alt="Sistema de agua" loading="lazy" />
-              <img src="https://drive.google.com/uc?export=view&id=16TgLbsiflVOpJaOwrlTxpfZWofLVkmNI" alt="Filtro instalado" loading="lazy" />
+              <img src="https://lh3.googleusercontent.com/d/1AfKvAihjbAIe7DkRECwcd_xnyujAUA2O" alt="Instalación profesional" loading="lazy" />
+              <img src="https://lh3.googleusercontent.com/d/1KC4JU96JmBgje9AKrsqW9mMUL_cyt7Oa" alt="Sistema de agua" loading="lazy" />
+              <img src="https://lh3.googleusercontent.com/d/16TgLbsiflVOpJaOwrlTxpfZWofLVkmNI" alt="Filtro instalado" loading="lazy" />
               <div class="about-float-card">
                 <div class="icon-circle"><i class="fa fa-award"></i></div>
                 <div><div class="card-label">BBB Rating</div><div class="card-value">A+ Certified</div></div>
@@ -452,17 +405,17 @@
             </div>
           </div>
           <div class="about-text reveal">
-            <span class="section-tag">¿Quiénes somos?</span>
-            <h2 class="section-title">Líderes en Purificación de Agua en South Florida</h2>
-            <p class="section-sub">PINA Water System ofrece tecnología de punta <em>Made in USA</em> a precios justos — sin el sobreprecio de las grandes marcas. Tu agua, tu salud, nuestra prioridad.</p>
+            <span class="section-tag" data-i18n="about-tag">¿Quiénes somos?</span>
+            <h2 class="section-title" data-i18n="about-title">Líderes en Purificación de Agua en South Florida</h2>
+            <p class="section-sub" data-i18n="about-sub">PINA Water System ofrece tecnología de punta <em>Made in USA</em> a precios justos — sin el sobreprecio de las grandes marcas. Tu agua, tu salud, nuestra prioridad.</p>
             <ul class="check-list">
-              <li><i class="fa fa-circle-check"></i> Instalación profesional con técnicos certificados</li>
-              <li><i class="fa fa-circle-check"></i> Garantía de por vida del fabricante</li>
-              <li><i class="fa fa-circle-check"></i> Satisfacción 100% garantizada</li>
-              <li><i class="fa fa-circle-check"></i> Panel de control digital microprocesado</li>
-              <li><i class="fa fa-circle-check"></i> Memoria no volátil y batería de respaldo de litio</li>
-              <li><i class="fa fa-circle-check"></i> 36 ciclos de regeneración preprogramados</li>
-              <li><i class="fa fa-circle-check"></i> Compatible con tanques hasta 21" de diámetro</li>
+              <li><i class="fa fa-circle-check"></i><span data-i18n="about-li1">Instalación profesional con técnicos certificados</span></li>
+              <li><i class="fa fa-circle-check"></i><span data-i18n="about-li2">Garantía de por vida del fabricante</span></li>
+              <li><i class="fa fa-circle-check"></i><span data-i18n="about-li3">Satisfacción 100% garantizada</span></li>
+              <li><i class="fa fa-circle-check"></i><span data-i18n="about-li4">Panel de control digital microprocesado</span></li>
+              <li><i class="fa fa-circle-check"></i><span data-i18n="about-li5">Memoria no volátil y batería de respaldo de litio</span></li>
+              <li><i class="fa fa-circle-check"></i><span data-i18n="about-li6">36 ciclos de regeneración preprogramados</span></li>
+              <li><i class="fa fa-circle-check"></i><span data-i18n="about-li7">Compatible con tanques hasta 21" de diámetro</span></li>
             </ul>
             <div class="certif-row">
               <div class="certif-badge"><i class="fa fa-certificate"></i> NSF/ANSI 44</div>
@@ -482,33 +435,33 @@
     <section id="services">
       <div class="container">
         <div class="services-header reveal">
-          <span class="section-tag">Nuestros Servicios</span>
-          <h2 class="section-title">Soluciones Completas de<br/>Tratamiento de Agua</h2>
-          <p class="section-sub">Dos sistemas complementarios para garantizar agua pura, suave y libre de contaminantes en todo tu hogar.</p>
+          <span class="section-tag" data-i18n="svc-tag">Nuestros Servicios</span>
+          <h2 class="section-title" data-i18n="svc-title">Soluciones Completas de<br/>Tratamiento de Agua</h2>
+          <p class="section-sub" data-i18n="svc-sub">Dos sistemas complementarios para garantizar agua pura, suave y libre de contaminantes en todo tu hogar.</p>
         </div>
         <div class="services-grid">
           <div class="service-card reveal">
             <div class="service-card-top">
               <div class="service-icon-big"><i class="fa fa-droplet"></i></div>
               <h3>Water Softener</h3>
-              <p>Sistema de suavización para toda la casa. Elimina la dureza del agua y protege tus instalaciones.</p>
+              <p data-i18n="ws-desc">Sistema de suavización para toda la casa. Elimina la dureza del agua y protege tus instalaciones.</p>
             </div>
             <div class="service-card-body">
               <ul class="service-features">
-                <li><i class="fa fa-check-circle"></i> Elimina incrustaciones de sarro y cal</li>
-                <li><i class="fa fa-check-circle"></i> Protege tuberías y electrodomésticos</li>
-                <li><i class="fa fa-check-circle"></i> Agua más suave para piel y cabello</li>
-                <li><i class="fa fa-check-circle"></i> Panel de control digital microprocesado</li>
-                <li><i class="fa fa-check-circle"></i> 36 ciclos de regeneración preprogramados</li>
-                <li><i class="fa fa-check-circle"></i> Double Backwash para limpieza óptima</li>
-                <li><i class="fa fa-check-circle"></i> 3 modos de operación programables</li>
+                <li><i class="fa fa-check-circle"></i><span data-i18n="ws-f1">Elimina incrustaciones de sarro y cal</span></li>
+                <li><i class="fa fa-check-circle"></i><span data-i18n="ws-f2">Protege tuberías y electrodomésticos</span></li>
+                <li><i class="fa fa-check-circle"></i><span data-i18n="ws-f3">Agua más suave para piel y cabello</span></li>
+                <li><i class="fa fa-check-circle"></i><span data-i18n="ws-f4">Panel de control digital microprocesado</span></li>
+                <li><i class="fa fa-check-circle"></i><span data-i18n="ws-f5">36 ciclos de regeneración preprogramados</span></li>
+                <li><i class="fa fa-check-circle"></i><span data-i18n="ws-f6">Double Backwash para limpieza óptima</span></li>
+                <li><i class="fa fa-check-circle"></i><span data-i18n="ws-f7">3 modos de operación programables</span></li>
               </ul>
               <div class="service-tags">
-                <span class="service-tag">Grava</span>
+                <span class="service-tag" data-i18n="ws-t1">Grava</span>
                 <span class="service-tag">Garnet</span>
-                <span class="service-tag">Resina Catiónica</span>
-                <span class="service-tag">Resina Aniónica</span>
-                <span class="service-tag">Carbón Activado</span>
+                <span class="service-tag" data-i18n="ws-t3">Resina Catiónica</span>
+                <span class="service-tag" data-i18n="ws-t4">Resina Aniónica</span>
+                <span class="service-tag" data-i18n="ws-t5">Carbón Activado</span>
                 <span class="service-tag">KDF</span>
               </div>
             </div>
@@ -517,25 +470,22 @@
             <div class="service-card-top" style="background:linear-gradient(135deg,#001f3f 0%,#003366 100%);">
               <div class="service-icon-big"><i class="fa fa-filter"></i></div>
               <h3>Reverse Osmosis</h3>
-              <p>Sistema de ósmosis inversa multietapa para agua alcalina, cristalina y libre de contaminantes.</p>
+              <p data-i18n="ro-desc">Sistema de ósmosis inversa multietapa para agua alcalina, cristalina y libre de contaminantes.</p>
             </div>
             <div class="service-card-body">
               <ul class="service-features">
-                <li><i class="fa fa-check-circle"></i> Agua alcalina libre de contaminantes</li>
-                <li><i class="fa fa-check-circle"></i> Mejora sabor y calidad del agua</li>
-                <li><i class="fa fa-check-circle"></i> Ideal para beber y cocinar</li>
-                <li><i class="fa fa-check-circle"></i> 6 etapas de filtración avanzada</li>
-                <li><i class="fa fa-check-circle"></i> Grifo de lujo incluido</li>
-                <li><i class="fa fa-check-circle"></i> Membrana ROM de alto rendimiento</li>
-                <li><i class="fa fa-check-circle"></i> Filtro alcalino remineralizador</li>
+                <li><i class="fa fa-check-circle"></i><span data-i18n="ro-f1">Agua alcalina libre de contaminantes</span></li>
+                <li><i class="fa fa-check-circle"></i><span data-i18n="ro-f2">Mejora sabor y calidad del agua</span></li>
+                <li><i class="fa fa-check-circle"></i><span data-i18n="ro-f3">Ideal para beber y cocinar</span></li>
+                <li><i class="fa fa-check-circle"></i><span data-i18n="ro-f4">6 etapas de filtración avanzada</span></li>
+                <li><i class="fa fa-check-circle"></i><span data-i18n="ro-f5">Grifo de lujo incluido</span></li>
+                <li><i class="fa fa-check-circle"></i><span data-i18n="ro-f6">Membrana ROM de alto rendimiento</span></li>
+                <li><i class="fa fa-check-circle"></i><span data-i18n="ro-f7">Filtro alcalino remineralizador</span></li>
               </ul>
               <div class="service-tags">
-                <span class="service-tag">SED</span>
-                <span class="service-tag">GAC</span>
-                <span class="service-tag">CB</span>
-                <span class="service-tag">ROM</span>
-                <span class="service-tag">ALK</span>
-                <span class="service-tag">PAC</span>
+                <span class="service-tag">SED</span><span class="service-tag">GAC</span>
+                <span class="service-tag">CB</span><span class="service-tag">ROM</span>
+                <span class="service-tag">ALK</span><span class="service-tag">PAC</span>
               </div>
             </div>
           </div>
@@ -547,58 +497,58 @@
     <section id="process">
       <div class="container">
         <div class="process-header reveal">
-          <span class="section-tag">Cómo Funciona</span>
-          <h2 class="section-title">Proceso de Filtración en 6 Pasos</h2>
-          <p class="section-sub">Seis etapas de purificación para garantizar agua limpia, suave y libre de químicos en tu hogar.</p>
+          <span class="section-tag" data-i18n="proc-tag">Cómo Funciona</span>
+          <h2 class="section-title" data-i18n="proc-title">Proceso de Filtración en 6 Pasos</h2>
+          <p class="section-sub" data-i18n="proc-sub">Seis etapas de purificación para garantizar agua limpia, suave y libre de químicos en tu hogar.</p>
         </div>
         <div class="process-grid">
           <div class="process-card reveal">
             <div class="process-step-num">1</div>
             <div class="process-icon"><i class="fa fa-mountain"></i></div>
             <div class="process-comp">Grava</div>
-            <h4>Clarificación</h4>
-            <p>Retiene y separa sólidos suspendidos que no fueron removidos por sedimentación inicial.</p>
+            <h4 data-i18n="p1-h">Clarificación</h4>
+            <p data-i18n="p1-p">Retiene y separa sólidos suspendidos que no fueron removidos por sedimentación inicial.</p>
           </div>
           <div class="process-card reveal">
             <div class="process-step-num">2</div>
             <div class="process-icon"><i class="fa fa-gem"></i></div>
             <div class="process-comp">Garnet</div>
-            <h4>Refinamiento</h4>
-            <p>Retiene partículas muy finas que lograron pasar el primer lecho de grava.</p>
+            <h4 data-i18n="p2-h">Refinamiento</h4>
+            <p data-i18n="p2-p">Retiene partículas muy finas que lograron pasar el primer lecho de grava.</p>
           </div>
           <div class="process-card reveal">
             <div class="process-step-num">3</div>
             <div class="process-icon"><i class="fa fa-atom"></i></div>
-            <div class="process-comp">Resina Catiónica</div>
-            <h4>Suavización</h4>
-            <p>Esferas sintéticas que suavizan el agua mediante intercambio iónico, eliminando la dureza.</p>
+            <div class="process-comp" data-i18n="p3-comp">Resina Catiónica</div>
+            <h4 data-i18n="p3-h">Suavización</h4>
+            <p data-i18n="p3-p">Esferas sintéticas que suavizan el agua mediante intercambio iónico, eliminando la dureza.</p>
           </div>
           <div class="process-card reveal">
             <div class="process-step-num">4</div>
             <div class="process-icon"><i class="fa fa-flask"></i></div>
-            <div class="process-comp">Resina Aniónica</div>
-            <h4>Acondicionamiento</h4>
-            <p>Retiene sulfatos, nitratos y cloruros para acondicionar la calidad del agua.</p>
+            <div class="process-comp" data-i18n="p4-comp">Resina Aniónica</div>
+            <h4 data-i18n="p4-h">Acondicionamiento</h4>
+            <p data-i18n="p4-p">Retiene sulfatos, nitratos y cloruros para acondicionar la calidad del agua.</p>
           </div>
           <div class="process-card reveal">
             <div class="process-step-num">5</div>
             <div class="process-icon"><i class="fa fa-wind"></i></div>
-            <div class="process-comp">Carbón Activado</div>
-            <h4>Filtración Profunda</h4>
-            <p>Absorbe cloro, solventes, herbicidas y pesticidas. Elimina sabores y olores desagradables.</p>
+            <div class="process-comp" data-i18n="p5-comp">Carbón Activado</div>
+            <h4 data-i18n="p5-h">Filtración Profunda</h4>
+            <p data-i18n="p5-p">Absorbe cloro, solventes, herbicidas y pesticidas. Elimina sabores y olores desagradables.</p>
           </div>
           <div class="process-card reveal">
             <div class="process-step-num">6</div>
             <div class="process-icon"><i class="fa fa-shield-virus"></i></div>
             <div class="process-comp">KDF</div>
-            <h4>Descontaminación</h4>
-            <p>Elimina cloro, hierro, plomo, mercurio, carbonato de calcio, bacterias, algas y hongos.</p>
+            <h4 data-i18n="p6-h">Descontaminación</h4>
+            <p data-i18n="p6-p">Elimina cloro, hierro, plomo, mercurio, carbonato de calcio, bacterias, algas y hongos.</p>
           </div>
         </div>
         <div class="process-footer reveal">
           <i class="fa fa-recycle"></i>
-          <p><strong>Regeneración inteligente:</strong> El tanque de cloruro de sodio o potasio realiza el intercambio iónico para eliminar los minerales de dureza. Sistema con <strong>batería de respaldo de litio</strong> que mantiene la configuración hasta 8 horas sin energía.</p>
-          <a href="#contact" class="btn btn-primary" style="flex-shrink:0;"><i class="fa fa-calendar-check"></i> Solicitar Instalación</a>
+          <p data-i18n="proc-footer"><strong>Regeneración inteligente:</strong> El tanque de cloruro de sodio o potasio realiza el intercambio iónico para eliminar los minerales de dureza. Sistema con <strong>batería de respaldo de litio</strong> que mantiene la configuración hasta 8 horas sin energía.</p>
+          <a href="#contact" class="btn btn-primary" style="flex-shrink:0;"><i class="fa fa-calendar-check"></i> <span data-i18n="proc-cta">Solicitar Instalación</span></a>
         </div>
       </div>
     </section>
@@ -607,26 +557,26 @@
     <section id="gallery">
       <div class="container">
         <div class="gallery-header reveal">
-          <span class="section-tag">Instalaciones Realizadas</span>
-          <h2 class="section-title">Nuestro Trabajo Habla<br/>por Sí Solo</h2>
-          <p class="section-sub" style="margin:0 auto;">Cada instalación es realizada por técnicos certificados con los más altos estándares de calidad y precisión.</p>
+          <span class="section-tag" data-i18n="gal-tag">Instalaciones Realizadas</span>
+          <h2 class="section-title" data-i18n="gal-title">Nuestro Trabajo Habla<br/>por Sí Solo</h2>
+          <p class="section-sub" style="margin:0 auto;" data-i18n="gal-sub">Cada instalación es realizada por técnicos certificados con los más altos estándares de calidad y precisión.</p>
         </div>
         <div class="gallery-grid">
-          <div class="gallery-item reveal" onclick="openLightbox('https://drive.google.com/uc?export=view&id=1AfKvAihjbAIe7DkRECwcd_xnyujAUA2O')">
-            <img src="https://drive.google.com/uc?export=view&id=1AfKvAihjbAIe7DkRECwcd_xnyujAUA2O" alt="Instalación profesional de Water Softener" loading="lazy" />
-            <div class="gallery-overlay"><span><i class="fa fa-expand"></i> Ver instalación</span></div>
+          <div class="gallery-item reveal" onclick="openLightbox('https://lh3.googleusercontent.com/d/1AfKvAihjbAIe7DkRECwcd_xnyujAUA2O')">
+            <img src="https://lh3.googleusercontent.com/d/1AfKvAihjbAIe7DkRECwcd_xnyujAUA2O" alt="Water Softener installation" loading="lazy" />
+            <div class="gallery-overlay"><span><i class="fa fa-expand"></i> <span data-i18n="gal-view">Ver instalación</span></span></div>
           </div>
-          <div class="gallery-item reveal" onclick="openLightbox('https://drive.google.com/uc?export=view&id=1KC4JU96JmBgje9AKrsqW9mMUL_cyt7Oa')">
-            <img src="https://drive.google.com/uc?export=view&id=1KC4JU96JmBgje9AKrsqW9mMUL_cyt7Oa" alt="Sistema de filtración instalado" loading="lazy" />
-            <div class="gallery-overlay"><span><i class="fa fa-expand"></i> Ver instalación</span></div>
+          <div class="gallery-item reveal" onclick="openLightbox('https://lh3.googleusercontent.com/d/1KC4JU96JmBgje9AKrsqW9mMUL_cyt7Oa')">
+            <img src="https://lh3.googleusercontent.com/d/1KC4JU96JmBgje9AKrsqW9mMUL_cyt7Oa" alt="Filtration system" loading="lazy" />
+            <div class="gallery-overlay"><span><i class="fa fa-expand"></i> <span data-i18n="gal-view">Ver instalación</span></span></div>
           </div>
-          <div class="gallery-item reveal" onclick="openLightbox('https://drive.google.com/uc?export=view&id=16TgLbsiflVOpJaOwrlTxpfZWofLVkmNI')">
-            <img src="https://drive.google.com/uc?export=view&id=16TgLbsiflVOpJaOwrlTxpfZWofLVkmNI" alt="Ósmosis inversa instalada" loading="lazy" />
-            <div class="gallery-overlay"><span><i class="fa fa-expand"></i> Ver instalación</span></div>
+          <div class="gallery-item reveal" onclick="openLightbox('https://lh3.googleusercontent.com/d/16TgLbsiflVOpJaOwrlTxpfZWofLVkmNI')">
+            <img src="https://lh3.googleusercontent.com/d/16TgLbsiflVOpJaOwrlTxpfZWofLVkmNI" alt="Reverse osmosis system" loading="lazy" />
+            <div class="gallery-overlay"><span><i class="fa fa-expand"></i> <span data-i18n="gal-view">Ver instalación</span></span></div>
           </div>
-          <div class="gallery-item reveal" onclick="openLightbox('https://drive.google.com/uc?export=view&id=11nedCzsLs4ciInnQ11bfEdWew3SvyA6V')">
-            <img src="https://drive.google.com/uc?export=view&id=11nedCzsLs4ciInnQ11bfEdWew3SvyA6V" alt="Instalación Water System completa" loading="lazy" />
-            <div class="gallery-overlay"><span><i class="fa fa-expand"></i> Ver instalación</span></div>
+          <div class="gallery-item reveal" onclick="openLightbox('https://lh3.googleusercontent.com/d/11nedCzsLs4ciInnQ11bfEdWew3SvyA6V')">
+            <img src="https://lh3.googleusercontent.com/d/11nedCzsLs4ciInnQ11bfEdWew3SvyA6V" alt="Complete water system" loading="lazy" />
+            <div class="gallery-overlay"><span><i class="fa fa-expand"></i> <span data-i18n="gal-view">Ver instalación</span></span></div>
           </div>
         </div>
       </div>
@@ -636,63 +586,47 @@
     <section id="benefits">
       <div class="container">
         <div class="benefits-header reveal">
-          <span class="section-tag">¿Por qué elegirnos?</span>
-          <h2 class="section-title">Beneficios que Hacen<br/>la Diferencia</h2>
-          <p class="section-sub">"Disfruta el agua libre de químicos para una vida saludable."</p>
+          <span class="section-tag" data-i18n="ben-tag">¿Por qué elegirnos?</span>
+          <h2 class="section-title" data-i18n="ben-title">Beneficios que Hacen<br/>la Diferencia</h2>
+          <p class="section-sub" data-i18n="ben-sub">"Disfruta el agua libre de químicos para una vida saludable."</p>
         </div>
         <div class="benefits-grid">
           <div class="benefit-card reveal">
             <div class="benefit-icon"><i class="fa fa-house-chimney-medical"></i></div>
-            <h4>Protege tu Hogar</h4>
-            <p>Elimina el sarro que daña tuberías, calentadores, lavadoras y lavavajillas, prolongando su vida útil significativamente.</p>
+            <h4 data-i18n="ben1-h">Protege tu Hogar</h4>
+            <p data-i18n="ben1-p">Elimina el sarro que daña tuberías, calentadores, lavadoras y lavavajillas, prolongando su vida útil.</p>
           </div>
           <div class="benefit-card reveal">
             <div class="benefit-icon"><i class="fa fa-spa"></i></div>
-            <h4>Piel y Cabello</h4>
-            <p>El agua suave es gentil con tu piel y cabello, reduciendo resequedad e irritación causada por el cloro y minerales.</p>
+            <h4 data-i18n="ben2-h">Piel y Cabello</h4>
+            <p data-i18n="ben2-p">El agua suave es gentil con tu piel y cabello, reduciendo resequedad e irritación causada por cloro y minerales.</p>
           </div>
           <div class="benefit-card reveal">
             <div class="benefit-icon"><i class="fa fa-utensils"></i></div>
-            <h4>Agua para Beber</h4>
-            <p>La ósmosis inversa proporciona agua alcalina con sabor y calidad superior, ideal para beber y cocinar.</p>
+            <h4 data-i18n="ben3-h">Agua para Beber</h4>
+            <p data-i18n="ben3-p">La ósmosis inversa proporciona agua alcalina con sabor y calidad superior, ideal para beber y cocinar.</p>
           </div>
           <div class="benefit-card reveal">
             <div class="benefit-icon"><i class="fa fa-leaf"></i></div>
-            <h4>Libre de Químicos</h4>
-            <p>Elimina cloro, herbicidas, pesticidas, plomo, mercurio, bacterias y hongos del agua de tu hogar.</p>
+            <h4 data-i18n="ben4-h">Libre de Químicos</h4>
+            <p data-i18n="ben4-p">Elimina cloro, herbicidas, pesticidas, plomo, mercurio, bacterias y hongos del agua de tu hogar.</p>
           </div>
           <div class="benefit-card reveal">
             <div class="benefit-icon"><i class="fa fa-dollar-sign"></i></div>
-            <h4>Sin Sobreprecio</h4>
-            <p>"Same results. No big brand markup." Calidad premium al precio justo, directamente del fabricante.</p>
+            <h4 data-i18n="ben5-h">Sin Sobreprecio</h4>
+            <p data-i18n="ben5-p">"Same results. No big brand markup." Calidad premium al precio justo, directamente del fabricante.</p>
           </div>
           <div class="benefit-card reveal">
             <div class="benefit-icon"><i class="fa fa-wrench"></i></div>
-            <h4>Soporte Continuo</h4>
-            <p>Instalación profesional certificada y garantía de por vida del fabricante para tu total tranquilidad.</p>
+            <h4 data-i18n="ben6-h">Soporte Continuo</h4>
+            <p data-i18n="ben6-p">Instalación profesional certificada y garantía de por vida del fabricante para tu total tranquilidad.</p>
           </div>
         </div>
         <div class="guarantee-strip reveal">
-          <div class="guarantee-item">
-            <i class="fa fa-medal"></i>
-            <strong>Lifetime Warranty</strong>
-            <span>Garantía de por vida del fabricante</span>
-          </div>
-          <div class="guarantee-item">
-            <i class="fa fa-star"></i>
-            <strong>BBB A+ Rating</strong>
-            <span>Calificación máxima del Better Business Bureau</span>
-          </div>
-          <div class="guarantee-item">
-            <i class="fa fa-certificate"></i>
-            <strong>NSF Certificado</strong>
-            <span>NSF/ANSI 44, 61 & 372</span>
-          </div>
-          <div class="guarantee-item">
-            <i class="fa fa-flag-usa"></i>
-            <strong>Made in USA</strong>
-            <span>Fabricado con estándares americanos</span>
-          </div>
+          <div class="guarantee-item"><i class="fa fa-medal"></i><strong>Lifetime Warranty</strong><span data-i18n="gu1">Garantía de por vida del fabricante</span></div>
+          <div class="guarantee-item"><i class="fa fa-star"></i><strong>BBB A+ Rating</strong><span data-i18n="gu2">Calificación máxima del Better Business Bureau</span></div>
+          <div class="guarantee-item"><i class="fa fa-certificate"></i><strong data-i18n="gu3-h">NSF Certificado</strong><span>NSF/ANSI 44, 61 &amp; 372</span></div>
+          <div class="guarantee-item"><i class="fa fa-flag-usa"></i><strong>Made in USA</strong><span data-i18n="gu4">Fabricado con estándares americanos</span></div>
         </div>
       </div>
     </section>
@@ -702,93 +636,88 @@
       <div class="container">
         <div class="contact-grid">
           <div class="contact-info reveal">
-            <span class="section-tag">Contáctanos</span>
-            <h2 class="section-title">¿Listo para Agua<br/>Pura en tu Hogar?</h2>
-            <p class="section-sub">Solicita tu cotización gratuita hoy mismo. Nuestro equipo te asesorará y encontrará el sistema ideal para tu hogar.</p>
+            <span class="section-tag" data-i18n="con-tag">Contáctanos</span>
+            <h2 class="section-title" data-i18n="con-title">¿Listo para Agua<br/>Pura en tu Hogar?</h2>
+            <p class="section-sub" data-i18n="con-sub">Solicita tu cotización gratuita hoy mismo. Nuestro equipo te asesorará y encontrará el sistema ideal para tu hogar.</p>
             <div class="contact-details">
               <div class="contact-item">
                 <div class="ci-icon"><i class="fa fa-phone"></i></div>
-                <div class="ci-text"><strong>Teléfono</strong><span>786-342-4247</span></div>
-              </div>
-              <div class="contact-item">
-                <div class="ci-icon"><i class="fa-brands fa-whatsapp"></i></div>
-                <div class="ci-text"><strong>WhatsApp</strong><span>786-342-4247</span></div>
+                <div class="ci-text"><strong data-i18n="con-phone">Teléfono / WhatsApp</strong><span>786-342-4247</span></div>
               </div>
               <div class="contact-item">
                 <div class="ci-icon"><i class="fa fa-location-dot"></i></div>
-                <div class="ci-text"><strong>Área de Servicio</strong><span>Miami &amp; South Florida</span></div>
+                <div class="ci-text"><strong data-i18n="con-area">Área de Servicio</strong><span>Miami &amp; South Florida</span></div>
               </div>
               <div class="contact-item">
                 <div class="ci-icon"><i class="fa fa-clock"></i></div>
-                <div class="ci-text"><strong>Horario</strong><span>Lun–Sab: 8:00am – 6:00pm</span></div>
+                <div class="ci-text"><strong data-i18n="con-hours-label">Horario</strong><span data-i18n="con-hours">Lun–Sab: 8:00am – 6:00pm</span></div>
               </div>
             </div>
             <div class="contact-social">
-              <a href="https://wa.me/17863424247" class="social-link" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
-              <a href="tel:7863424247" class="social-link" aria-label="Llamar"><i class="fa fa-phone"></i></a>
-              <a href="#" class="social-link" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-              <a href="#" class="social-link" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+              <a href="https://wa.me/17863424247" class="social-link"><i class="fa-brands fa-whatsapp"></i></a>
+              <a href="tel:7863424247" class="social-link"><i class="fa fa-phone"></i></a>
+              <a href="#" class="social-link"><i class="fa-brands fa-facebook-f"></i></a>
+              <a href="#" class="social-link"><i class="fa-brands fa-instagram"></i></a>
             </div>
           </div>
           <div class="contact-form-wrap reveal">
-            <div class="form-title">Solicita tu Cotización Gratuita</div>
+            <div class="form-title" data-i18n="form-title">Solicita tu Cotización Gratuita</div>
             <form id="contact-form" novalidate>
               <div class="form-row">
                 <div class="form-group">
-                  <label for="f-name">Nombre</label>
-                  <input type="text" id="f-name" name="name" placeholder="Tu nombre" required />
+                  <label for="f-name" data-i18n="form-name">Nombre</label>
+                  <input type="text" id="f-name" name="name" data-i18n-ph="ph-name" placeholder="Tu nombre" required />
                 </div>
                 <div class="form-group">
-                  <label for="f-lastname">Apellido</label>
-                  <input type="text" id="f-lastname" name="lastname" placeholder="Tu apellido" />
+                  <label for="f-lastname" data-i18n="form-lastname">Apellido</label>
+                  <input type="text" id="f-lastname" name="lastname" data-i18n-ph="ph-lastname" placeholder="Tu apellido" />
                 </div>
               </div>
               <div class="form-row">
                 <div class="form-group">
-                  <label for="f-phone">Teléfono *</label>
+                  <label for="f-phone" data-i18n="form-phone">Teléfono *</label>
                   <input type="tel" id="f-phone" name="phone" placeholder="(305) 000-0000" required />
                 </div>
                 <div class="form-group">
                   <label for="f-email">Email</label>
-                  <input type="email" id="f-email" name="email" placeholder="correo@email.com" />
+                  <input type="email" id="f-email" name="email" data-i18n-ph="ph-email" placeholder="correo@email.com" />
                 </div>
               </div>
               <div class="form-group">
-                <label for="f-service">Servicio de Interés</label>
+                <label for="f-service" data-i18n="form-service">Servicio de Interés</label>
                 <select id="f-service" name="service">
-                  <option value="">Selecciona un servicio...</option>
-                  <option value="Water Softener">Water Softener (Suavizador)</option>
-                  <option value="Reverse Osmosis">Reverse Osmosis (Ósmosis Inversa)</option>
-                  <option value="Ambos Sistemas">Ambos Sistemas</option>
-                  <option value="Mantenimiento">Mantenimiento</option>
-                  <option value="Consulta gratuita">Consulta gratuita</option>
+                  <option value="" data-i18n-opt="opt-select">Selecciona un servicio...</option>
+                  <option value="Water Softener">Water Softener</option>
+                  <option value="Reverse Osmosis">Reverse Osmosis</option>
+                  <option value="Both" data-i18n-opt="opt-both">Ambos Sistemas</option>
+                  <option value="Maintenance" data-i18n-opt="opt-maint">Mantenimiento</option>
+                  <option value="Consultation" data-i18n-opt="opt-consult">Consulta gratuita</option>
                 </select>
               </div>
               <div class="form-group">
-                <label for="f-city">Ciudad / Zona</label>
+                <label for="f-city" data-i18n="form-city">Ciudad / Zona</label>
                 <input type="text" id="f-city" name="city" placeholder="Miami, Hialeah, Doral..." />
               </div>
               <div class="form-group">
-                <label for="f-message">Mensaje (opcional)</label>
-                <textarea id="f-message" name="message" placeholder="Cuéntanos sobre tu hogar, tipo de agua, dudas..."></textarea>
+                <label for="f-message" data-i18n="form-msg">Mensaje (opcional)</label>
+                <textarea id="f-message" name="message" data-i18n-ph="ph-msg" placeholder="Cuéntanos sobre tu hogar, tipo de agua, dudas..."></textarea>
               </div>
               <button type="submit" class="btn btn-primary form-submit">
-                <i class="fa fa-paper-plane"></i> Enviar Solicitud
+                <i class="fa fa-paper-plane"></i> <span data-i18n="form-submit">Enviar Solicitud</span>
               </button>
             </form>
             <div class="form-success" id="form-success">
               <i class="fa fa-circle-check"></i>
-              <h4>¡Solicitud Enviada!</h4>
-              <p>Gracias por contactarnos. Nuestro equipo se comunicará contigo a la brevedad.</p>
+              <h4 data-i18n="form-ok-h">¡Solicitud Enviada!</h4>
+              <p data-i18n="form-ok-p">Gracias por contactarnos. Nuestro equipo se comunicará contigo a la brevedad.</p>
               <a href="https://wa.me/17863424247" class="btn btn-primary" style="margin-top:1.2rem;width:100%;justify-content:center;">
-                <i class="fa-brands fa-whatsapp"></i> Escríbenos por WhatsApp
+                <i class="fa-brands fa-whatsapp"></i> <span data-i18n="form-ok-wa">Escríbenos por WhatsApp</span>
               </a>
             </div>
           </div>
         </div>
       </div>
     </section>
-
   </main>
 
   <!-- FOOTER -->
@@ -797,36 +726,36 @@
       <div class="footer-grid">
         <div>
           <div class="footer-logo-wrap">
-            <img src="https://drive.google.com/uc?export=view&id=1o3bArnfqG38fcdhGty3-NxjAXBvCKq86" alt="PINA Water System" onerror="this.style.display='none'" />
+            <img src="https://lh3.googleusercontent.com/d/1o3bArnfqG38fcdhGty3-NxjAXBvCKq86" alt="PINA Water System" onerror="this.style.display='none'" />
             <div class="footer-brand-name">PINA Water System <span>Made in USA</span></div>
           </div>
-          <p class="footer-desc">"Tu agua, tu salud, nuestra prioridad." Sistemas de purificación de agua profesionales con tecnología certificada y garantía de por vida.</p>
+          <p class="footer-desc" data-i18n="foot-desc">"Tu agua, tu salud, nuestra prioridad." Sistemas de purificación de agua profesionales con tecnología certificada y garantía de por vida.</p>
           <div style="display:flex;gap:.6rem;flex-wrap:wrap;">
             <span class="certif-badge" style="background:rgba(255,255,255,.06);border-color:rgba(0,119,182,.3);"><i class="fa fa-certificate"></i> NSF/ANSI 44</span>
             <span class="certif-badge" style="background:rgba(255,255,255,.06);border-color:rgba(0,119,182,.3);"><i class="fa fa-shield-halved"></i> BBB A+</span>
           </div>
         </div>
         <div class="footer-col">
-          <h5>Servicios</h5>
+          <h5 data-i18n="foot-svc">Servicios</h5>
           <ul class="footer-links">
             <li><a href="#services">Water Softener</a></li>
             <li><a href="#services">Reverse Osmosis</a></li>
-            <li><a href="#process">Proceso de Filtración</a></li>
-            <li><a href="#contact">Instalación Profesional</a></li>
-            <li><a href="#contact">Mantenimiento</a></li>
+            <li><a href="#process" data-i18n="foot-proc">Proceso de Filtración</a></li>
+            <li><a href="#contact" data-i18n="foot-install">Instalación Profesional</a></li>
+            <li><a href="#contact" data-i18n="foot-maint">Mantenimiento</a></li>
           </ul>
         </div>
         <div class="footer-col">
-          <h5>Empresa</h5>
+          <h5 data-i18n="foot-comp">Empresa</h5>
           <ul class="footer-links">
-            <li><a href="#about">Nosotros</a></li>
-            <li><a href="#benefits">Beneficios</a></li>
-            <li><a href="#gallery">Instalaciones</a></li>
-            <li><a href="#contact">Cotización Gratis</a></li>
+            <li><a href="#about" data-i18n="nav-about">Nosotros</a></li>
+            <li><a href="#benefits" data-i18n="nav-benefits">Beneficios</a></li>
+            <li><a href="#gallery" data-i18n="nav-gallery">Instalaciones</a></li>
+            <li><a href="#contact" data-i18n="foot-quote">Cotización Gratis</a></li>
           </ul>
         </div>
         <div class="footer-col">
-          <h5>Contacto</h5>
+          <h5 data-i18n="nav-contact">Contacto</h5>
           <div class="footer-contact-item"><i class="fa fa-phone"></i><a href="tel:7863424247">786-342-4247</a></div>
           <div class="footer-contact-item"><i class="fa-brands fa-whatsapp"></i><a href="https://wa.me/17863424247">WhatsApp</a></div>
           <div class="footer-contact-item"><i class="fa fa-location-dot"></i><span>Miami &amp; South Florida</span></div>
@@ -838,28 +767,194 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <p>© 2025 PINA Water System. Todos los derechos reservados.</p>
+        <p data-i18n="foot-copy">© 2025 PINA Water System. Todos los derechos reservados.</p>
         <div class="footer-bottom-badges">
-          <span>Made in USA</span>
-          <span>BBB A+</span>
-          <span>NSF Certified</span>
-          <span>Lifetime Warranty</span>
+          <span>Made in USA</span><span>BBB A+</span><span>NSF Certified</span><span>Lifetime Warranty</span>
         </div>
       </div>
     </div>
   </footer>
 
-  <!-- Floating WhatsApp -->
-  <a href="https://wa.me/17863424247" class="wa-float" aria-label="WhatsApp">
-    <i class="fa-brands fa-whatsapp"></i>
-  </a>
-
-  <!-- Back to top -->
-  <button id="back-top" aria-label="Volver arriba">
-    <i class="fa fa-chevron-up"></i>
-  </button>
+  <a href="https://wa.me/17863424247" class="wa-float" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+  <button id="back-top" aria-label="Volver arriba"><i class="fa fa-chevron-up"></i></button>
 
   <script>
+    /* ===== TRANSLATIONS ===== */
+    const T = {
+      es: {
+        'splash-tagline': 'Tu agua · Tu salud · Nuestra prioridad',
+        'nav-about': 'Nosotros', 'nav-services': 'Servicios', 'nav-process': 'Proceso',
+        'nav-gallery': 'Instalaciones', 'nav-benefits': 'Beneficios', 'nav-contact': 'Contáctanos',
+        'hero-badge': 'Made in USA · Garantía de por vida',
+        'hero-title': 'Agua Pura y Suave<br/>para Tu <span class="accent">Hogar</span>',
+        'hero-desc': 'Sistemas de filtración certificados con instalación profesional y <strong>100% garantizado</strong>. Mismos resultados, sin el sobreprecio de las grandes marcas.',
+        'hero-btn1': 'Solicitar Cotización', 'hero-btn2': 'Ver Servicios',
+        'hero-stat2': 'Etapas Filtración', 'hero-stat3': 'Garantizado',
+        'about-tag': '¿Quiénes somos?',
+        'about-title': 'Líderes en Purificación de Agua en South Florida',
+        'about-sub': 'PINA Water System ofrece tecnología de punta <em>Made in USA</em> a precios justos — sin el sobreprecio de las grandes marcas. Tu agua, tu salud, nuestra prioridad.',
+        'about-li1': 'Instalación profesional con técnicos certificados',
+        'about-li2': 'Garantía de por vida del fabricante',
+        'about-li3': 'Satisfacción 100% garantizada',
+        'about-li4': 'Panel de control digital microprocesado',
+        'about-li5': 'Memoria no volátil y batería de respaldo de litio',
+        'about-li6': '36 ciclos de regeneración preprogramados',
+        'about-li7': 'Compatible con tanques hasta 21" de diámetro',
+        'svc-tag': 'Nuestros Servicios',
+        'svc-title': 'Soluciones Completas de<br/>Tratamiento de Agua',
+        'svc-sub': 'Dos sistemas complementarios para garantizar agua pura, suave y libre de contaminantes en todo tu hogar.',
+        'ws-desc': 'Sistema de suavización para toda la casa. Elimina la dureza del agua y protege tus instalaciones.',
+        'ws-f1':'Elimina incrustaciones de sarro y cal','ws-f2':'Protege tuberías y electrodomésticos',
+        'ws-f3':'Agua más suave para piel y cabello','ws-f4':'Panel de control digital microprocesado',
+        'ws-f5':'36 ciclos de regeneración preprogramados','ws-f6':'Double Backwash para limpieza óptima',
+        'ws-f7':'3 modos de operación programables',
+        'ws-t1':'Grava','ws-t3':'Resina Catiónica','ws-t4':'Resina Aniónica','ws-t5':'Carbón Activado',
+        'ro-desc': 'Sistema de ósmosis inversa multietapa para agua alcalina, cristalina y libre de contaminantes.',
+        'ro-f1':'Agua alcalina libre de contaminantes','ro-f2':'Mejora sabor y calidad del agua',
+        'ro-f3':'Ideal para beber y cocinar','ro-f4':'6 etapas de filtración avanzada',
+        'ro-f5':'Grifo de lujo incluido','ro-f6':'Membrana ROM de alto rendimiento',
+        'ro-f7':'Filtro alcalino remineralizador',
+        'proc-tag': 'Cómo Funciona', 'proc-title': 'Proceso de Filtración en 6 Pasos',
+        'proc-sub': 'Seis etapas de purificación para garantizar agua limpia, suave y libre de químicos en tu hogar.',
+        'p1-h':'Clarificación','p1-p':'Retiene y separa sólidos suspendidos que no fueron removidos por sedimentación inicial.',
+        'p2-h':'Refinamiento','p2-p':'Retiene partículas muy finas que lograron pasar el primer lecho de grava.',
+        'p3-comp':'Resina Catiónica','p3-h':'Suavización','p3-p':'Esferas sintéticas que suavizan el agua mediante intercambio iónico, eliminando la dureza.',
+        'p4-comp':'Resina Aniónica','p4-h':'Acondicionamiento','p4-p':'Retiene sulfatos, nitratos y cloruros para acondicionar la calidad del agua.',
+        'p5-comp':'Carbón Activado','p5-h':'Filtración Profunda','p5-p':'Absorbe cloro, solventes, herbicidas y pesticidas. Elimina sabores y olores desagradables.',
+        'p6-h':'Descontaminación','p6-p':'Elimina cloro, hierro, plomo, mercurio, carbonato de calcio, bacterias, algas y hongos.',
+        'proc-footer':'<strong>Regeneración inteligente:</strong> El tanque de cloruro de sodio o potasio realiza el intercambio iónico para eliminar los minerales de dureza. Sistema con <strong>batería de respaldo de litio</strong> que mantiene la configuración hasta 8 horas sin energía.',
+        'proc-cta': 'Solicitar Instalación',
+        'gal-tag':'Instalaciones Realizadas','gal-title':'Nuestro Trabajo Habla<br/>por Sí Solo',
+        'gal-sub':'Cada instalación es realizada por técnicos certificados con los más altos estándares de calidad y precisión.',
+        'gal-view':'Ver instalación',
+        'ben-tag':'¿Por qué elegirnos?','ben-title':'Beneficios que Hacen<br/>la Diferencia',
+        'ben-sub':'"Disfruta el agua libre de químicos para una vida saludable."',
+        'ben1-h':'Protege tu Hogar','ben1-p':'Elimina el sarro que daña tuberías, calentadores, lavadoras y lavavajillas, prolongando su vida útil.',
+        'ben2-h':'Piel y Cabello','ben2-p':'El agua suave es gentil con tu piel y cabello, reduciendo resequedad e irritación causada por cloro y minerales.',
+        'ben3-h':'Agua para Beber','ben3-p':'La ósmosis inversa proporciona agua alcalina con sabor y calidad superior, ideal para beber y cocinar.',
+        'ben4-h':'Libre de Químicos','ben4-p':'Elimina cloro, herbicidas, pesticidas, plomo, mercurio, bacterias y hongos del agua de tu hogar.',
+        'ben5-h':'Sin Sobreprecio','ben5-p':'"Same results. No big brand markup." Calidad premium al precio justo, directamente del fabricante.',
+        'ben6-h':'Soporte Continuo','ben6-p':'Instalación profesional certificada y garantía de por vida del fabricante para tu total tranquilidad.',
+        'gu1':'Garantía de por vida del fabricante','gu2':'Calificación máxima del Better Business Bureau',
+        'gu3-h':'NSF Certificado','gu4':'Fabricado con estándares americanos',
+        'con-tag':'Contáctanos','con-title':'¿Listo para Agua<br/>Pura en tu Hogar?',
+        'con-sub':'Solicita tu cotización gratuita hoy mismo. Nuestro equipo te asesorará y encontrará el sistema ideal para tu hogar.',
+        'con-phone':'Teléfono / WhatsApp','con-area':'Área de Servicio','con-hours-label':'Horario','con-hours':'Lun–Sab: 8:00am – 6:00pm',
+        'form-title':'Solicita tu Cotización Gratuita',
+        'form-name':'Nombre','form-lastname':'Apellido','form-phone':'Teléfono *',
+        'form-service':'Servicio de Interés','form-city':'Ciudad / Zona','form-msg':'Mensaje (opcional)',
+        'form-submit':'Enviar Solicitud',
+        'form-ok-h':'¡Solicitud Enviada!','form-ok-p':'Gracias por contactarnos. Nuestro equipo se comunicará contigo a la brevedad.',
+        'form-ok-wa':'Escríbenos por WhatsApp',
+        'ph-name':'Tu nombre','ph-lastname':'Tu apellido','ph-email':'correo@email.com',
+        'ph-msg':'Cuéntanos sobre tu hogar, tipo de agua, dudas...',
+        'opt-select':'Selecciona un servicio...','opt-both':'Ambos Sistemas','opt-maint':'Mantenimiento','opt-consult':'Consulta gratuita',
+        'foot-desc':'"Tu agua, tu salud, nuestra prioridad." Sistemas de purificación de agua profesionales con tecnología certificada y garantía de por vida.',
+        'foot-svc':'Servicios','foot-proc':'Proceso de Filtración','foot-install':'Instalación Profesional',
+        'foot-maint':'Mantenimiento','foot-comp':'Empresa','foot-quote':'Cotización Gratis',
+        'foot-copy':'© 2025 PINA Water System. Todos los derechos reservados.',
+        'form-alert':'Por favor ingresa tu nombre y teléfono.'
+      },
+      en: {
+        'splash-tagline': 'Your water · Your health · Our priority',
+        'nav-about': 'About', 'nav-services': 'Services', 'nav-process': 'Process',
+        'nav-gallery': 'Installations', 'nav-benefits': 'Benefits', 'nav-contact': 'Contact Us',
+        'hero-badge': 'Made in USA · Lifetime Warranty',
+        'hero-title': 'Pure & Soft Water<br/>for Your <span class="accent">Home</span>',
+        'hero-desc': 'Certified filtration systems with professional installation and <strong>100% guaranteed</strong>. Same results, no big brand markup.',
+        'hero-btn1': 'Request a Quote', 'hero-btn2': 'View Services',
+        'hero-stat2': 'Filtration Stages', 'hero-stat3': 'Guaranteed',
+        'about-tag': 'About Us',
+        'about-title': 'Leaders in Water Purification in South Florida',
+        'about-sub': 'PINA Water System offers cutting-edge <em>Made in USA</em> technology at fair prices — no big brand markup. Your water, your health, our priority.',
+        'about-li1': 'Professional installation with certified technicians',
+        'about-li2': "Manufacturer's lifetime warranty",
+        'about-li3': '100% satisfaction guaranteed',
+        'about-li4': 'Microprocessed digital control panel',
+        'about-li5': 'Non-volatile memory and lithium backup battery',
+        'about-li6': '36 pre-programmed regeneration cycles',
+        'about-li7': 'Compatible with tanks up to 21" diameter',
+        'svc-tag': 'Our Services',
+        'svc-title': 'Complete Water Treatment<br/>Solutions',
+        'svc-sub': 'Two complementary systems to guarantee pure, soft, and contaminant-free water throughout your home.',
+        'ws-desc': 'Whole-house water softening system. Eliminates water hardness and protects your plumbing.',
+        'ws-f1':'Eliminates scale and calcium buildup','ws-f2':'Protects pipes and appliances',
+        'ws-f3':'Softer water for skin and hair','ws-f4':'Microprocessed digital control panel',
+        'ws-f5':'36 pre-programmed regeneration cycles','ws-f6':'Double Backwash for optimal cleaning',
+        'ws-f7':'3 programmable operation modes',
+        'ws-t1':'Gravel','ws-t3':'Cationic Resin','ws-t4':'Anionic Resin','ws-t5':'Activated Carbon',
+        'ro-desc': 'Multi-stage reverse osmosis system for alkaline, crystal-clear, contaminant-free water.',
+        'ro-f1':'Alkaline water free of contaminants','ro-f2':'Improves water taste and quality',
+        'ro-f3':'Ideal for drinking and cooking','ro-f4':'6 advanced filtration stages',
+        'ro-f5':'Luxury faucet included','ro-f6':'High-performance ROM membrane',
+        'ro-f7':'Alkaline remineralizing filter',
+        'proc-tag': 'How It Works', 'proc-title': '6-Step Filtration Process',
+        'proc-sub': 'Six purification stages to guarantee clean, soft, chemical-free water in your home.',
+        'p1-h':'Clarification','p1-p':'Retains and separates suspended solids not removed by initial sedimentation.',
+        'p2-h':'Refinement','p2-p':'Retains very fine particles that passed through the first gravel bed.',
+        'p3-comp':'Cationic Resin','p3-h':'Softening','p3-p':'Synthetic beads that soften water through ion exchange, eliminating hardness.',
+        'p4-comp':'Anionic Resin','p4-h':'Conditioning','p4-p':'Retains sulfates, nitrates and chlorides to condition water quality.',
+        'p5-comp':'Activated Carbon','p5-h':'Deep Filtration','p5-p':'Absorbs chlorine, solvents, herbicides and pesticides. Removes unpleasant tastes and odors.',
+        'p6-h':'Decontamination','p6-p':'Eliminates chlorine, iron, lead, mercury, calcium carbonate, bacteria, algae and fungi.',
+        'proc-footer':'<strong>Smart Regeneration:</strong> The sodium or potassium chloride tank performs ion exchange to eliminate hardness minerals. System includes a <strong>lithium backup battery</strong> that maintains settings for up to 8 hours without power.',
+        'proc-cta': 'Request Installation',
+        'gal-tag':'Completed Installations','gal-title':'Our Work Speaks<br/>for Itself',
+        'gal-sub':'Every installation is performed by certified technicians with the highest quality and precision standards.',
+        'gal-view':'View installation',
+        'ben-tag':'Why Choose Us?','ben-title':'Benefits That Make<br/>the Difference',
+        'ben-sub':'"Enjoy chemical-free water for a healthy life."',
+        'ben1-h':'Protects Your Home','ben1-p':'Eliminates scale that damages pipes, water heaters, washers and dishwashers, extending their lifespan.',
+        'ben2-h':'Skin & Hair','ben2-p':'Soft water is gentle on your skin and hair, reducing dryness and irritation caused by chlorine and minerals.',
+        'ben3-h':'Drinking Water','ben3-p':'Reverse osmosis provides alkaline water with superior taste and quality, ideal for drinking and cooking.',
+        'ben4-h':'Chemical-Free','ben4-p':'Eliminates chlorine, herbicides, pesticides, lead, mercury, bacteria and fungi from your home water.',
+        'ben5-h':'No Big Brand Markup','ben5-p':'"Same results. No big brand markup." Premium quality at a fair price, direct from the manufacturer.',
+        'ben6-h':'Continuous Support','ben6-p':'Certified professional installation and manufacturer lifetime warranty for your total peace of mind.',
+        'gu1':"Manufacturer's lifetime warranty",'gu2':'Top rating from the Better Business Bureau',
+        'gu3-h':'NSF Certified','gu4':'Built with American standards',
+        'con-tag':'Contact Us','con-title':'Ready for Pure Water<br/>in Your Home?',
+        'con-sub':'Request your free quote today. Our team will advise you and find the ideal system for your home.',
+        'con-phone':'Phone / WhatsApp','con-area':'Service Area','con-hours-label':'Hours','con-hours':'Mon–Sat: 8:00am – 6:00pm',
+        'form-title':'Request Your Free Quote',
+        'form-name':'First Name','form-lastname':'Last Name','form-phone':'Phone *',
+        'form-service':'Service of Interest','form-city':'City / Area','form-msg':'Message (optional)',
+        'form-submit':'Send Request',
+        'form-ok-h':'Request Sent!','form-ok-p':'Thank you for contacting us. Our team will get back to you shortly.',
+        'form-ok-wa':'Message us on WhatsApp',
+        'ph-name':'Your first name','ph-lastname':'Your last name','ph-email':'email@example.com',
+        'ph-msg':'Tell us about your home, water type, questions...',
+        'opt-select':'Select a service...','opt-both':'Both Systems','opt-maint':'Maintenance','opt-consult':'Free Consultation',
+        'foot-desc':'"Your water, your health, our priority." Professional water purification systems with certified technology and lifetime warranty.',
+        'foot-svc':'Services','foot-proc':'Filtration Process','foot-install':'Professional Installation',
+        'foot-maint':'Maintenance','foot-comp':'Company','foot-quote':'Free Quote',
+        'foot-copy':'© 2025 PINA Water System. All rights reserved.',
+        'form-alert':'Please enter your name and phone number.'
+      }
+    };
+
+    let currentLang = 'es';
+
+    function setLang(lang) {
+      currentLang = lang;
+      const t = T[lang];
+      document.documentElement.lang = lang;
+
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const k = el.getAttribute('data-i18n');
+        if (t[k] !== undefined) el.innerHTML = t[k];
+      });
+      document.querySelectorAll('[data-i18n-ph]').forEach(el => {
+        const k = el.getAttribute('data-i18n-ph');
+        if (t[k] !== undefined) el.placeholder = t[k];
+      });
+      document.querySelectorAll('[data-i18n-opt]').forEach(el => {
+        const k = el.getAttribute('data-i18n-opt');
+        if (t[k] !== undefined) el.textContent = t[k];
+      });
+      document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
+      });
+    }
+
     /* Splash */
     window.addEventListener('load', () => {
       setTimeout(() => document.getElementById('splash').classList.add('hidden'), 2800);
@@ -875,7 +970,6 @@
       hamburger.setAttribute('aria-expanded', open);
       navMobile.setAttribute('aria-hidden', !open);
     });
-
     navMobile.querySelectorAll('.nav-m-link').forEach(link => {
       link.addEventListener('click', () => {
         navMobile.classList.remove('open');
@@ -884,7 +978,6 @@
         navMobile.setAttribute('aria-hidden', true);
       });
     });
-
     document.addEventListener('click', e => {
       if (!navMobile.contains(e.target) && !hamburger.contains(e.target)) {
         navMobile.classList.remove('open');
@@ -892,14 +985,13 @@
       }
     });
 
-    /* Header + back-top on scroll */
+    /* Header + back-top */
     const header  = document.getElementById('header');
     const backTop = document.getElementById('back-top');
     window.addEventListener('scroll', () => {
       header.classList.toggle('scrolled', window.scrollY > 30);
       backTop.classList.toggle('visible', window.scrollY > 400);
     }, { passive: true });
-
     backTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
     /* Scroll reveal */
@@ -909,46 +1001,30 @@
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
     /* Lightbox */
-    const lightbox     = document.getElementById('lightbox');
-    const lightboxImg  = document.getElementById('lightbox-img');
-
-    function openLightbox(src) {
-      lightboxImg.src = src;
-      lightbox.classList.add('active');
-      document.body.style.overflow = 'hidden';
-    }
-    function closeLightbox() {
-      lightbox.classList.remove('active');
-      document.body.style.overflow = '';
-      setTimeout(() => { lightboxImg.src = ''; }, 300);
-    }
+    const lightbox    = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    function openLightbox(src) { lightboxImg.src = src; lightbox.classList.add('active'); document.body.style.overflow = 'hidden'; }
+    function closeLightbox()   { lightbox.classList.remove('active'); document.body.style.overflow = ''; setTimeout(() => { lightboxImg.src = ''; }, 300); }
     document.getElementById('lightbox-close').addEventListener('click', closeLightbox);
     lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
     document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
 
-    /* Contact form → WhatsApp */
+    /* Form → WhatsApp */
     document.getElementById('contact-form').addEventListener('submit', e => {
       e.preventDefault();
-      const name    = document.getElementById('f-name').value.trim();
-      const phone   = document.getElementById('f-phone').value.trim();
-      if (!name || !phone) { alert('Por favor ingresa tu nombre y teléfono.'); return; }
-
+      const name  = document.getElementById('f-name').value.trim();
+      const phone = document.getElementById('f-phone').value.trim();
+      if (!name || !phone) { alert(T[currentLang]['form-alert']); return; }
       const lastname = document.getElementById('f-lastname').value.trim();
       const email    = document.getElementById('f-email').value.trim();
       const service  = document.getElementById('f-service').value;
       const city     = document.getElementById('f-city').value.trim();
       const message  = document.getElementById('f-message').value.trim();
-
       const text = encodeURIComponent(
-        `*Nueva Solicitud — PINA Water System*\n\n` +
-        `👤 Nombre: ${name} ${lastname}\n` +
-        `📞 Teléfono: ${phone}\n` +
-        `📧 Email: ${email || 'No indicado'}\n` +
-        `🔧 Servicio: ${service || 'No especificado'}\n` +
-        `📍 Ciudad: ${city || 'No indicada'}\n` +
-        `💬 Mensaje: ${message || 'Sin mensaje adicional'}`
+        `*New Request — PINA Water System*\n\n` +
+        `👤 Name: ${name} ${lastname}\n📞 Phone: ${phone}\n📧 Email: ${email||'N/A'}\n` +
+        `🔧 Service: ${service||'N/A'}\n📍 City: ${city||'N/A'}\n💬 Message: ${message||'N/A'}`
       );
-
       document.getElementById('contact-form').style.display = 'none';
       document.getElementById('form-success').style.display = 'block';
       setTimeout(() => window.open(`https://wa.me/17863424247?text=${text}`, '_blank'), 800);
