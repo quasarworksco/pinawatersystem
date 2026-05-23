@@ -1,1 +1,958 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PINA Water System – Pure Water Solutions</title>
+  <meta name="description" content="PINA Water System – Instalación profesional de sistemas de purificación de agua. Water Softener y Ósmosis Inversa. 786-342-4247" />
 
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --black:    #0a0a0a;
+      --dark:     #111111;
+      --blue:     #0077b6;
+      --blue-mid: #0096c7;
+      --blue-lt:  #00b4d8;
+      --sky:      #caf0f8;
+      --white:    #ffffff;
+      --gray:     #f4f7fa;
+      --gray-mid: #8a9ab0;
+      --text:     #1e293b;
+      --radius:   12px;
+      --shadow:   0 8px 40px rgba(0,0,0,.12);
+      --transition: .35s cubic-bezier(.4,0,.2,1);
+    }
+
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Open Sans', sans-serif; color: var(--text); background: var(--white); overflow-x: hidden; }
+    h1,h2,h3,h4 { font-family: 'Montserrat', sans-serif; }
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; display: block; }
+
+    .container { width: 90%; max-width: 1200px; margin: 0 auto; }
+
+    .section-tag {
+      display: inline-block;
+      background: rgba(0,119,182,.12);
+      color: var(--blue);
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: .72rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      padding: .35rem .9rem;
+      border-radius: 50px;
+      margin-bottom: 1rem;
+    }
+
+    .section-title { font-size: clamp(1.8rem, 3.5vw, 2.6rem); font-weight: 800; line-height: 1.2; margin-bottom: .8rem; }
+    .section-sub { font-size: 1.05rem; color: var(--gray-mid); max-width: 560px; line-height: 1.7; }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      padding: .85rem 2rem;
+      border-radius: 50px;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: .95rem;
+      cursor: pointer;
+      border: none;
+      transition: var(--transition);
+    }
+    .btn-primary { background: linear-gradient(135deg, var(--blue) 0%, var(--blue-lt) 100%); color: var(--white); box-shadow: 0 6px 24px rgba(0,119,182,.4); }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 32px rgba(0,119,182,.5); }
+    .btn-outline { background: transparent; color: var(--white); border: 2px solid var(--white); }
+    .btn-outline:hover { background: var(--white); color: var(--blue); }
+
+    /* ---- SPLASH ---- */
+    #splash {
+      position: fixed; inset: 0; z-index: 9999;
+      background: var(--black);
+      display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1.5rem;
+      transition: opacity .7s ease, visibility .7s ease;
+    }
+    #splash.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
+
+    .splash-logo { width: 150px; animation: splashPop .8s cubic-bezier(.34,1.56,.64,1) forwards; opacity: 0; }
+    .splash-brand { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 1.8rem; color: var(--white); letter-spacing: .05em; animation: splashFade .6s .3s forwards; opacity: 0; }
+    .splash-brand span { color: var(--blue-lt); }
+    .splash-tagline { color: var(--gray-mid); font-size: .88rem; letter-spacing: .06em; animation: splashFade .6s .5s forwards; opacity: 0; }
+    .splash-bar { width: 180px; height: 3px; background: rgba(255,255,255,.15); border-radius: 10px; overflow: hidden; margin-top: .5rem; animation: splashFade .4s .6s forwards; opacity: 0; }
+    .splash-bar-fill { height: 100%; width: 0; background: linear-gradient(90deg, var(--blue), var(--blue-lt)); border-radius: 10px; animation: splashLoad 2s .7s ease forwards; }
+
+    @keyframes splashPop { 0% { opacity:0; transform:scale(.6); } 100% { opacity:1; transform:scale(1); } }
+    @keyframes splashFade { to { opacity: 1; } }
+    @keyframes splashLoad  { to { width: 100%; } }
+
+    /* ---- HEADER ---- */
+    #header {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      background: var(--black); height: 72px;
+      display: flex; align-items: center;
+      transition: box-shadow var(--transition);
+    }
+    #header.scrolled { box-shadow: 0 4px 24px rgba(0,0,0,.5); }
+    .header-inner { display: flex; align-items: center; justify-content: space-between; width: 100%; }
+    .logo-wrap { display: flex; align-items: center; gap: .75rem; }
+    .logo-wrap img { height: 48px; width: auto; object-fit: contain; }
+    .logo-text { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 1.1rem; color: var(--white); line-height: 1.1; }
+    .logo-text span { display: block; color: rgba(255,255,255,.4); font-size: .6rem; font-weight: 500; letter-spacing: .1em; text-transform: uppercase; }
+
+    .nav-desktop { display: flex; align-items: center; gap: 2rem; list-style: none; }
+    .nav-desktop a { color: rgba(255,255,255,.75); font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: .85rem; letter-spacing: .04em; text-transform: uppercase; padding: .25rem 0; border-bottom: 2px solid transparent; transition: var(--transition); }
+    .nav-desktop a:hover { color: var(--white); border-bottom-color: var(--blue-lt); }
+    .nav-cta { background: linear-gradient(135deg, var(--blue), var(--blue-lt)) !important; color: var(--white) !important; border: none !important; padding: .55rem 1.3rem !important; border-radius: 50px !important; border-bottom: none !important; }
+    .nav-cta:hover { opacity: .9; transform: translateY(-1px); }
+
+    .hamburger { display: none; flex-direction: column; justify-content: center; gap: 5px; width: 42px; height: 42px; cursor: pointer; padding: .5rem; border-radius: 8px; transition: var(--transition); background: none; border: none; }
+    .hamburger:hover { background: rgba(255,255,255,.1); }
+    .hamburger span { display: block; height: 2px; background: var(--white); border-radius: 2px; transition: var(--transition); }
+    .hamburger.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.active span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+    .hamburger.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    .nav-mobile { position: fixed; top: 72px; left: 0; right: 0; background: var(--dark); padding: 1.5rem; display: flex; flex-direction: column; transform: translateY(-110%); transition: transform var(--transition); z-index: 999; box-shadow: 0 12px 40px rgba(0,0,0,.5); }
+    .nav-mobile.open { transform: translateY(0); }
+    .nav-mobile a { display: block; color: rgba(255,255,255,.85); font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: .95rem; text-transform: uppercase; letter-spacing: .04em; padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,.08); transition: var(--transition); }
+    .nav-mobile a:hover { color: var(--blue-lt); padding-left: .5rem; }
+    .nav-mobile a:last-child { border-bottom: none; }
+    .nav-mobile .nav-cta-m { margin-top: 1rem; text-align: center; background: linear-gradient(135deg, var(--blue), var(--blue-lt)); color: white !important; border-radius: 50px; border-bottom: none !important; }
+
+    /* ---- HERO ---- */
+    #hero { min-height: 100vh; background: linear-gradient(135deg, var(--black) 0%, #0d1b2a 55%, #0a2744 100%); display: flex; align-items: center; padding-top: 72px; position: relative; overflow: hidden; }
+    .hero-particles { position: absolute; inset: 0; overflow: hidden; pointer-events: none; }
+    .hero-particles::before, .hero-particles::after { content: ''; position: absolute; border-radius: 50%; filter: blur(80px); opacity: .2; }
+    .hero-particles::before { width: 500px; height: 500px; background: var(--blue); top: -100px; right: -100px; animation: float 8s ease-in-out infinite alternate; }
+    .hero-particles::after  { width: 350px; height: 350px; background: var(--blue-lt); bottom: -80px; left: 10%; animation: float 10s ease-in-out infinite alternate-reverse; }
+    @keyframes float { 0% { transform: translateY(0) scale(1); } 100% { transform: translateY(-30px) scale(1.08); } }
+
+    .hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; position: relative; z-index: 1; padding: 4rem 0; }
+    .hero-badge { display: inline-flex; align-items: center; gap: .5rem; background: rgba(0,180,216,.15); border: 1px solid rgba(0,180,216,.3); color: var(--blue-lt); font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: .78rem; letter-spacing: .1em; text-transform: uppercase; padding: .45rem 1.1rem; border-radius: 50px; margin-bottom: 1.5rem; }
+    .hero-title { font-size: clamp(2.2rem, 5vw, 3.8rem); font-weight: 900; color: var(--white); line-height: 1.1; margin-bottom: 1.2rem; }
+    .hero-title .accent { color: var(--blue-lt); }
+    .hero-desc { color: rgba(255,255,255,.7); font-size: 1.05rem; line-height: 1.7; margin-bottom: 2rem; max-width: 480px; }
+    .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .hero-stats { display: grid; grid-template-columns: repeat(3,1fr); gap: 1rem; margin-top: 3rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,.1); }
+    .stat-item { text-align: center; }
+    .stat-number { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 2rem; color: var(--blue-lt); line-height: 1; }
+    .stat-label  { font-size: .75rem; color: rgba(255,255,255,.5); margin-top: .3rem; letter-spacing: .04em; }
+
+    .hero-visual { display: flex; justify-content: center; align-items: center; position: relative; }
+    .hero-visual-ring { position: absolute; border-radius: 50%; border: 1px solid rgba(0,180,216,.18); animation: pulse-ring 3s ease-in-out infinite; }
+    .hero-visual-ring:nth-child(1) { width: 300px; height: 300px; animation-delay: 0s; }
+    .hero-visual-ring:nth-child(2) { width: 400px; height: 400px; animation-delay: .5s; }
+    .hero-visual-ring:nth-child(3) { width: 500px; height: 500px; animation-delay: 1s; }
+    @keyframes pulse-ring { 0%,100% { opacity:.15; transform:scale(1); } 50% { opacity:.4; transform:scale(1.04); } }
+
+    .hero-visual-inner { width: 260px; height: 260px; background: linear-gradient(135deg, rgba(0,119,182,.2), rgba(0,180,216,.08)); border-radius: 50%; border: 1px solid rgba(0,180,216,.25); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1rem; position: relative; z-index: 1; backdrop-filter: blur(10px); }
+    .hero-logo-circle { width: 170px; height: 170px; object-fit: contain; }
+    .hero-badges-row { display: flex; gap: .5rem; flex-wrap: wrap; justify-content: center; }
+    .badge-pill { background: rgba(0,180,216,.12); border: 1px solid rgba(0,180,216,.25); color: var(--blue-lt); font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: .62rem; letter-spacing: .07em; text-transform: uppercase; padding: .28rem .65rem; border-radius: 50px; }
+
+    /* ---- ABOUT ---- */
+    #about { padding: 6rem 0; background: var(--gray); }
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+    .about-img-stack { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; position: relative; }
+    .about-img-stack img { border-radius: var(--radius); width: 100%; height: 200px; object-fit: cover; box-shadow: var(--shadow); }
+    .about-img-stack img:first-child { grid-column: 1 / -1; height: 260px; }
+    .about-float-card { position: absolute; bottom: -20px; right: -20px; background: var(--white); border-radius: var(--radius); padding: 1.2rem 1.5rem; box-shadow: 0 12px 40px rgba(0,0,0,.15); display: flex; align-items: center; gap: .75rem; }
+    .icon-circle { width: 46px; height: 46px; background: linear-gradient(135deg, var(--blue), var(--blue-lt)); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.1rem; flex-shrink: 0; }
+    .card-label { font-size: .72rem; color: var(--gray-mid); font-weight: 600; text-transform: uppercase; letter-spacing: .06em; }
+    .card-value { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 1.2rem; color: var(--text); }
+    .certif-row { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1.5rem; }
+    .certif-badge { display: flex; align-items: center; gap: .5rem; background: var(--white); border: 1px solid rgba(0,119,182,.15); border-radius: 8px; padding: .6rem 1rem; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: .8rem; color: var(--blue); }
+    .certif-badge i { color: var(--blue-lt); }
+    .check-list { list-style: none; display: flex; flex-direction: column; gap: .75rem; margin-top: 1.5rem; }
+    .check-list li { display: flex; align-items: flex-start; gap: .75rem; font-size: .95rem; line-height: 1.5; }
+    .check-list li i { color: var(--blue); margin-top: 2px; flex-shrink: 0; }
+
+    /* ---- SERVICES ---- */
+    #services { padding: 6rem 0; background: var(--white); }
+    .services-header { text-align: center; margin-bottom: 3.5rem; }
+    .services-header .section-sub { margin: 0 auto; }
+    .services-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+    .service-card { border-radius: 20px; overflow: hidden; box-shadow: var(--shadow); transition: transform var(--transition), box-shadow var(--transition); }
+    .service-card:hover { transform: translateY(-6px); box-shadow: 0 20px 60px rgba(0,0,0,.18); }
+    .service-card-top { background: linear-gradient(135deg, var(--black) 0%, #0d2137 100%); padding: 2.5rem; position: relative; overflow: hidden; }
+    .service-card-top::before { content: ''; position: absolute; width: 200px; height: 200px; background: rgba(0,180,216,.12); border-radius: 50%; right: -50px; top: -50px; }
+    .service-icon-big { width: 60px; height: 60px; background: linear-gradient(135deg, var(--blue), var(--blue-lt)); border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; color: white; margin-bottom: 1.2rem; position: relative; z-index: 1; }
+    .service-card-top h3 { color: var(--white); font-size: 1.4rem; font-weight: 800; position: relative; z-index: 1; }
+    .service-card-top p { color: rgba(255,255,255,.6); font-size: .9rem; line-height: 1.6; margin-top: .5rem; position: relative; z-index: 1; }
+    .service-card-body { background: var(--white); padding: 2rem 2.5rem; }
+    .service-features { list-style: none; display: flex; flex-direction: column; gap: .7rem; }
+    .service-features li { display: flex; align-items: center; gap: .65rem; font-size: .92rem; color: var(--text); }
+    .service-features li i { width: 20px; color: var(--blue); flex-shrink: 0; }
+    .service-tags { display: flex; gap: .4rem; flex-wrap: wrap; margin-top: 1.2rem; }
+    .service-tag { background: var(--sky); color: var(--blue); font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: .68rem; letter-spacing: .07em; text-transform: uppercase; padding: .3rem .7rem; border-radius: 50px; }
+
+    /* ---- PROCESS ---- */
+    #process { padding: 6rem 0; background: linear-gradient(180deg, #050d1a 0%, #0a1628 100%); position: relative; overflow: hidden; }
+    #process::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 70% 50%, rgba(0,119,182,.12) 0%, transparent 60%); pointer-events: none; }
+    .process-header { text-align: center; margin-bottom: 3.5rem; }
+    .process-header .section-tag { background: rgba(0,180,216,.12); color: var(--blue-lt); }
+    .process-header .section-title { color: var(--white); }
+    .process-header .section-sub { color: rgba(255,255,255,.5); margin: 0 auto; }
+    .process-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; }
+    .process-card { background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.08); border-radius: 16px; padding: 2rem; position: relative; transition: var(--transition); backdrop-filter: blur(6px); }
+    .process-card:hover { background: rgba(0,119,182,.1); border-color: rgba(0,180,216,.3); transform: translateY(-4px); }
+    .process-step-num { position: absolute; top: -14px; left: 24px; background: linear-gradient(135deg, var(--blue), var(--blue-lt)); color: white; font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: .78rem; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+    .process-icon { width: 52px; height: 52px; border-radius: 12px; background: rgba(0,180,216,.1); border: 1px solid rgba(0,180,216,.2); display: flex; align-items: center; justify-content: center; font-size: 1.3rem; color: var(--blue-lt); margin-bottom: 1rem; }
+    .process-card h4 { color: var(--white); font-weight: 700; font-size: 1rem; margin-bottom: .3rem; }
+    .process-comp { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 1.25rem; color: var(--blue-lt); margin-bottom: .5rem; }
+    .process-card p { color: rgba(255,255,255,.5); font-size: .87rem; line-height: 1.6; }
+    .process-footer { margin-top: 3rem; background: rgba(0,180,216,.07); border: 1px solid rgba(0,180,216,.18); border-radius: 16px; padding: 2rem 2.5rem; display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap; }
+    .process-footer > i { font-size: 2rem; color: var(--blue-lt); flex-shrink: 0; }
+    .process-footer p { color: rgba(255,255,255,.7); font-size: .92rem; line-height: 1.6; flex: 1; }
+    .process-footer strong { color: var(--white); }
+
+    /* ---- GALLERY ---- */
+    #gallery { padding: 6rem 0; background: var(--gray); }
+    .gallery-header { text-align: center; margin-bottom: 3rem; }
+    .gallery-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 1rem; }
+    .gallery-item { border-radius: var(--radius); overflow: hidden; position: relative; cursor: pointer; box-shadow: 0 4px 20px rgba(0,0,0,.1); }
+    .gallery-item:first-child { grid-column: 1/3; grid-row: 1/3; }
+    .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s ease; min-height: 200px; }
+    .gallery-item:first-child img { min-height: 380px; }
+    .gallery-item:hover img { transform: scale(1.06); }
+    .gallery-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,.7) 0%, transparent 60%); opacity: 0; transition: opacity var(--transition); display: flex; align-items: flex-end; padding: 1.2rem; }
+    .gallery-item:hover .gallery-overlay { opacity: 1; }
+    .gallery-overlay span { color: white; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: .88rem; display: flex; align-items: center; gap: .4rem; }
+
+    #lightbox { position: fixed; inset: 0; z-index: 9998; background: rgba(0,0,0,.92); display: none; align-items: center; justify-content: center; padding: 2rem; }
+    #lightbox.active { display: flex; }
+    #lightbox img { max-width: 900px; max-height: 85vh; object-fit: contain; border-radius: var(--radius); box-shadow: 0 0 80px rgba(0,0,0,.8); }
+    #lightbox-close { position: absolute; top: 1.5rem; right: 1.5rem; background: rgba(255,255,255,.15); border: none; color: white; width: 44px; height: 44px; border-radius: 50%; font-size: 1.2rem; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: var(--transition); }
+    #lightbox-close:hover { background: var(--blue); }
+
+    /* ---- BENEFITS ---- */
+    #benefits { padding: 6rem 0; background: var(--white); }
+    .benefits-header { text-align: center; margin-bottom: 3.5rem; }
+    .benefits-header .section-sub { margin: 0 auto; }
+    .benefits-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; }
+    .benefit-card { background: var(--gray); border-radius: 16px; padding: 2rem; border: 1px solid transparent; transition: var(--transition); text-align: center; }
+    .benefit-card:hover { border-color: rgba(0,119,182,.2); box-shadow: 0 12px 40px rgba(0,119,182,.1); transform: translateY(-3px); }
+    .benefit-icon { width: 62px; height: 62px; background: linear-gradient(135deg, var(--blue), var(--blue-lt)); border-radius: 16px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; color: white; margin: 0 auto 1.2rem; }
+    .benefit-card h4 { font-weight: 700; font-size: 1.05rem; margin-bottom: .5rem; }
+    .benefit-card p { color: var(--gray-mid); font-size: .9rem; line-height: 1.6; }
+    .guarantee-strip { margin-top: 3.5rem; background: linear-gradient(135deg, var(--black) 0%, #0d2137 100%); border-radius: 20px; padding: 2.5rem 3rem; display: grid; grid-template-columns: repeat(4,1fr); gap: 1rem; text-align: center; }
+    .guarantee-item { color: white; }
+    .guarantee-item i { font-size: 2rem; color: var(--blue-lt); margin-bottom: .5rem; display: block; }
+    .guarantee-item strong { display: block; font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 1rem; margin-bottom: .25rem; }
+    .guarantee-item span { font-size: .78rem; color: rgba(255,255,255,.5); }
+
+    /* ---- CONTACT ---- */
+    #contact { padding: 6rem 0; background: linear-gradient(135deg, #050d1a 0%, #0a1628 100%); position: relative; overflow: hidden; }
+    #contact::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 30% 50%, rgba(0,119,182,.12) 0%, transparent 60%); pointer-events: none; }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 4rem; align-items: start; position: relative; z-index: 1; }
+    .contact-info .section-tag { background: rgba(0,180,216,.12); color: var(--blue-lt); }
+    .contact-info .section-title { color: var(--white); }
+    .contact-info .section-sub { color: rgba(255,255,255,.5); }
+    .contact-details { margin-top: 2rem; display: flex; flex-direction: column; gap: 1.2rem; }
+    .contact-item { display: flex; align-items: center; gap: 1rem; color: rgba(255,255,255,.8); }
+    .ci-icon { width: 46px; height: 46px; background: rgba(0,119,182,.18); border: 1px solid rgba(0,180,216,.22); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; color: var(--blue-lt); flex-shrink: 0; }
+    .ci-text strong { display: block; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: .85rem; color: var(--white); margin-bottom: .15rem; }
+    .ci-text span { font-size: .9rem; color: rgba(255,255,255,.55); }
+    .contact-social { display: flex; gap: .75rem; margin-top: 2rem; }
+    .social-link { width: 42px; height: 42px; background: rgba(255,255,255,.08); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,.65); font-size: 1rem; transition: var(--transition); }
+    .social-link:hover { background: var(--blue); color: white; transform: translateY(-2px); }
+    .contact-form-wrap { background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.08); border-radius: 20px; padding: 2.5rem; backdrop-filter: blur(10px); }
+    .form-title { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 1.25rem; color: var(--white); margin-bottom: 1.5rem; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .form-group { display: flex; flex-direction: column; gap: .4rem; margin-bottom: 1rem; }
+    .form-group label { font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: .78rem; letter-spacing: .05em; color: rgba(255,255,255,.55); text-transform: uppercase; }
+    .form-group input, .form-group select, .form-group textarea { background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.12); border-radius: 10px; padding: .85rem 1.1rem; color: white; font-family: 'Open Sans', sans-serif; font-size: .95rem; outline: none; transition: var(--transition); width: 100%; }
+    .form-group input::placeholder, .form-group textarea::placeholder { color: rgba(255,255,255,.28); }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--blue-lt); background: rgba(0,180,216,.07); }
+    .form-group select option { background: #0a1628; color: white; }
+    .form-group textarea { resize: vertical; min-height: 110px; }
+    .form-submit { width: 100%; justify-content: center; padding: 1rem; font-size: 1rem; }
+    .form-success { display: none; text-align: center; padding: 2rem; }
+    .form-success i { font-size: 3rem; color: #22c55e; margin-bottom: 1rem; display: block; }
+    .form-success h4 { color: white; font-size: 1.2rem; margin-bottom: .5rem; }
+    .form-success p { color: rgba(255,255,255,.55); font-size: .9rem; }
+
+    /* ---- FOOTER ---- */
+    #footer { background: var(--black); padding: 4rem 0 2rem; }
+    .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 2.5rem; padding-bottom: 3rem; border-bottom: 1px solid rgba(255,255,255,.08); }
+    .footer-logo-wrap { display: flex; align-items: center; gap: .75rem; margin-bottom: 1rem; }
+    .footer-logo-wrap img { height: 44px; width: auto; object-fit: contain; }
+    .footer-brand-name { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 1.1rem; color: white; }
+    .footer-brand-name span { display: block; font-size: .6rem; font-weight: 500; letter-spacing: .1em; color: rgba(255,255,255,.35); text-transform: uppercase; }
+    .footer-desc { color: rgba(255,255,255,.4); font-size: .88rem; line-height: 1.7; margin-bottom: 1.2rem; }
+    .footer-col h5 { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: .82rem; color: white; letter-spacing: .07em; text-transform: uppercase; margin-bottom: 1rem; }
+    .footer-links { list-style: none; display: flex; flex-direction: column; gap: .6rem; }
+    .footer-links a { color: rgba(255,255,255,.4); font-size: .88rem; transition: var(--transition); }
+    .footer-links a:hover { color: var(--blue-lt); padding-left: 4px; }
+    .footer-contact-item { display: flex; align-items: center; gap: .6rem; color: rgba(255,255,255,.4); font-size: .88rem; margin-bottom: .6rem; }
+    .footer-contact-item i { color: var(--blue-lt); width: 16px; }
+    .footer-contact-item a { color: rgba(255,255,255,.4); transition: var(--transition); }
+    .footer-contact-item a:hover { color: var(--blue-lt); }
+    .footer-bottom { display: flex; align-items: center; justify-content: space-between; padding-top: 2rem; flex-wrap: wrap; gap: 1rem; }
+    .footer-bottom p { color: rgba(255,255,255,.28); font-size: .82rem; }
+    .footer-bottom-badges { display: flex; gap: .5rem; align-items: center; flex-wrap: wrap; }
+    .footer-bottom-badges span { background: rgba(255,255,255,.07); color: rgba(255,255,255,.4); font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: .68rem; padding: .3rem .65rem; border-radius: 6px; letter-spacing: .04em; }
+
+    /* ---- FLOATING ---- */
+    .wa-float { position: fixed; bottom: 2rem; right: 2rem; z-index: 1000; width: 58px; height: 58px; background: #25D366; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.6rem; color: white; box-shadow: 0 6px 24px rgba(37,211,102,.45); transition: var(--transition); }
+    .wa-float:hover { transform: scale(1.1); box-shadow: 0 10px 32px rgba(37,211,102,.6); }
+    #back-top { position: fixed; bottom: 6.5rem; right: 2rem; z-index: 1000; width: 46px; height: 46px; background: var(--blue); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 1rem; cursor: pointer; opacity: 0; visibility: hidden; transition: var(--transition); border: none; box-shadow: 0 4px 16px rgba(0,119,182,.4); }
+    #back-top.visible { opacity: 1; visibility: visible; }
+    #back-top:hover { background: var(--blue-lt); transform: translateY(-2px); }
+
+    /* ---- REVEAL ---- */
+    .reveal { opacity: 0; transform: translateY(30px); transition: opacity .7s ease, transform .7s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* ---- RESPONSIVE ---- */
+    @media (max-width: 1024px) {
+      .hero-grid { grid-template-columns: 1fr; text-align: center; }
+      .hero-desc { margin: 0 auto 2rem; }
+      .hero-actions { justify-content: center; }
+      .hero-stats { max-width: 400px; margin: 3rem auto 0; }
+      .hero-visual { display: none; }
+      .about-grid { grid-template-columns: 1fr; }
+      .about-img-stack { display: none; }
+      .process-grid { grid-template-columns: 1fr 1fr; }
+      .gallery-grid { grid-template-columns: 1fr 1fr; }
+      .gallery-item:first-child { grid-column: 1/-1; grid-row: auto; }
+      .benefits-grid { grid-template-columns: 1fr 1fr; }
+      .guarantee-strip { grid-template-columns: 1fr 1fr; }
+      .contact-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 768px) {
+      .nav-desktop { display: none; }
+      .hamburger { display: flex; }
+      .services-grid { grid-template-columns: 1fr; }
+      .process-grid { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .guarantee-strip { grid-template-columns: 1fr 1fr; padding: 2rem 1.5rem; }
+      .benefits-grid { grid-template-columns: 1fr; }
+      .process-footer { flex-direction: column; text-align: center; }
+    }
+    @media (max-width: 480px) {
+      .gallery-grid { grid-template-columns: 1fr; }
+      .guarantee-strip { grid-template-columns: 1fr; }
+      .hero-stats { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- SPLASH -->
+  <div id="splash">
+    <img class="splash-logo" src="https://drive.google.com/uc?export=view&id=1o3bArnfqG38fcdhGty3-NxjAXBvCKq86" alt="PINA Water System" onerror="this.style.display='none'" />
+    <div class="splash-brand">PINA <span>Water System</span></div>
+    <div class="splash-tagline">Tu agua · Tu salud · Nuestra prioridad</div>
+    <div class="splash-bar"><div class="splash-bar-fill"></div></div>
+  </div>
+
+  <!-- LIGHTBOX -->
+  <div id="lightbox">
+    <button id="lightbox-close" aria-label="Cerrar"><i class="fa fa-times"></i></button>
+    <img id="lightbox-img" src="" alt="Instalación PINA Water System" />
+  </div>
+
+  <!-- HEADER -->
+  <header id="header">
+    <div class="container">
+      <div class="header-inner">
+        <a href="#hero" class="logo-wrap">
+          <img src="https://drive.google.com/uc?export=view&id=1o3bArnfqG38fcdhGty3-NxjAXBvCKq86" alt="PINA Water System" onerror="this.style.display='none'" />
+          <div class="logo-text">PINA Water System <span>Made in USA</span></div>
+        </a>
+        <nav>
+          <ul class="nav-desktop">
+            <li><a href="#about">Nosotros</a></li>
+            <li><a href="#services">Servicios</a></li>
+            <li><a href="#process">Proceso</a></li>
+            <li><a href="#gallery">Instalaciones</a></li>
+            <li><a href="#benefits">Beneficios</a></li>
+            <li><a href="#contact" class="nav-cta">Contáctanos</a></li>
+          </ul>
+        </nav>
+        <button class="hamburger" id="hamburger" aria-label="Abrir menú" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- MOBILE NAV -->
+  <nav class="nav-mobile" id="nav-mobile" aria-hidden="true">
+    <a href="#about"    class="nav-m-link">Nosotros</a>
+    <a href="#services" class="nav-m-link">Servicios</a>
+    <a href="#process"  class="nav-m-link">Proceso</a>
+    <a href="#gallery"  class="nav-m-link">Instalaciones</a>
+    <a href="#benefits" class="nav-m-link">Beneficios</a>
+    <a href="#contact"  class="nav-m-link nav-cta-m">Contáctanos</a>
+  </nav>
+
+  <main>
+
+    <!-- HERO -->
+    <section id="hero">
+      <div class="hero-particles"></div>
+      <div class="container">
+        <div class="hero-grid">
+          <div class="hero-content">
+            <div class="hero-badge"><i class="fa fa-shield-halved"></i> Made in USA · Garantía de por vida</div>
+            <h1 class="hero-title">Agua Pura y Suave<br/>para Tu <span class="accent">Hogar</span></h1>
+            <p class="hero-desc">Sistemas de filtración certificados con instalación profesional y <strong>100% garantizado</strong>. Mismos resultados, sin el sobreprecio de las grandes marcas.</p>
+            <div class="hero-actions">
+              <a href="#contact" class="btn btn-primary"><i class="fa fa-calendar-check"></i> Solicitar Cotización</a>
+              <a href="#services" class="btn btn-outline"><i class="fa fa-arrow-down"></i> Ver Servicios</a>
+            </div>
+            <div class="hero-stats">
+              <div class="stat-item"><div class="stat-number">A+</div><div class="stat-label">BBB Rating</div></div>
+              <div class="stat-item"><div class="stat-number">6</div><div class="stat-label">Etapas Filtración</div></div>
+              <div class="stat-item"><div class="stat-number">100%</div><div class="stat-label">Garantizado</div></div>
+            </div>
+          </div>
+          <div class="hero-visual">
+            <div class="hero-visual-ring"></div>
+            <div class="hero-visual-ring"></div>
+            <div class="hero-visual-ring"></div>
+            <div class="hero-visual-inner">
+              <img class="hero-logo-circle" src="https://drive.google.com/uc?export=view&id=1o3bArnfqG38fcdhGty3-NxjAXBvCKq86" alt="PINA Water System" onerror="this.style.display='none'" />
+              <div class="hero-badges-row">
+                <span class="badge-pill">NSF/ANSI 44</span>
+                <span class="badge-pill">NSF 61</span>
+                <span class="badge-pill">NSF 372</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about">
+      <div class="container">
+        <div class="about-grid">
+          <div class="about-img-wrap">
+            <div class="about-img-stack">
+              <img src="https://drive.google.com/uc?export=view&id=1AfKvAihjbAIe7DkRECwcd_xnyujAUA2O" alt="Instalación profesional" loading="lazy" />
+              <img src="https://drive.google.com/uc?export=view&id=1KC4JU96JmBgje9AKrsqW9mMUL_cyt7Oa" alt="Sistema de agua" loading="lazy" />
+              <img src="https://drive.google.com/uc?export=view&id=16TgLbsiflVOpJaOwrlTxpfZWofLVkmNI" alt="Filtro instalado" loading="lazy" />
+              <div class="about-float-card">
+                <div class="icon-circle"><i class="fa fa-award"></i></div>
+                <div><div class="card-label">BBB Rating</div><div class="card-value">A+ Certified</div></div>
+              </div>
+            </div>
+          </div>
+          <div class="about-text reveal">
+            <span class="section-tag">¿Quiénes somos?</span>
+            <h2 class="section-title">Líderes en Purificación de Agua en South Florida</h2>
+            <p class="section-sub">PINA Water System ofrece tecnología de punta <em>Made in USA</em> a precios justos — sin el sobreprecio de las grandes marcas. Tu agua, tu salud, nuestra prioridad.</p>
+            <ul class="check-list">
+              <li><i class="fa fa-circle-check"></i> Instalación profesional con técnicos certificados</li>
+              <li><i class="fa fa-circle-check"></i> Garantía de por vida del fabricante</li>
+              <li><i class="fa fa-circle-check"></i> Satisfacción 100% garantizada</li>
+              <li><i class="fa fa-circle-check"></i> Panel de control digital microprocesado</li>
+              <li><i class="fa fa-circle-check"></i> Memoria no volátil y batería de respaldo de litio</li>
+              <li><i class="fa fa-circle-check"></i> 36 ciclos de regeneración preprogramados</li>
+              <li><i class="fa fa-circle-check"></i> Compatible con tanques hasta 21" de diámetro</li>
+            </ul>
+            <div class="certif-row">
+              <div class="certif-badge"><i class="fa fa-certificate"></i> NSF/ANSI 44</div>
+              <div class="certif-badge"><i class="fa fa-certificate"></i> NSF/ANSI 61</div>
+              <div class="certif-badge"><i class="fa fa-certificate"></i> NSF/ANSI 372</div>
+              <div class="certif-badge"><i class="fa fa-shield-halved"></i> BBB A+</div>
+            </div>
+            <div style="margin-top:2rem;">
+              <a href="tel:7863424247" class="btn btn-primary"><i class="fa fa-phone"></i> 786-342-4247</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services">
+      <div class="container">
+        <div class="services-header reveal">
+          <span class="section-tag">Nuestros Servicios</span>
+          <h2 class="section-title">Soluciones Completas de<br/>Tratamiento de Agua</h2>
+          <p class="section-sub">Dos sistemas complementarios para garantizar agua pura, suave y libre de contaminantes en todo tu hogar.</p>
+        </div>
+        <div class="services-grid">
+          <div class="service-card reveal">
+            <div class="service-card-top">
+              <div class="service-icon-big"><i class="fa fa-droplet"></i></div>
+              <h3>Water Softener</h3>
+              <p>Sistema de suavización para toda la casa. Elimina la dureza del agua y protege tus instalaciones.</p>
+            </div>
+            <div class="service-card-body">
+              <ul class="service-features">
+                <li><i class="fa fa-check-circle"></i> Elimina incrustaciones de sarro y cal</li>
+                <li><i class="fa fa-check-circle"></i> Protege tuberías y electrodomésticos</li>
+                <li><i class="fa fa-check-circle"></i> Agua más suave para piel y cabello</li>
+                <li><i class="fa fa-check-circle"></i> Panel de control digital microprocesado</li>
+                <li><i class="fa fa-check-circle"></i> 36 ciclos de regeneración preprogramados</li>
+                <li><i class="fa fa-check-circle"></i> Double Backwash para limpieza óptima</li>
+                <li><i class="fa fa-check-circle"></i> 3 modos de operación programables</li>
+              </ul>
+              <div class="service-tags">
+                <span class="service-tag">Grava</span>
+                <span class="service-tag">Garnet</span>
+                <span class="service-tag">Resina Catiónica</span>
+                <span class="service-tag">Resina Aniónica</span>
+                <span class="service-tag">Carbón Activado</span>
+                <span class="service-tag">KDF</span>
+              </div>
+            </div>
+          </div>
+          <div class="service-card reveal">
+            <div class="service-card-top" style="background:linear-gradient(135deg,#001f3f 0%,#003366 100%);">
+              <div class="service-icon-big"><i class="fa fa-filter"></i></div>
+              <h3>Reverse Osmosis</h3>
+              <p>Sistema de ósmosis inversa multietapa para agua alcalina, cristalina y libre de contaminantes.</p>
+            </div>
+            <div class="service-card-body">
+              <ul class="service-features">
+                <li><i class="fa fa-check-circle"></i> Agua alcalina libre de contaminantes</li>
+                <li><i class="fa fa-check-circle"></i> Mejora sabor y calidad del agua</li>
+                <li><i class="fa fa-check-circle"></i> Ideal para beber y cocinar</li>
+                <li><i class="fa fa-check-circle"></i> 6 etapas de filtración avanzada</li>
+                <li><i class="fa fa-check-circle"></i> Grifo de lujo incluido</li>
+                <li><i class="fa fa-check-circle"></i> Membrana ROM de alto rendimiento</li>
+                <li><i class="fa fa-check-circle"></i> Filtro alcalino remineralizador</li>
+              </ul>
+              <div class="service-tags">
+                <span class="service-tag">SED</span>
+                <span class="service-tag">GAC</span>
+                <span class="service-tag">CB</span>
+                <span class="service-tag">ROM</span>
+                <span class="service-tag">ALK</span>
+                <span class="service-tag">PAC</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROCESS -->
+    <section id="process">
+      <div class="container">
+        <div class="process-header reveal">
+          <span class="section-tag">Cómo Funciona</span>
+          <h2 class="section-title">Proceso de Filtración en 6 Pasos</h2>
+          <p class="section-sub">Seis etapas de purificación para garantizar agua limpia, suave y libre de químicos en tu hogar.</p>
+        </div>
+        <div class="process-grid">
+          <div class="process-card reveal">
+            <div class="process-step-num">1</div>
+            <div class="process-icon"><i class="fa fa-mountain"></i></div>
+            <div class="process-comp">Grava</div>
+            <h4>Clarificación</h4>
+            <p>Retiene y separa sólidos suspendidos que no fueron removidos por sedimentación inicial.</p>
+          </div>
+          <div class="process-card reveal">
+            <div class="process-step-num">2</div>
+            <div class="process-icon"><i class="fa fa-gem"></i></div>
+            <div class="process-comp">Garnet</div>
+            <h4>Refinamiento</h4>
+            <p>Retiene partículas muy finas que lograron pasar el primer lecho de grava.</p>
+          </div>
+          <div class="process-card reveal">
+            <div class="process-step-num">3</div>
+            <div class="process-icon"><i class="fa fa-atom"></i></div>
+            <div class="process-comp">Resina Catiónica</div>
+            <h4>Suavización</h4>
+            <p>Esferas sintéticas que suavizan el agua mediante intercambio iónico, eliminando la dureza.</p>
+          </div>
+          <div class="process-card reveal">
+            <div class="process-step-num">4</div>
+            <div class="process-icon"><i class="fa fa-flask"></i></div>
+            <div class="process-comp">Resina Aniónica</div>
+            <h4>Acondicionamiento</h4>
+            <p>Retiene sulfatos, nitratos y cloruros para acondicionar la calidad del agua.</p>
+          </div>
+          <div class="process-card reveal">
+            <div class="process-step-num">5</div>
+            <div class="process-icon"><i class="fa fa-wind"></i></div>
+            <div class="process-comp">Carbón Activado</div>
+            <h4>Filtración Profunda</h4>
+            <p>Absorbe cloro, solventes, herbicidas y pesticidas. Elimina sabores y olores desagradables.</p>
+          </div>
+          <div class="process-card reveal">
+            <div class="process-step-num">6</div>
+            <div class="process-icon"><i class="fa fa-shield-virus"></i></div>
+            <div class="process-comp">KDF</div>
+            <h4>Descontaminación</h4>
+            <p>Elimina cloro, hierro, plomo, mercurio, carbonato de calcio, bacterias, algas y hongos.</p>
+          </div>
+        </div>
+        <div class="process-footer reveal">
+          <i class="fa fa-recycle"></i>
+          <p><strong>Regeneración inteligente:</strong> El tanque de cloruro de sodio o potasio realiza el intercambio iónico para eliminar los minerales de dureza. Sistema con <strong>batería de respaldo de litio</strong> que mantiene la configuración hasta 8 horas sin energía.</p>
+          <a href="#contact" class="btn btn-primary" style="flex-shrink:0;"><i class="fa fa-calendar-check"></i> Solicitar Instalación</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section id="gallery">
+      <div class="container">
+        <div class="gallery-header reveal">
+          <span class="section-tag">Instalaciones Realizadas</span>
+          <h2 class="section-title">Nuestro Trabajo Habla<br/>por Sí Solo</h2>
+          <p class="section-sub" style="margin:0 auto;">Cada instalación es realizada por técnicos certificados con los más altos estándares de calidad y precisión.</p>
+        </div>
+        <div class="gallery-grid">
+          <div class="gallery-item reveal" onclick="openLightbox('https://drive.google.com/uc?export=view&id=1AfKvAihjbAIe7DkRECwcd_xnyujAUA2O')">
+            <img src="https://drive.google.com/uc?export=view&id=1AfKvAihjbAIe7DkRECwcd_xnyujAUA2O" alt="Instalación profesional de Water Softener" loading="lazy" />
+            <div class="gallery-overlay"><span><i class="fa fa-expand"></i> Ver instalación</span></div>
+          </div>
+          <div class="gallery-item reveal" onclick="openLightbox('https://drive.google.com/uc?export=view&id=1KC4JU96JmBgje9AKrsqW9mMUL_cyt7Oa')">
+            <img src="https://drive.google.com/uc?export=view&id=1KC4JU96JmBgje9AKrsqW9mMUL_cyt7Oa" alt="Sistema de filtración instalado" loading="lazy" />
+            <div class="gallery-overlay"><span><i class="fa fa-expand"></i> Ver instalación</span></div>
+          </div>
+          <div class="gallery-item reveal" onclick="openLightbox('https://drive.google.com/uc?export=view&id=16TgLbsiflVOpJaOwrlTxpfZWofLVkmNI')">
+            <img src="https://drive.google.com/uc?export=view&id=16TgLbsiflVOpJaOwrlTxpfZWofLVkmNI" alt="Ósmosis inversa instalada" loading="lazy" />
+            <div class="gallery-overlay"><span><i class="fa fa-expand"></i> Ver instalación</span></div>
+          </div>
+          <div class="gallery-item reveal" onclick="openLightbox('https://drive.google.com/uc?export=view&id=11nedCzsLs4ciInnQ11bfEdWew3SvyA6V')">
+            <img src="https://drive.google.com/uc?export=view&id=11nedCzsLs4ciInnQ11bfEdWew3SvyA6V" alt="Instalación Water System completa" loading="lazy" />
+            <div class="gallery-overlay"><span><i class="fa fa-expand"></i> Ver instalación</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BENEFITS -->
+    <section id="benefits">
+      <div class="container">
+        <div class="benefits-header reveal">
+          <span class="section-tag">¿Por qué elegirnos?</span>
+          <h2 class="section-title">Beneficios que Hacen<br/>la Diferencia</h2>
+          <p class="section-sub">"Disfruta el agua libre de químicos para una vida saludable."</p>
+        </div>
+        <div class="benefits-grid">
+          <div class="benefit-card reveal">
+            <div class="benefit-icon"><i class="fa fa-house-chimney-medical"></i></div>
+            <h4>Protege tu Hogar</h4>
+            <p>Elimina el sarro que daña tuberías, calentadores, lavadoras y lavavajillas, prolongando su vida útil significativamente.</p>
+          </div>
+          <div class="benefit-card reveal">
+            <div class="benefit-icon"><i class="fa fa-spa"></i></div>
+            <h4>Piel y Cabello</h4>
+            <p>El agua suave es gentil con tu piel y cabello, reduciendo resequedad e irritación causada por el cloro y minerales.</p>
+          </div>
+          <div class="benefit-card reveal">
+            <div class="benefit-icon"><i class="fa fa-utensils"></i></div>
+            <h4>Agua para Beber</h4>
+            <p>La ósmosis inversa proporciona agua alcalina con sabor y calidad superior, ideal para beber y cocinar.</p>
+          </div>
+          <div class="benefit-card reveal">
+            <div class="benefit-icon"><i class="fa fa-leaf"></i></div>
+            <h4>Libre de Químicos</h4>
+            <p>Elimina cloro, herbicidas, pesticidas, plomo, mercurio, bacterias y hongos del agua de tu hogar.</p>
+          </div>
+          <div class="benefit-card reveal">
+            <div class="benefit-icon"><i class="fa fa-dollar-sign"></i></div>
+            <h4>Sin Sobreprecio</h4>
+            <p>"Same results. No big brand markup." Calidad premium al precio justo, directamente del fabricante.</p>
+          </div>
+          <div class="benefit-card reveal">
+            <div class="benefit-icon"><i class="fa fa-wrench"></i></div>
+            <h4>Soporte Continuo</h4>
+            <p>Instalación profesional certificada y garantía de por vida del fabricante para tu total tranquilidad.</p>
+          </div>
+        </div>
+        <div class="guarantee-strip reveal">
+          <div class="guarantee-item">
+            <i class="fa fa-medal"></i>
+            <strong>Lifetime Warranty</strong>
+            <span>Garantía de por vida del fabricante</span>
+          </div>
+          <div class="guarantee-item">
+            <i class="fa fa-star"></i>
+            <strong>BBB A+ Rating</strong>
+            <span>Calificación máxima del Better Business Bureau</span>
+          </div>
+          <div class="guarantee-item">
+            <i class="fa fa-certificate"></i>
+            <strong>NSF Certificado</strong>
+            <span>NSF/ANSI 44, 61 & 372</span>
+          </div>
+          <div class="guarantee-item">
+            <i class="fa fa-flag-usa"></i>
+            <strong>Made in USA</strong>
+            <span>Fabricado con estándares americanos</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="container">
+        <div class="contact-grid">
+          <div class="contact-info reveal">
+            <span class="section-tag">Contáctanos</span>
+            <h2 class="section-title">¿Listo para Agua<br/>Pura en tu Hogar?</h2>
+            <p class="section-sub">Solicita tu cotización gratuita hoy mismo. Nuestro equipo te asesorará y encontrará el sistema ideal para tu hogar.</p>
+            <div class="contact-details">
+              <div class="contact-item">
+                <div class="ci-icon"><i class="fa fa-phone"></i></div>
+                <div class="ci-text"><strong>Teléfono</strong><span>786-342-4247</span></div>
+              </div>
+              <div class="contact-item">
+                <div class="ci-icon"><i class="fa-brands fa-whatsapp"></i></div>
+                <div class="ci-text"><strong>WhatsApp</strong><span>786-342-4247</span></div>
+              </div>
+              <div class="contact-item">
+                <div class="ci-icon"><i class="fa fa-location-dot"></i></div>
+                <div class="ci-text"><strong>Área de Servicio</strong><span>Miami &amp; South Florida</span></div>
+              </div>
+              <div class="contact-item">
+                <div class="ci-icon"><i class="fa fa-clock"></i></div>
+                <div class="ci-text"><strong>Horario</strong><span>Lun–Sab: 8:00am – 6:00pm</span></div>
+              </div>
+            </div>
+            <div class="contact-social">
+              <a href="https://wa.me/17863424247" class="social-link" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+              <a href="tel:7863424247" class="social-link" aria-label="Llamar"><i class="fa fa-phone"></i></a>
+              <a href="#" class="social-link" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+              <a href="#" class="social-link" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            </div>
+          </div>
+          <div class="contact-form-wrap reveal">
+            <div class="form-title">Solicita tu Cotización Gratuita</div>
+            <form id="contact-form" novalidate>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="f-name">Nombre</label>
+                  <input type="text" id="f-name" name="name" placeholder="Tu nombre" required />
+                </div>
+                <div class="form-group">
+                  <label for="f-lastname">Apellido</label>
+                  <input type="text" id="f-lastname" name="lastname" placeholder="Tu apellido" />
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="f-phone">Teléfono *</label>
+                  <input type="tel" id="f-phone" name="phone" placeholder="(305) 000-0000" required />
+                </div>
+                <div class="form-group">
+                  <label for="f-email">Email</label>
+                  <input type="email" id="f-email" name="email" placeholder="correo@email.com" />
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="f-service">Servicio de Interés</label>
+                <select id="f-service" name="service">
+                  <option value="">Selecciona un servicio...</option>
+                  <option value="Water Softener">Water Softener (Suavizador)</option>
+                  <option value="Reverse Osmosis">Reverse Osmosis (Ósmosis Inversa)</option>
+                  <option value="Ambos Sistemas">Ambos Sistemas</option>
+                  <option value="Mantenimiento">Mantenimiento</option>
+                  <option value="Consulta gratuita">Consulta gratuita</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="f-city">Ciudad / Zona</label>
+                <input type="text" id="f-city" name="city" placeholder="Miami, Hialeah, Doral..." />
+              </div>
+              <div class="form-group">
+                <label for="f-message">Mensaje (opcional)</label>
+                <textarea id="f-message" name="message" placeholder="Cuéntanos sobre tu hogar, tipo de agua, dudas..."></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary form-submit">
+                <i class="fa fa-paper-plane"></i> Enviar Solicitud
+              </button>
+            </form>
+            <div class="form-success" id="form-success">
+              <i class="fa fa-circle-check"></i>
+              <h4>¡Solicitud Enviada!</h4>
+              <p>Gracias por contactarnos. Nuestro equipo se comunicará contigo a la brevedad.</p>
+              <a href="https://wa.me/17863424247" class="btn btn-primary" style="margin-top:1.2rem;width:100%;justify-content:center;">
+                <i class="fa-brands fa-whatsapp"></i> Escríbenos por WhatsApp
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer id="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-logo-wrap">
+            <img src="https://drive.google.com/uc?export=view&id=1o3bArnfqG38fcdhGty3-NxjAXBvCKq86" alt="PINA Water System" onerror="this.style.display='none'" />
+            <div class="footer-brand-name">PINA Water System <span>Made in USA</span></div>
+          </div>
+          <p class="footer-desc">"Tu agua, tu salud, nuestra prioridad." Sistemas de purificación de agua profesionales con tecnología certificada y garantía de por vida.</p>
+          <div style="display:flex;gap:.6rem;flex-wrap:wrap;">
+            <span class="certif-badge" style="background:rgba(255,255,255,.06);border-color:rgba(0,119,182,.3);"><i class="fa fa-certificate"></i> NSF/ANSI 44</span>
+            <span class="certif-badge" style="background:rgba(255,255,255,.06);border-color:rgba(0,119,182,.3);"><i class="fa fa-shield-halved"></i> BBB A+</span>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h5>Servicios</h5>
+          <ul class="footer-links">
+            <li><a href="#services">Water Softener</a></li>
+            <li><a href="#services">Reverse Osmosis</a></li>
+            <li><a href="#process">Proceso de Filtración</a></li>
+            <li><a href="#contact">Instalación Profesional</a></li>
+            <li><a href="#contact">Mantenimiento</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Empresa</h5>
+          <ul class="footer-links">
+            <li><a href="#about">Nosotros</a></li>
+            <li><a href="#benefits">Beneficios</a></li>
+            <li><a href="#gallery">Instalaciones</a></li>
+            <li><a href="#contact">Cotización Gratis</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Contacto</h5>
+          <div class="footer-contact-item"><i class="fa fa-phone"></i><a href="tel:7863424247">786-342-4247</a></div>
+          <div class="footer-contact-item"><i class="fa-brands fa-whatsapp"></i><a href="https://wa.me/17863424247">WhatsApp</a></div>
+          <div class="footer-contact-item"><i class="fa fa-location-dot"></i><span>Miami &amp; South Florida</span></div>
+          <div style="display:flex;gap:.5rem;margin-top:1rem;">
+            <a href="https://wa.me/17863424247" class="social-link"><i class="fa-brands fa-whatsapp"></i></a>
+            <a href="#" class="social-link"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#" class="social-link"><i class="fa-brands fa-instagram"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 PINA Water System. Todos los derechos reservados.</p>
+        <div class="footer-bottom-badges">
+          <span>Made in USA</span>
+          <span>BBB A+</span>
+          <span>NSF Certified</span>
+          <span>Lifetime Warranty</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating WhatsApp -->
+  <a href="https://wa.me/17863424247" class="wa-float" aria-label="WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
+
+  <!-- Back to top -->
+  <button id="back-top" aria-label="Volver arriba">
+    <i class="fa fa-chevron-up"></i>
+  </button>
+
+  <script>
+    /* Splash */
+    window.addEventListener('load', () => {
+      setTimeout(() => document.getElementById('splash').classList.add('hidden'), 2800);
+    });
+
+    /* Hamburger */
+    const hamburger = document.getElementById('hamburger');
+    const navMobile = document.getElementById('nav-mobile');
+
+    hamburger.addEventListener('click', () => {
+      const open = navMobile.classList.toggle('open');
+      hamburger.classList.toggle('active', open);
+      hamburger.setAttribute('aria-expanded', open);
+      navMobile.setAttribute('aria-hidden', !open);
+    });
+
+    navMobile.querySelectorAll('.nav-m-link').forEach(link => {
+      link.addEventListener('click', () => {
+        navMobile.classList.remove('open');
+        hamburger.classList.remove('active');
+        hamburger.setAttribute('aria-expanded', false);
+        navMobile.setAttribute('aria-hidden', true);
+      });
+    });
+
+    document.addEventListener('click', e => {
+      if (!navMobile.contains(e.target) && !hamburger.contains(e.target)) {
+        navMobile.classList.remove('open');
+        hamburger.classList.remove('active');
+      }
+    });
+
+    /* Header + back-top on scroll */
+    const header  = document.getElementById('header');
+    const backTop = document.getElementById('back-top');
+    window.addEventListener('scroll', () => {
+      header.classList.toggle('scrolled', window.scrollY > 30);
+      backTop.classList.toggle('visible', window.scrollY > 400);
+    }, { passive: true });
+
+    backTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+    /* Scroll reveal */
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    /* Lightbox */
+    const lightbox     = document.getElementById('lightbox');
+    const lightboxImg  = document.getElementById('lightbox-img');
+
+    function openLightbox(src) {
+      lightboxImg.src = src;
+      lightbox.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeLightbox() {
+      lightbox.classList.remove('active');
+      document.body.style.overflow = '';
+      setTimeout(() => { lightboxImg.src = ''; }, 300);
+    }
+    document.getElementById('lightbox-close').addEventListener('click', closeLightbox);
+    lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+
+    /* Contact form → WhatsApp */
+    document.getElementById('contact-form').addEventListener('submit', e => {
+      e.preventDefault();
+      const name    = document.getElementById('f-name').value.trim();
+      const phone   = document.getElementById('f-phone').value.trim();
+      if (!name || !phone) { alert('Por favor ingresa tu nombre y teléfono.'); return; }
+
+      const lastname = document.getElementById('f-lastname').value.trim();
+      const email    = document.getElementById('f-email').value.trim();
+      const service  = document.getElementById('f-service').value;
+      const city     = document.getElementById('f-city').value.trim();
+      const message  = document.getElementById('f-message').value.trim();
+
+      const text = encodeURIComponent(
+        `*Nueva Solicitud — PINA Water System*\n\n` +
+        `👤 Nombre: ${name} ${lastname}\n` +
+        `📞 Teléfono: ${phone}\n` +
+        `📧 Email: ${email || 'No indicado'}\n` +
+        `🔧 Servicio: ${service || 'No especificado'}\n` +
+        `📍 Ciudad: ${city || 'No indicada'}\n` +
+        `💬 Mensaje: ${message || 'Sin mensaje adicional'}`
+      );
+
+      document.getElementById('contact-form').style.display = 'none';
+      document.getElementById('form-success').style.display = 'block';
+      setTimeout(() => window.open(`https://wa.me/17863424247?text=${text}`, '_blank'), 800);
+    });
+  </script>
+</body>
+</html>
