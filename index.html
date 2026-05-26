@@ -377,6 +377,10 @@
       .guarantee-strip { grid-template-columns: 1fr 1fr; padding: 2rem; }
       .contact-grid { grid-template-columns: 1fr; }
       .footer-grid { grid-template-columns: 1fr 1fr; }
+      .ww-problems { grid-template-columns: 1fr 1fr; }
+      .ww-process-grid { grid-template-columns: 1fr; }
+      .ww-results-grid { grid-template-columns: repeat(3,1fr); }
+      .gallery-well-placeholder { grid-template-columns: 1fr 1fr; }
     }
 
     /* Mobile */
@@ -422,6 +426,11 @@
       .footer-bottom { flex-direction: column; align-items: flex-start; }
       .wa-float { width: 50px; height: 50px; font-size: 1.35rem; bottom: 1.2rem; right: 1.2rem; }
       #back-top { bottom: 5rem; right: 1.2rem; width: 40px; height: 40px; }
+      .ww-problems { grid-template-columns: 1fr 1fr; }
+      .ww-results-grid { grid-template-columns: repeat(2,1fr); }
+      .ww-results { padding: 1.5rem 1rem; }
+      .ww-banner { padding: 1.5rem 1rem; }
+      .gallery-well-placeholder { grid-template-columns: 1fr 1fr; }
     }
 
     /* Small phones */
@@ -435,6 +444,8 @@
       .gallery-item:nth-child(4) { grid-column: 1; grid-row: auto; }
       .guarantee-strip { grid-template-columns: 1fr; }
       .hero-stats { grid-template-columns: repeat(3,1fr); }
+      .ww-problems { grid-template-columns: 1fr; }
+      .ww-results-grid { grid-template-columns: 1fr 1fr; }
     }
   </style>
 </head>
@@ -707,6 +718,114 @@
       </div>
     </section>
 
+    <div class="wave-divider" style="background:#0d1520;"><svg viewBox="0 0 1440 60" preserveAspectRatio="none"><path d="M0,0 C480,60 960,0 1440,40 L1440,60 L0,60 Z" fill="#f4f7fa"/></svg></div>
+
+    <!-- WELL WATER -->
+    <section id="well-water">
+      <div class="bubbles-wrap">
+        <div class="bubble" style="width:16px;height:16px;left:5%;animation-duration:10s;animation-delay:0s"></div>
+        <div class="bubble" style="width:10px;height:10px;left:30%;animation-duration:14s;animation-delay:3s"></div>
+        <div class="bubble" style="width:22px;height:22px;left:50%;animation-duration:11s;animation-delay:1s"></div>
+        <div class="bubble" style="width:12px;height:12px;left:72%;animation-duration:9s;animation-delay:2s"></div>
+        <div class="bubble" style="width:18px;height:18px;left:90%;animation-duration:13s;animation-delay:4s"></div>
+      </div>
+      <div class="container" style="position:relative;z-index:1;">
+        <!-- Banner -->
+        <div class="ww-banner reveal">
+          <div class="ww-banner-tag" data-i18n="ww-tag">Agua de Pozo</div>
+          <h2 class="ww-banner-title" data-i18n="ww-title">¿Problemas con tu <span>Agua de Pozo?</span></h2>
+          <p class="ww-banner-sub" data-i18n="ww-sub">¡Tenemos la Solución!</p>
+          <div class="ww-problems">
+            <div class="ww-problem reveal">
+              <div class="ww-problem-icon">💧</div>
+              <p data-i18n="ww-p1">¿Olor a huevo podrido en tu agua?</p>
+            </div>
+            <div class="ww-problem reveal">
+              <div class="ww-problem-icon">🟠</div>
+              <p data-i18n="ww-p2">¿Manchas anaranjadas en lavabos y duchas?</p>
+            </div>
+            <div class="ww-problem reveal">
+              <div class="ww-problem-icon">🔧</div>
+              <p data-i18n="ww-p3">¿Agua dura dañando tus electrodomésticos?</p>
+            </div>
+            <div class="ww-problem reveal">
+              <div class="ww-problem-icon">⚠️</div>
+              <p data-i18n="ww-p4">¿Agua de pozo sucia o insegura?</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Process -->
+        <div class="ww-process-header reveal">
+          <span class="section-tag" style="background:rgba(0,180,216,.12);color:var(--blue-lt);" data-i18n="ww-proc-tag">Proceso de Filtración</span>
+          <h2 class="section-title" data-i18n="ww-proc-title">Sistema de Tratamiento para Agua de Pozo</h2>
+          <p class="section-sub" data-i18n="ww-proc-sub">Cuatro etapas especializadas para eliminar hierro, azufre, dureza y bacterias del agua de tu pozo.</p>
+        </div>
+        <div class="ww-process-grid">
+          <div class="ww-step reveal">
+            <div class="ww-step-num">1</div>
+            <div class="ww-step-icon"><i class="fa fa-flask"></i></div>
+            <div class="ww-step-label" data-i18n="ww-s1-label">Inyección Química</div>
+            <h4 data-i18n="ww-s1-h">Inyección Química / Oxidación</h4>
+            <p data-i18n="ww-s1-p">El tanque pequeño al frente inyecta cloro o peróxido directamente en la línea principal del pozo antes de los filtros.</p>
+            <ul>
+              <li><i class="fa fa-check"></i><span data-i18n="ww-s1-f1">Elimina olor a huevo podrido (sulfuro)</span></li>
+              <li><i class="fa fa-check"></i><span data-i18n="ww-s1-f2">Oxida hierro y manganeso</span></li>
+              <li><i class="fa fa-check"></i><span data-i18n="ww-s1-f3">Desinfecta el agua del pozo</span></li>
+            </ul>
+          </div>
+          <div class="ww-step reveal">
+            <div class="ww-step-num">2</div>
+            <div class="ww-step-icon"><i class="fa fa-circle-nodes"></i></div>
+            <div class="ww-step-label" data-i18n="ww-s2-label">Tanque de Contacto</div>
+            <h4 data-i18n="ww-s2-h">Tanque de Contacto / Retención</h4>
+            <p data-i18n="ww-s2-p">El tanque grande permite que el químico reaccione correctamente con el agua antes de continuar el proceso.</p>
+            <ul>
+              <li><i class="fa fa-check"></i><span data-i18n="ww-s2-f1">Permite oxidación completa del hierro y azufre</span></li>
+              <li><i class="fa fa-check"></i><span data-i18n="ww-s2-f2">Mejora la eliminación de olores y bacterias</span></li>
+              <li><i class="fa fa-check"></i><span data-i18n="ww-s2-f3">Tratamiento inicial profundo del agua</span></li>
+            </ul>
+          </div>
+          <div class="ww-step reveal">
+            <div class="ww-step-num">3</div>
+            <div class="ww-step-icon"><i class="fa fa-filter"></i></div>
+            <div class="ww-step-label" data-i18n="ww-s3-label">Filtro Especializado</div>
+            <h4 data-i18n="ww-s3-h">Filtro de Hierro y Azufre</h4>
+            <p data-i18n="ww-s3-p">Tanque con medios especializados que captura partículas oxidadas y limpia visualmente el agua.</p>
+            <ul>
+              <li><i class="fa fa-check"></i><span data-i18n="ww-s3-f1">Remueve hierro y manganeso</span></li>
+              <li><i class="fa fa-check"></i><span data-i18n="ww-s3-f2">Elimina azufre y sedimentos</span></li>
+              <li><i class="fa fa-check"></i><span data-i18n="ww-s3-f3">Agua visualmente limpia y clara</span></li>
+            </ul>
+          </div>
+          <div class="ww-step reveal">
+            <div class="ww-step-num">4</div>
+            <div class="ww-step-icon"><i class="fa fa-droplet"></i></div>
+            <div class="ww-step-label">Water Softener</div>
+            <h4 data-i18n="ww-s4-h">Water Softener (Suavizador)</h4>
+            <p data-i18n="ww-s4-p">Elimina la dureza del agua mediante intercambio iónico. El brine tank almacena sal para regeneración automática.</p>
+            <ul>
+              <li><i class="fa fa-check"></i><span data-i18n="ww-s4-f1">Elimina calcio y magnesio (dureza)</span></li>
+              <li><i class="fa fa-check"></i><span data-i18n="ww-s4-f2">Protege tuberías y electrodomésticos</span></li>
+              <li><i class="fa fa-check"></i><span data-i18n="ww-s4-f3">Agua suave para piel, cabello y jabón</span></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Results -->
+        <div class="ww-results reveal">
+          <div class="ww-results-title" data-i18n="ww-result-title">💧 Resultado Final</div>
+          <div class="ww-results-grid">
+            <div class="ww-result-item"><div class="drop-icon">💧</div><span data-i18n="ww-r1">Agua más limpia</span></div>
+            <div class="ww-result-item"><div class="drop-icon">✅</div><span data-i18n="ww-r2">Sin malos olores</span></div>
+            <div class="ww-result-item"><div class="drop-icon">🟠</div><span data-i18n="ww-r3">Sin manchas de hierro</span></div>
+            <div class="ww-result-item"><div class="drop-icon">🏠</div><span data-i18n="ww-r4">Agua suave para toda la casa</span></div>
+            <div class="ww-result-item"><div class="drop-icon">🔧</div><span data-i18n="ww-r5">Protección para tuberías y appliances</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- GALLERY -->
     <section id="gallery">
       <div class="container">
@@ -715,22 +834,38 @@
           <h2 class="section-title" data-i18n="gal-title">Nuestro Trabajo Habla<br/>por Sí Solo</h2>
           <p class="section-sub" style="margin:0 auto;" data-i18n="gal-sub">Cada instalación es realizada por técnicos certificados con los más altos estándares de calidad y precisión.</p>
         </div>
-        <div class="gallery-grid">
-          <div class="gallery-item reveal" onclick="openLightbox('https://lh3.googleusercontent.com/d/1AfKvAihjbAIe7DkRECwcd_xnyujAUA2O')">
-            <img src="https://lh3.googleusercontent.com/d/1AfKvAihjbAIe7DkRECwcd_xnyujAUA2O" alt="Water Softener installation" loading="lazy" />
-            <div class="gallery-overlay"><span><i class="fa fa-expand"></i> <span data-i18n="gal-view">Ver instalación</span></span></div>
+        <div class="gallery-tabs">
+          <button class="gallery-tab active" onclick="switchGalleryTab('city', this)" data-i18n="gal-tab-city">💧 Agua de Ciudad</button>
+          <button class="gallery-tab" onclick="switchGalleryTab('well', this)" data-i18n="gal-tab-well">🌿 Agua de Pozo</button>
+        </div>
+        <!-- City water panel -->
+        <div class="gallery-panel active" id="gallery-city">
+          <div class="gallery-grid">
+            <div class="gallery-item reveal" onclick="openLightbox('https://lh3.googleusercontent.com/d/1AfKvAihjbAIe7DkRECwcd_xnyujAUA2O')">
+              <img src="https://lh3.googleusercontent.com/d/1AfKvAihjbAIe7DkRECwcd_xnyujAUA2O" alt="Water Softener installation" loading="lazy" />
+              <div class="gallery-overlay"><span><i class="fa fa-expand"></i> <span data-i18n="gal-view">Ver instalación</span></span></div>
+            </div>
+            <div class="gallery-item reveal" onclick="openLightbox('https://lh3.googleusercontent.com/d/1KC4JU96JmBgje9AKrsqW9mMUL_cyt7Oa')">
+              <img src="https://lh3.googleusercontent.com/d/1KC4JU96JmBgje9AKrsqW9mMUL_cyt7Oa" alt="Filtration system" loading="lazy" />
+              <div class="gallery-overlay"><span><i class="fa fa-expand"></i> <span data-i18n="gal-view">Ver instalación</span></span></div>
+            </div>
+            <div class="gallery-item reveal" onclick="openLightbox('https://lh3.googleusercontent.com/d/16TgLbsiflVOpJaOwrlTxpfZWofLVkmNI')">
+              <img src="https://lh3.googleusercontent.com/d/16TgLbsiflVOpJaOwrlTxpfZWofLVkmNI" alt="Reverse osmosis system" loading="lazy" />
+              <div class="gallery-overlay"><span><i class="fa fa-expand"></i> <span data-i18n="gal-view">Ver instalación</span></span></div>
+            </div>
+            <div class="gallery-item reveal" onclick="openLightbox('https://lh3.googleusercontent.com/d/11nedCzsLs4ciInnQ11bfEdWew3SvyA6V')">
+              <img src="https://lh3.googleusercontent.com/d/11nedCzsLs4ciInnQ11bfEdWew3SvyA6V" alt="Complete water system" loading="lazy" />
+              <div class="gallery-overlay"><span><i class="fa fa-expand"></i> <span data-i18n="gal-view">Ver instalación</span></span></div>
+            </div>
           </div>
-          <div class="gallery-item reveal" onclick="openLightbox('https://lh3.googleusercontent.com/d/1KC4JU96JmBgje9AKrsqW9mMUL_cyt7Oa')">
-            <img src="https://lh3.googleusercontent.com/d/1KC4JU96JmBgje9AKrsqW9mMUL_cyt7Oa" alt="Filtration system" loading="lazy" />
-            <div class="gallery-overlay"><span><i class="fa fa-expand"></i> <span data-i18n="gal-view">Ver instalación</span></span></div>
-          </div>
-          <div class="gallery-item reveal" onclick="openLightbox('https://lh3.googleusercontent.com/d/16TgLbsiflVOpJaOwrlTxpfZWofLVkmNI')">
-            <img src="https://lh3.googleusercontent.com/d/16TgLbsiflVOpJaOwrlTxpfZWofLVkmNI" alt="Reverse osmosis system" loading="lazy" />
-            <div class="gallery-overlay"><span><i class="fa fa-expand"></i> <span data-i18n="gal-view">Ver instalación</span></span></div>
-          </div>
-          <div class="gallery-item reveal" onclick="openLightbox('https://lh3.googleusercontent.com/d/11nedCzsLs4ciInnQ11bfEdWew3SvyA6V')">
-            <img src="https://lh3.googleusercontent.com/d/11nedCzsLs4ciInnQ11bfEdWew3SvyA6V" alt="Complete water system" loading="lazy" />
-            <div class="gallery-overlay"><span><i class="fa fa-expand"></i> <span data-i18n="gal-view">Ver instalación</span></span></div>
+        </div>
+        <!-- Well water panel (placeholder) -->
+        <div class="gallery-panel" id="gallery-well">
+          <div class="gallery-well-placeholder">
+            <div class="gallery-ph-item"><i class="fa fa-image"></i><span data-i18n="gal-ph">Fotos próximamente</span></div>
+            <div class="gallery-ph-item"><i class="fa fa-image"></i><span data-i18n="gal-ph">Fotos próximamente</span></div>
+            <div class="gallery-ph-item"><i class="fa fa-image"></i><span data-i18n="gal-ph">Fotos próximamente</span></div>
+            <div class="gallery-ph-item"><i class="fa fa-image"></i><span data-i18n="gal-ph">Fotos próximamente</span></div>
           </div>
         </div>
       </div>
@@ -846,6 +981,7 @@
                   <option value="Both" data-i18n-opt="opt-both">Ambos Sistemas</option>
                   <option value="Maintenance" data-i18n-opt="opt-maint">Mantenimiento</option>
                   <option value="Consultation" data-i18n-opt="opt-consult">Consulta gratuita</option>
+                  <option value="well" data-i18n-opt="opt-well">Agua de Pozo</option>
                 </select>
               </div>
               <div class="form-group">
@@ -937,6 +1073,7 @@
       es: {
         'splash-tagline': 'Tu agua · Tu salud · Nuestra prioridad',
         'nav-about': 'Nosotros', 'nav-services': 'Servicios', 'nav-process': 'Proceso',
+        'nav-well': 'Agua de Pozo',
         'nav-gallery': 'Instalaciones', 'nav-benefits': 'Beneficios', 'nav-contact': 'Contáctanos',
         'hero-badge': 'Made in USA · Garantía de por vida',
         'hero-title': 'Agua Pura y Limpia<br/>para Tu <span class="accent">Hogar</span>',
@@ -1006,11 +1143,34 @@
         'foot-svc':'Servicios','foot-proc':'Proceso de Filtración','foot-install':'Instalación Profesional',
         'foot-maint':'Mantenimiento','foot-comp':'Empresa','foot-quote':'Cotización Gratis',
         'foot-copy':'© 2025 PINA Water System. Todos los derechos reservados.',
-        'form-alert':'Por favor ingresa tu nombre y teléfono.'
+        'form-alert':'Por favor ingresa tu nombre y teléfono.',
+        'ww-tag':'Agua de Pozo','ww-title':'¿Problemas con tu <span>Agua de Pozo?</span>',
+        'ww-sub':'¡Tenemos la Solución!',
+        'ww-p1':'¿Olor a huevo podrido en tu agua?','ww-p2':'¿Manchas anaranjadas en lavabos y duchas?',
+        'ww-p3':'¿Agua dura dañando tus electrodomésticos?','ww-p4':'¿Agua de pozo sucia o insegura?',
+        'ww-proc-tag':'Proceso de Filtración','ww-proc-title':'Sistema de Tratamiento para Agua de Pozo',
+        'ww-proc-sub':'Cuatro etapas especializadas para eliminar hierro, azufre, dureza y bacterias del agua de tu pozo.',
+        'ww-s1-label':'Inyección Química','ww-s1-h':'Inyección Química / Oxidación',
+        'ww-s1-p':'El tanque pequeño al frente inyecta cloro o peróxido directamente en la línea principal del pozo antes de los filtros.',
+        'ww-s1-f1':'Elimina olor a huevo podrido (sulfuro)','ww-s1-f2':'Oxida hierro y manganeso','ww-s1-f3':'Desinfecta el agua del pozo',
+        'ww-s2-label':'Tanque de Contacto','ww-s2-h':'Tanque de Contacto / Retención',
+        'ww-s2-p':'El tanque grande permite que el químico reaccione correctamente con el agua antes de continuar el proceso.',
+        'ww-s2-f1':'Permite oxidación completa del hierro y azufre','ww-s2-f2':'Mejora la eliminación de olores y bacterias','ww-s2-f3':'Tratamiento inicial profundo del agua',
+        'ww-s3-label':'Filtro Especializado','ww-s3-h':'Filtro de Hierro y Azufre',
+        'ww-s3-p':'Tanque con medios especializados que captura partículas oxidadas y limpia visualmente el agua.',
+        'ww-s3-f1':'Remueve hierro y manganeso','ww-s3-f2':'Elimina azufre y sedimentos','ww-s3-f3':'Agua visualmente limpia y clara',
+        'ww-s4-h':'Water Softener (Suavizador)',
+        'ww-s4-p':'Elimina la dureza del agua mediante intercambio iónico. El brine tank almacena sal para regeneración automática.',
+        'ww-s4-f1':'Elimina calcio y magnesio (dureza)','ww-s4-f2':'Protege tuberías y electrodomésticos','ww-s4-f3':'Agua suave para piel, cabello y jabón',
+        'ww-result-title':'💧 Resultado Final',
+        'ww-r1':'Agua más limpia','ww-r2':'Sin malos olores','ww-r3':'Sin manchas de hierro','ww-r4':'Agua suave para toda la casa','ww-r5':'Protección para tuberías y appliances',
+        'gal-tab-city':'💧 Agua de Ciudad','gal-tab-well':'🌿 Agua de Pozo','gal-ph':'Fotos próximamente',
+        'opt-well':'Agua de Pozo'
       },
       en: {
         'splash-tagline': 'Your water · Your health · Our priority',
         'nav-about': 'About', 'nav-services': 'Services', 'nav-process': 'Process',
+        'nav-well': 'Well Water',
         'nav-gallery': 'Installations', 'nav-benefits': 'Benefits', 'nav-contact': 'Contact Us',
         'hero-badge': 'Made in USA · Lifetime Warranty',
         'hero-title': 'Pure & Clean Water<br/>for Your <span class="accent">Home</span>',
@@ -1080,7 +1240,29 @@
         'foot-svc':'Services','foot-proc':'Filtration Process','foot-install':'Professional Installation',
         'foot-maint':'Maintenance','foot-comp':'Company','foot-quote':'Free Quote',
         'foot-copy':'© 2025 PINA Water System. All rights reserved.',
-        'form-alert':'Please enter your name and phone number.'
+        'form-alert':'Please enter your name and phone number.',
+        'ww-tag':'Well Water','ww-title':'<span>Well Water</span> Problems?',
+        'ww-sub':'We Have the Solution!',
+        'ww-p1':'Bad smell in your water?','ww-p2':'Orange stains on sinks & showers?',
+        'ww-p3':'Hard water damaging appliances?','ww-p4':'Dirty or unsafe well water?',
+        'ww-proc-tag':'Filtration Process','ww-proc-title':'Well Water Treatment System',
+        'ww-proc-sub':'Four specialized stages to remove iron, sulfur, hardness and bacteria from your well water.',
+        'ww-s1-label':'Chemical Injection','ww-s1-h':'Chemical Injection / Oxidation',
+        'ww-s1-p':'The small front tank injects chlorine or hydrogen peroxide directly into the main well line before the filters.',
+        'ww-s1-f1':'Eliminates rotten egg smell (sulfur)','ww-s1-f2':'Oxidizes iron and manganese','ww-s1-f3':'Disinfects well water',
+        'ww-s2-label':'Contact Tank','ww-s2-h':'Contact / Retention Tank',
+        'ww-s2-p':'The large tank allows the chemical to properly react with the water before continuing treatment.',
+        'ww-s2-f1':'Allows complete iron and sulfur oxidation','ww-s2-f2':'Improves odor and bacteria removal','ww-s2-f3':'Deep initial water treatment',
+        'ww-s3-label':'Specialized Filter','ww-s3-h':'Iron & Sulfur Filter',
+        'ww-s3-p':'Tank with specialized media that captures oxidized particles and visually clears the water.',
+        'ww-s3-f1':'Removes iron and manganese','ww-s3-f2':'Eliminates sulfur and sediment','ww-s3-f3':'Visually clean and clear water',
+        'ww-s4-h':'Water Softener',
+        'ww-s4-p':'Removes water hardness through ion exchange. The brine tank stores salt for automatic regeneration.',
+        'ww-s4-f1':'Removes calcium and magnesium (hardness)','ww-s4-f2':'Protects pipes and appliances','ww-s4-f3':'Soft water for skin, hair and soap',
+        'ww-result-title':'💧 Final Result',
+        'ww-r1':'Cleaner water','ww-r2':'No bad odors','ww-r3':'No iron stains','ww-r4':'Soft water throughout the house','ww-r5':'Protection for pipes and appliances',
+        'gal-tab-city':'💧 City Water','gal-tab-well':'🌿 Well Water','gal-ph':'Photos coming soon',
+        'opt-well':'Well Water'
       }
     };
 
@@ -1161,6 +1343,13 @@
     document.getElementById('lightbox-close').addEventListener('click', closeLightbox);
     lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
     document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+
+    function switchGalleryTab(tab, btn) {
+      document.querySelectorAll('.gallery-panel').forEach(p => p.classList.remove('active'));
+      document.querySelectorAll('.gallery-tab').forEach(b => b.classList.remove('active'));
+      document.getElementById('gallery-' + tab).classList.add('active');
+      btn.classList.add('active');
+    }
 
     /* Form → WhatsApp */
     document.getElementById('contact-form').addEventListener('submit', e => {
