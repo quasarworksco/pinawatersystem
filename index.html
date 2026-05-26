@@ -154,11 +154,16 @@
     .services-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
     .service-card { border-radius: 20px; overflow: hidden; box-shadow: var(--shadow); transition: transform var(--transition), box-shadow var(--transition); }
     .service-card:hover { transform: translateY(-6px); box-shadow: 0 20px 60px rgba(0,0,0,.18); }
-    .service-card-top { background: linear-gradient(135deg, var(--black) 0%, #0d2137 100%); padding: 2.5rem; position: relative; overflow: hidden; }
-    .service-card-top::before { content: ''; position: absolute; width: 200px; height: 200px; background: rgba(0,180,216,.12); border-radius: 50%; right: -50px; top: -50px; }
-    .service-icon-big { width: 60px; height: 60px; background: linear-gradient(135deg, var(--blue), var(--blue-lt)); border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; color: white; margin-bottom: 1.2rem; position: relative; z-index: 1; }
-    .service-card-top h3 { color: var(--white); font-size: 1.4rem; font-weight: 800; position: relative; z-index: 1; }
-    .service-card-top p { color: rgba(255,255,255,.6); font-size: .9rem; line-height: 1.6; margin-top: .5rem; position: relative; z-index: 1; }
+    .service-card-top { display: flex; align-items: stretch; position: relative; overflow: hidden; min-height: 210px; }
+    .svc-top-content { flex: 1; background: linear-gradient(135deg, var(--black) 0%, #0d2137 100%); padding: 2.5rem; position: relative; z-index: 1; }
+    .svc-top-content::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to right, rgba(10,10,10,1) 60%, rgba(10,10,10,0) 100%); pointer-events: none; }
+    .svc-top-photo { width: 42%; flex-shrink: 0; position: relative; overflow: hidden; }
+    .svc-top-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center; filter: brightness(.85) saturate(1.1); transition: transform .6s ease; }
+    .service-card:hover .svc-top-photo img { transform: scale(1.06); }
+    .svc-top-photo::before { content: ''; position: absolute; inset: 0; background: linear-gradient(to right, rgba(10,10,10,.75) 0%, transparent 50%); z-index: 1; }
+    .service-icon-big { width: 56px; height: 56px; background: linear-gradient(135deg, var(--blue), var(--blue-lt)); border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 1.4rem; color: white; margin-bottom: 1.2rem; position: relative; z-index: 2; }
+    .service-card-top h3 { color: var(--white); font-size: 1.4rem; font-weight: 800; position: relative; z-index: 2; }
+    .service-card-top p { color: rgba(255,255,255,.6); font-size: .9rem; line-height: 1.6; margin-top: .5rem; position: relative; z-index: 2; }
     .service-card-body { background: var(--white); padding: 2rem 2.5rem; }
     .service-features { list-style: none; display: flex; flex-direction: column; gap: .7rem; }
     .service-features li { display: flex; align-items: center; gap: .65rem; font-size: .92rem; color: var(--text); }
@@ -343,17 +348,23 @@
     /* RESPONSIVE */
 
     /* Tablet landscape / small desktop */
+    @media (max-width: 1280px) {
+      .nav-desktop { gap: 1.1rem; }
+      .nav-desktop a { font-size: .78rem; }
+    }
     @media (max-width: 1100px) {
-      .nav-desktop { gap: 1.2rem; }
-      .nav-desktop a { font-size: .79rem; }
-      .logo-text { font-size: 1rem; }
+      .nav-desktop { gap: .75rem; }
+      .nav-desktop a { font-size: .73rem; letter-spacing: .01em; }
+      .logo-text { font-size: .95rem; }
+      .header-right { gap: .9rem; }
     }
 
     /* Collapse nav to hamburger */
-    @media (max-width: 960px) {
+    @media (max-width: 1024px) {
       .nav-desktop { display: none; }
       .hamburger { display: flex; }
       #hero { padding-top: 84px; }
+      .svc-top-photo { width: 38%; }
       .hero-grid { grid-template-columns: 1fr; text-align: center; padding: 3rem 0; }
       .hero-desc { margin: 0 auto 2rem; }
       .hero-actions { justify-content: center; }
@@ -406,7 +417,8 @@
       #about, #services, #process, #gallery, #benefits, #contact { padding: 4rem 0; }
       .section-title { font-size: clamp(1.5rem, 5vw, 2rem); }
       .services-grid { grid-template-columns: 1fr; }
-      .service-card-top { padding: 1.8rem; }
+      .svc-top-content { padding: 1.8rem; }
+      .svc-top-photo { display: none; }
       .service-card-body { padding: 1.5rem; }
       .process-grid { grid-template-columns: 1fr; }
       .process-footer { flex-direction: column; text-align: center; gap: 1rem; padding: 1.5rem; }
@@ -607,9 +619,14 @@
         <div class="services-grid">
           <div class="service-card reveal">
             <div class="service-card-top">
-              <div class="service-icon-big"><i class="fa fa-droplet"></i></div>
-              <h3>Water Softener</h3>
-              <p data-i18n="ws-desc">Sistema de suavización para toda la casa. Elimina la dureza del agua y protege tus instalaciones.</p>
+              <div class="svc-top-content">
+                <div class="service-icon-big"><i class="fa fa-droplet"></i></div>
+                <h3>Water Softener</h3>
+                <p data-i18n="ws-desc">Sistema de suavización para toda la casa. Elimina la dureza del agua y protege tus instalaciones.</p>
+              </div>
+              <div class="svc-top-photo">
+                <img src="https://lh3.googleusercontent.com/d/1XbxxV1xljkvrSZ_kK7Nb9L4XekX8aPXE" alt="Water Softener installation" loading="lazy" onerror="this.parentElement.style.display='none'" />
+              </div>
             </div>
             <div class="service-card-body">
               <ul class="service-features">
@@ -632,10 +649,15 @@
             </div>
           </div>
           <div class="service-card reveal">
-            <div class="service-card-top" style="background:linear-gradient(135deg,#001f3f 0%,#003366 100%);">
-              <div class="service-icon-big"><i class="fa fa-filter"></i></div>
-              <h3>Reverse Osmosis</h3>
-              <p data-i18n="ro-desc">Sistema de ósmosis inversa multietapa para agua alcalina, cristalina y libre de contaminantes.</p>
+            <div class="service-card-top">
+              <div class="svc-top-content" style="background:linear-gradient(135deg,#001f3f 0%,#003366 100%);">
+                <div class="service-icon-big"><i class="fa fa-filter"></i></div>
+                <h3>Reverse Osmosis</h3>
+                <p data-i18n="ro-desc">Sistema de ósmosis inversa multietapa para agua alcalina, cristalina y libre de contaminantes.</p>
+              </div>
+              <div class="svc-top-photo">
+                <img src="https://lh3.googleusercontent.com/d/1ffHEe96kw4YekrwUpsLk55HesoIYGl8h" alt="Reverse Osmosis system" loading="lazy" onerror="this.parentElement.style.display='none'" />
+              </div>
             </div>
             <div class="service-card-body">
               <ul class="service-features">
