@@ -285,6 +285,61 @@
     .reveal { opacity: 0; transform: translateY(30px); transition: opacity .7s ease, transform .7s ease; }
     .reveal.visible { opacity: 1; transform: translateY(0); }
 
+    /* WELL WATER */
+    #well-water { padding: 6rem 0; background: linear-gradient(135deg, #0a1628 0%, #0d2137 50%, #071020 100%); position: relative; overflow: hidden; }
+    .ww-banner { background: linear-gradient(135deg, rgba(255,100,0,.13), rgba(255,160,0,.08)); border: 1px solid rgba(255,140,0,.35); border-radius: 20px; padding: 3rem; text-align: center; margin-bottom: 4rem; position: relative; }
+    .ww-banner-tag { display: inline-block; background: rgba(255,140,0,.15); color: #ffa500; font-family: 'Montserrat',sans-serif; font-weight: 700; font-size: .72rem; letter-spacing: .12em; text-transform: uppercase; padding: .35rem .9rem; border-radius: 50px; margin-bottom: 1rem; border: 1px solid rgba(255,140,0,.3); }
+    .ww-banner-title { font-family: 'Montserrat',sans-serif; font-weight: 900; font-size: clamp(1.8rem,4vw,2.8rem); color: #fff; line-height: 1.15; margin-bottom: .6rem; }
+    .ww-banner-title span { color: #ffa500; }
+    .ww-banner-sub { font-size: 1.25rem; color: var(--blue-lt); font-weight: 700; margin-bottom: 2rem; }
+    .ww-problems { display: grid; grid-template-columns: repeat(4,1fr); gap: 1rem; }
+    .ww-problem { background: rgba(255,255,255,.04); border: 1px solid rgba(255,140,0,.18); border-radius: 14px; padding: 1.5rem 1rem; text-align: center; transition: var(--transition); }
+    .ww-problem:hover { background: rgba(255,255,255,.07); border-color: rgba(255,140,0,.35); transform: translateY(-3px); }
+    .ww-problem-icon { font-size: 2rem; margin-bottom: .75rem; }
+    .ww-problem p { color: rgba(255,255,255,.75); font-size: .92rem; line-height: 1.5; }
+    .ww-process-header { text-align: center; margin-bottom: 3rem; margin-top: 2rem; }
+    .ww-process-header .section-title { color: #fff; }
+    .ww-process-header .section-sub { color: rgba(255,255,255,.5); margin: 0 auto; }
+    .ww-process-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+    .ww-step { background: rgba(255,255,255,.04); border: 1px solid rgba(0,180,216,.2); border-radius: 16px; padding: 2rem; position: relative; transition: var(--transition); }
+    .ww-step:hover { background: rgba(255,255,255,.07); border-color: rgba(0,180,216,.4); transform: translateY(-3px); }
+    .ww-step-num { position: absolute; top: 1.2rem; right: 1.2rem; width: 34px; height: 34px; background: linear-gradient(135deg,var(--blue),var(--blue-lt)); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'Montserrat',sans-serif; font-weight: 900; font-size: .9rem; color: #fff; }
+    .ww-step-icon { width: 52px; height: 52px; background: rgba(0,180,216,.12); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem; font-size: 1.4rem; color: var(--blue-lt); }
+    .ww-step-label { color: var(--blue-lt); font-size: .75rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; margin-bottom: .5rem; }
+    .ww-step h4 { color: #fff; font-size: 1.1rem; margin-bottom: .5rem; }
+    .ww-step > p { color: rgba(255,255,255,.65); font-size: .92rem; line-height: 1.6; }
+    .ww-step ul { list-style: none; margin-top: .85rem; display: flex; flex-direction: column; gap: .45rem; }
+    .ww-step ul li { color: rgba(255,255,255,.7); font-size: .88rem; display: flex; align-items: flex-start; gap: .5rem; line-height: 1.4; }
+    .ww-step ul li i { color: var(--blue-lt); flex-shrink: 0; margin-top: 2px; font-size: .85rem; }
+    .ww-results { margin-top: 3rem; background: rgba(0,180,216,.07); border: 1px solid rgba(0,180,216,.2); border-radius: 20px; padding: 2.5rem 3rem; }
+    .ww-results-title { color: #fff; font-family: 'Montserrat',sans-serif; font-weight: 700; font-size: 1.15rem; margin-bottom: 1.5rem; text-align: center; }
+    .ww-results-grid { display: grid; grid-template-columns: repeat(5,1fr); gap: 1rem; text-align: center; }
+    .ww-result-item .drop-icon { font-size: 1.6rem; margin-bottom: .5rem; }
+    .ww-result-item span { color: rgba(255,255,255,.75); font-size: .88rem; line-height: 1.4; display: block; }
+
+    /* GALLERY TABS */
+    .gallery-tabs { display: flex; gap: .5rem; justify-content: center; margin-bottom: 2.5rem; flex-wrap: wrap; }
+    .gallery-tab { padding: .65rem 2rem; border-radius: 50px; font-family: 'Montserrat',sans-serif; font-weight: 700; font-size: .85rem; cursor: pointer; border: 2px solid rgba(0,119,182,.3); color: var(--gray-mid); background: transparent; transition: var(--transition); }
+    .gallery-tab.active { background: linear-gradient(135deg,var(--blue),var(--blue-lt)); color: #fff; border-color: transparent; box-shadow: 0 4px 16px rgba(0,119,182,.35); }
+    .gallery-panel { display: none; }
+    .gallery-panel.active { display: block; }
+    .gallery-well-placeholder { display: grid; grid-template-columns: repeat(4,1fr); gap: 1rem; }
+    .gallery-ph-item { border-radius: var(--radius); background: linear-gradient(135deg,#e8f4f8,#d4ecf5); min-height: 220px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: .75rem; border: 2px dashed rgba(0,119,182,.3); color: var(--blue-mid); }
+    .gallery-ph-item i { font-size: 2.2rem; opacity: .4; }
+    .gallery-ph-item span { font-family: 'Montserrat',sans-serif; font-weight: 700; font-size: .82rem; opacity: .55; text-align: center; padding: 0 1rem; }
+
+    /* WATER ANIMATIONS */
+    .bubbles-wrap { position: absolute; inset: 0; overflow: hidden; pointer-events: none; z-index: 0; }
+    .bubble { position: absolute; border-radius: 50%; background: rgba(0,180,216,.1); border: 1px solid rgba(0,180,216,.25); animation: floatUp linear infinite; }
+    @keyframes floatUp {
+      0%   { bottom: -60px; opacity: 0; transform: translateX(0); }
+      15%  { opacity: .8; }
+      85%  { opacity: .4; }
+      100% { bottom: 105%; opacity: 0; transform: translateX(25px); }
+    }
+    .wave-divider { line-height: 0; overflow: hidden; }
+    .wave-divider svg { display: block; width: 100%; }
+
     /* RESPONSIVE */
 
     /* Tablet landscape / small desktop */
@@ -415,6 +470,7 @@
               <li><a href="#about"    data-i18n="nav-about">Nosotros</a></li>
               <li><a href="#services" data-i18n="nav-services">Servicios</a></li>
               <li><a href="#process"  data-i18n="nav-process">Proceso</a></li>
+              <li><a href="#well-water" data-i18n="nav-well">Agua de Pozo</a></li>
               <li><a href="#gallery"  data-i18n="nav-gallery">Instalaciones</a></li>
               <li><a href="#benefits" data-i18n="nav-benefits">Beneficios</a></li>
               <li><a href="#contact"  class="nav-cta" data-i18n="nav-contact">Contáctanos</a></li>
@@ -437,6 +493,7 @@
     <a href="#about"    class="nav-m-link" data-i18n="nav-about">Nosotros</a>
     <a href="#services" class="nav-m-link" data-i18n="nav-services">Servicios</a>
     <a href="#process"  class="nav-m-link" data-i18n="nav-process">Proceso</a>
+    <a href="#well-water" class="nav-m-link" data-i18n="nav-well">Agua de Pozo</a>
     <a href="#gallery"  class="nav-m-link" data-i18n="nav-gallery">Instalaciones</a>
     <a href="#benefits" class="nav-m-link" data-i18n="nav-benefits">Beneficios</a>
     <a href="#contact"  class="nav-m-link nav-cta-m" data-i18n="nav-contact">Contáctanos</a>
@@ -446,7 +503,15 @@
 
     <!-- HERO -->
     <section id="hero">
-      <div class="hero-particles"></div>
+      <div class="bubbles-wrap">
+        <div class="bubble" style="width:18px;height:18px;left:8%;animation-duration:9s;animation-delay:0s"></div>
+        <div class="bubble" style="width:10px;height:10px;left:22%;animation-duration:13s;animation-delay:2s"></div>
+        <div class="bubble" style="width:24px;height:24px;left:38%;animation-duration:11s;animation-delay:1s"></div>
+        <div class="bubble" style="width:14px;height:14px;left:55%;animation-duration:8s;animation-delay:3.5s"></div>
+        <div class="bubble" style="width:20px;height:20px;left:70%;animation-duration:10s;animation-delay:0.5s"></div>
+        <div class="bubble" style="width:8px;height:8px;left:85%;animation-duration:14s;animation-delay:4s"></div>
+        <div class="bubble" style="width:16px;height:16px;left:93%;animation-duration:12s;animation-delay:1.5s"></div>
+      </div>
       <div class="container">
         <div class="hero-grid">
           <div class="hero-content">
