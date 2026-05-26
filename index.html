@@ -143,6 +143,24 @@
     .certif-row { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1.5rem; }
     .certif-badge { display: flex; align-items: center; gap: .5rem; background: var(--white); border: 1px solid rgba(0,119,182,.15); border-radius: 8px; padding: .6rem 1rem; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: .8rem; color: var(--blue); }
     .certif-badge i { color: var(--blue-lt); }
+    /* TRUST BADGES */
+    .trust-badges { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1.2rem; }
+    .trust-badge { display: flex; align-items: center; gap: .75rem; background: var(--white); border: 1px solid rgba(0,0,0,.08); border-radius: 10px; padding: .65rem 1.1rem; box-shadow: 0 2px 8px rgba(0,0,0,.06); transition: var(--transition); }
+    .trust-badge:hover { box-shadow: 0 4px 16px rgba(0,0,0,.1); transform: translateY(-1px); }
+    .tb-logo { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 1rem; line-height: 1; }
+    .tb-logo.wqa { color: #1a6eb5; background: #e8f2fb; border-radius: 6px; padding: .25rem .5rem; font-size: .85rem; letter-spacing: .04em; }
+    .tb-logo.bbb { color: #003f87; background: #e8edf8; border-radius: 6px; padding: .25rem .5rem; font-size: .85rem; }
+    .tb-logo.goog { display: flex; gap: 1px; font-size: .9rem; }
+    .tb-logo.goog span:nth-child(1){color:#4285F4}
+    .tb-logo.goog span:nth-child(2){color:#EA4335}
+    .tb-logo.goog span:nth-child(3){color:#FBBC05}
+    .tb-logo.goog span:nth-child(4){color:#4285F4}
+    .tb-logo.goog span:nth-child(5){color:#34A853}
+    .tb-logo.goog span:nth-child(6){color:#EA4335}
+    .tb-text { display: flex; flex-direction: column; line-height: 1.2; }
+    .tb-text strong { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: .78rem; color: var(--text); }
+    .tb-text small { font-size: .68rem; color: var(--gray-mid); }
+    .tb-stars { color: #f5a623; font-size: .8rem; letter-spacing: 1px; }
     .check-list { list-style: none; display: flex; flex-direction: column; gap: .75rem; margin-top: 1.5rem; }
     .check-list li { display: flex; align-items: flex-start; gap: .75rem; font-size: .95rem; line-height: 1.5; }
     .check-list li i { color: var(--blue); margin-top: 2px; flex-shrink: 0; }
@@ -347,22 +365,26 @@
 
     /* RESPONSIVE */
 
-    /* Tablet landscape / small desktop */
-    @media (max-width: 1280px) {
+    /* Large desktop — gentle compression */
+    @media (max-width: 1400px) {
       .nav-desktop { gap: 1.1rem; }
-      .nav-desktop a { font-size: .78rem; }
+      .nav-desktop a { font-size: .79rem; }
     }
-    @media (max-width: 1100px) {
-      .nav-desktop { gap: .75rem; }
-      .nav-desktop a { font-size: .73rem; letter-spacing: .01em; }
-      .logo-text { font-size: .95rem; }
-      .header-right { gap: .9rem; }
+    @media (max-width: 1300px) {
+      .nav-desktop { gap: .85rem; }
+      .nav-desktop a { font-size: .75rem; letter-spacing: .01em; }
+      .logo-text { font-size: 1rem; }
+      .header-right { gap: 1rem; }
     }
 
-    /* Collapse nav to hamburger */
-    @media (max-width: 1024px) {
+    /* Collapse nav to hamburger — 7 items need 1260px+ */
+    @media (max-width: 1260px) {
       .nav-desktop { display: none; }
       .hamburger { display: flex; }
+    }
+
+    /* Tablet / small laptop layout adjustments */
+    @media (max-width: 1024px) {
       #hero { padding-top: 84px; }
       .svc-top-photo { width: 38%; }
       .hero-grid { grid-template-columns: 1fr; text-align: center; padding: 3rem 0; }
@@ -599,6 +621,23 @@
               <div class="certif-badge"><i class="fa fa-certificate"></i> NSF/ANSI 61</div>
               <div class="certif-badge"><i class="fa fa-certificate"></i> NSF/ANSI 372</div>
               <div class="certif-badge"><i class="fa fa-shield-halved"></i> BBB A+</div>
+            </div>
+            <div class="trust-badges">
+              <div class="trust-badge">
+                <div class="tb-logo wqa">WQA</div>
+                <div class="tb-text"><strong>WQA Member</strong><small>Water Quality Association</small></div>
+              </div>
+              <div class="trust-badge">
+                <div class="tb-logo bbb">BBB</div>
+                <div class="tb-text"><strong>BBB Accredited</strong><small>Accredited Business</small></div>
+              </div>
+              <div class="trust-badge">
+                <div class="tb-logo goog"><span>G</span><span>o</span><span>o</span><span>g</span><span>l</span><span>e</span></div>
+                <div class="tb-text">
+                  <div class="tb-stars">★★★★★</div>
+                  <small>5.0 Google Reviews</small>
+                </div>
+              </div>
             </div>
             <div style="margin-top:2rem;">
               <a href="tel:7863424247" class="btn btn-primary"><i class="fa fa-phone"></i> 786-342-4247</a>
