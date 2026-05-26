@@ -170,20 +170,17 @@
     #services { padding: 6rem 0; background: var(--white); }
     .services-header { text-align: center; margin-bottom: 3.5rem; }
     .services-header .section-sub { margin: 0 auto; }
-    .services-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
-    .service-card { border-radius: 20px; overflow: hidden; box-shadow: var(--shadow); transition: transform var(--transition), box-shadow var(--transition); }
-    .service-card:hover { transform: translateY(-6px); box-shadow: 0 20px 60px rgba(0,0,0,.18); }
-    .service-card-top { display: flex; align-items: stretch; position: relative; overflow: hidden; min-height: 210px; }
-    .svc-top-content { flex: 1; background: linear-gradient(135deg, var(--black) 0%, #0d2137 100%); padding: 2.5rem; position: relative; z-index: 1; }
-    .svc-top-content::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to right, rgba(10,10,10,1) 60%, rgba(10,10,10,0) 100%); pointer-events: none; }
-    .svc-top-photo { width: 42%; flex-shrink: 0; position: relative; overflow: hidden; }
-    .svc-top-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center; filter: brightness(.85) saturate(1.1); transition: transform .6s ease; }
-    .service-card:hover .svc-top-photo img { transform: scale(1.06); }
-    .svc-top-photo::before { content: ''; position: absolute; inset: 0; background: linear-gradient(to right, rgba(10,10,10,.75) 0%, transparent 50%); z-index: 1; }
-    .service-icon-big { width: 56px; height: 56px; background: linear-gradient(135deg, var(--blue), var(--blue-lt)); border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 1.4rem; color: white; margin-bottom: 1.2rem; position: relative; z-index: 2; }
-    .service-card-top h3 { color: var(--white); font-size: 1.4rem; font-weight: 800; position: relative; z-index: 2; }
-    .service-card-top p { color: rgba(255,255,255,.6); font-size: .9rem; line-height: 1.6; margin-top: .5rem; position: relative; z-index: 2; }
-    .service-card-body { background: var(--white); padding: 2rem 2.5rem; }
+    .services-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 2rem; }
+    .service-card { border-radius: 20px; box-shadow: var(--shadow); transition: transform var(--transition), box-shadow var(--transition); overflow: visible; }
+    .service-card:hover { transform: translateY(-6px); box-shadow: 0 20px 60px rgba(0,0,0,.22); }
+    .service-card-top { border-radius: 20px 20px 0 0; background: linear-gradient(135deg, var(--black) 0%, #0d2137 100%); padding: 2rem 2rem 3.5rem; position: relative; overflow: visible; min-height: 190px; }
+    .svc-top-content { position: relative; z-index: 2; max-width: 65%; }
+    .service-icon-big { width: 52px; height: 52px; background: linear-gradient(135deg, var(--blue), var(--blue-lt)); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; color: white; margin-bottom: 1rem; }
+    .service-card-top h3 { color: var(--white); font-size: 1.3rem; font-weight: 800; }
+    .service-card-top p { color: rgba(255,255,255,.6); font-size: .88rem; line-height: 1.6; margin-top: .4rem; }
+    .svc-product-img { position: absolute; right: 1rem; bottom: -45px; height: 185px; width: auto; filter: drop-shadow(-8px 12px 22px rgba(0,0,0,.75)); transform: perspective(600px) rotateY(-12deg) rotateX(4deg) rotate(-2deg); transition: transform .5s ease, filter .5s ease; z-index: 5; pointer-events: none; }
+    .service-card:hover .svc-product-img { transform: perspective(600px) rotateY(-7deg) rotateX(2deg) rotate(-1deg) translateY(-10px); filter: drop-shadow(-12px 18px 30px rgba(0,0,0,.85)); }
+    .service-card-body { background: var(--white); padding: 2rem 2rem 2rem; border-radius: 0 0 20px 20px; padding-top: 3rem; }
     .service-features { list-style: none; display: flex; flex-direction: column; gap: .7rem; }
     .service-features li { display: flex; align-items: center; gap: .65rem; font-size: .92rem; color: var(--text); }
     .service-features li i { width: 20px; color: var(--blue); flex-shrink: 0; }
@@ -319,7 +316,7 @@
     .ww-problems { display: grid; grid-template-columns: repeat(4,1fr); gap: 1rem; }
     .ww-problem { background: rgba(255,255,255,.04); border: 1px solid rgba(255,140,0,.18); border-radius: 14px; padding: 1.5rem 1rem; text-align: center; transition: var(--transition); }
     .ww-problem:hover { background: rgba(255,255,255,.07); border-color: rgba(255,140,0,.35); transform: translateY(-3px); }
-    .ww-problem-icon { font-size: 2rem; margin-bottom: .75rem; }
+    .ww-problem-icon { font-size: 1.8rem; margin-bottom: .75rem; color: var(--blue-lt); }
     .ww-problem p { color: rgba(255,255,255,.75); font-size: .92rem; line-height: 1.5; }
     .ww-process-header { text-align: center; margin-bottom: 3rem; margin-top: 2rem; }
     .ww-process-header .section-title { color: #fff; }
@@ -648,9 +645,10 @@
         <div class="services-header reveal">
           <span class="section-tag" data-i18n="svc-tag">Nuestros Servicios</span>
           <h2 class="section-title" data-i18n="svc-title">Soluciones Completas de<br/>Tratamiento de Agua</h2>
-          <p class="section-sub" data-i18n="svc-sub">Dos sistemas complementarios para garantizar agua pura, suave y libre de contaminantes en todo tu hogar.</p>
+          <p class="section-sub" data-i18n="svc-sub">Tres sistemas especializados para agua de ciudad y agua de pozo — purificación profesional para cada necesidad.</p>
         </div>
         <div class="services-grid">
+          <!-- Water Softener -->
           <div class="service-card reveal">
             <div class="service-card-top">
               <div class="svc-top-content">
@@ -658,9 +656,7 @@
                 <h3>Water Softener</h3>
                 <p data-i18n="ws-desc">Sistema de suavización para toda la casa. Elimina la dureza del agua y protege tus instalaciones.</p>
               </div>
-              <div class="svc-top-photo">
-                <img src="https://lh3.googleusercontent.com/d/1XbxxV1xljkvrSZ_kK7Nb9L4XekX8aPXE" alt="Water Softener installation" loading="lazy" onerror="this.parentElement.style.display='none'" />
-              </div>
+              <img class="svc-product-img" src="https://lh3.googleusercontent.com/d/1XbxxV1xljkvrSZ_kK7Nb9L4XekX8aPXE" alt="Water Softener" loading="lazy" onerror="this.style.display='none'" />
             </div>
             <div class="service-card-body">
               <ul class="service-features">
@@ -673,25 +669,21 @@
                 <li><i class="fa fa-check-circle"></i><span data-i18n="ws-f7">3 modos de operación programables</span></li>
               </ul>
               <div class="service-tags">
-                <span class="service-tag" data-i18n="ws-t1">Grava</span>
-                <span class="service-tag">Garnet</span>
-                <span class="service-tag" data-i18n="ws-t3">Resina Catiónica</span>
-                <span class="service-tag" data-i18n="ws-t4">Resina Aniónica</span>
-                <span class="service-tag" data-i18n="ws-t5">Carbón Activado</span>
-                <span class="service-tag">KDF</span>
+                <span class="service-tag" data-i18n="ws-t1">Grava</span><span class="service-tag">Garnet</span>
+                <span class="service-tag" data-i18n="ws-t3">Resina Catiónica</span><span class="service-tag" data-i18n="ws-t4">Resina Aniónica</span>
+                <span class="service-tag" data-i18n="ws-t5">Carbón Activado</span><span class="service-tag">KDF</span>
               </div>
             </div>
           </div>
+          <!-- Reverse Osmosis -->
           <div class="service-card reveal">
-            <div class="service-card-top">
-              <div class="svc-top-content" style="background:linear-gradient(135deg,#001f3f 0%,#003366 100%);">
+            <div class="service-card-top" style="background:linear-gradient(135deg,#001f3f 0%,#003366 100%);">
+              <div class="svc-top-content">
                 <div class="service-icon-big"><i class="fa fa-filter"></i></div>
                 <h3>Reverse Osmosis</h3>
                 <p data-i18n="ro-desc">Sistema de ósmosis inversa multietapa para agua alcalina, cristalina y libre de contaminantes.</p>
               </div>
-              <div class="svc-top-photo">
-                <img src="https://lh3.googleusercontent.com/d/1ffHEe96kw4YekrwUpsLk55HesoIYGl8h" alt="Reverse Osmosis system" loading="lazy" onerror="this.parentElement.style.display='none'" />
-              </div>
+              <img class="svc-product-img" src="https://lh3.googleusercontent.com/d/1ffHEe96kw4YekrwUpsLk55HesoIYGl8h" alt="Reverse Osmosis" loading="lazy" onerror="this.style.display='none'" />
             </div>
             <div class="service-card-body">
               <ul class="service-features">
@@ -707,6 +699,33 @@
                 <span class="service-tag">SED</span><span class="service-tag">GAC</span>
                 <span class="service-tag">CB</span><span class="service-tag">ROM</span>
                 <span class="service-tag">ALK</span><span class="service-tag">PAC</span>
+              </div>
+            </div>
+          </div>
+          <!-- Well Water -->
+          <div class="service-card reveal">
+            <div class="service-card-top" style="background:linear-gradient(135deg,#071a10 0%,#0a2e18 100%);">
+              <div class="svc-top-content">
+                <div class="service-icon-big" style="background:linear-gradient(135deg,#1a6b3a,#2ecc71);"><i class="fa fa-water"></i></div>
+                <h3 data-i18n="ww-svc-title">Well Water</h3>
+                <p data-i18n="ww-svc-desc">Sistema completo para tratar agua de pozo. Elimina hierro, azufre, dureza y bacterias.</p>
+              </div>
+              <img class="svc-product-img" src="https://lh3.googleusercontent.com/d/1DqKbHVM-42mGO0CHWZYaPaGSVcv_JtrU" alt="Well Water system" loading="lazy" onerror="this.style.display='none'" />
+            </div>
+            <div class="service-card-body">
+              <ul class="service-features">
+                <li><i class="fa fa-check-circle"></i><span data-i18n="ww-f1">Elimina olor a huevo podrido (sulfuro)</span></li>
+                <li><i class="fa fa-check-circle"></i><span data-i18n="ww-f2">Remueve hierro y manganeso</span></li>
+                <li><i class="fa fa-check-circle"></i><span data-i18n="ww-f3">Elimina dureza del agua (calcio y magnesio)</span></li>
+                <li><i class="fa fa-check-circle"></i><span data-i18n="ww-f4">Filtra sedimentos y partículas</span></li>
+                <li><i class="fa fa-check-circle"></i><span data-i18n="ww-f5">Sistema de inyección química incluido</span></li>
+                <li><i class="fa fa-check-circle"></i><span data-i18n="ww-f6">Tanque de contacto de alto rendimiento</span></li>
+                <li><i class="fa fa-check-circle"></i><span data-i18n="ww-f7">Garantía de por vida del fabricante</span></li>
+              </ul>
+              <div class="service-tags">
+                <span class="service-tag">Iron</span><span class="service-tag">Sulfur</span>
+                <span class="service-tag">Sediment</span><span class="service-tag">Softener</span>
+                <span class="service-tag">Chemical</span>
               </div>
             </div>
           </div>
@@ -793,19 +812,19 @@
           <p class="ww-banner-sub" data-i18n="ww-sub">¡Tenemos la Solución!</p>
           <div class="ww-problems">
             <div class="ww-problem reveal">
-              <div class="ww-problem-icon">💧</div>
+              <div class="ww-problem-icon"><i class="fa fa-smog"></i></div>
               <p data-i18n="ww-p1">¿Olor a huevo podrido en tu agua?</p>
             </div>
             <div class="ww-problem reveal">
-              <div class="ww-problem-icon">🟠</div>
+              <div class="ww-problem-icon"><i class="fa fa-circle-exclamation" style="color:#f97316"></i></div>
               <p data-i18n="ww-p2">¿Manchas anaranjadas en lavabos y duchas?</p>
             </div>
             <div class="ww-problem reveal">
-              <div class="ww-problem-icon">🔧</div>
+              <div class="ww-problem-icon"><i class="fa fa-wrench"></i></div>
               <p data-i18n="ww-p3">¿Agua dura dañando tus electrodomésticos?</p>
             </div>
             <div class="ww-problem reveal">
-              <div class="ww-problem-icon">⚠️</div>
+              <div class="ww-problem-icon"><i class="fa fa-triangle-exclamation" style="color:#facc15"></i></div>
               <p data-i18n="ww-p4">¿Agua de pozo sucia o insegura?</p>
             </div>
           </div>
@@ -870,13 +889,13 @@
 
         <!-- Results -->
         <div class="ww-results reveal">
-          <div class="ww-results-title" data-i18n="ww-result-title">💧 Resultado Final</div>
+          <div class="ww-results-title" data-i18n="ww-result-title">Resultado Final</div>
           <div class="ww-results-grid">
-            <div class="ww-result-item"><div class="drop-icon">💧</div><span data-i18n="ww-r1">Agua más limpia</span></div>
-            <div class="ww-result-item"><div class="drop-icon">✅</div><span data-i18n="ww-r2">Sin malos olores</span></div>
-            <div class="ww-result-item"><div class="drop-icon">🟠</div><span data-i18n="ww-r3">Sin manchas de hierro</span></div>
-            <div class="ww-result-item"><div class="drop-icon">🏠</div><span data-i18n="ww-r4">Agua suave para toda la casa</span></div>
-            <div class="ww-result-item"><div class="drop-icon">🔧</div><span data-i18n="ww-r5">Protección para tuberías y appliances</span></div>
+            <div class="ww-result-item"><div class="drop-icon"><i class="fa fa-droplet" style="color:#00b4d8"></i></div><span data-i18n="ww-r1">Agua más limpia</span></div>
+            <div class="ww-result-item"><div class="drop-icon"><i class="fa fa-wind" style="color:#6ee7f7"></i></div><span data-i18n="ww-r2">Sin malos olores</span></div>
+            <div class="ww-result-item"><div class="drop-icon"><i class="fa fa-ban" style="color:#f97316"></i></div><span data-i18n="ww-r3">Sin manchas de hierro</span></div>
+            <div class="ww-result-item"><div class="drop-icon"><i class="fa fa-house" style="color:#60a5fa"></i></div><span data-i18n="ww-r4">Agua suave para toda la casa</span></div>
+            <div class="ww-result-item"><div class="drop-icon"><i class="fa fa-shield-halved" style="color:#4ade80"></i></div><span data-i18n="ww-r5">Protección para tuberías</span></div>
           </div>
         </div>
       </div>
@@ -891,8 +910,8 @@
           <p class="section-sub" style="margin:0 auto;" data-i18n="gal-sub">Cada instalación es realizada por técnicos certificados con los más altos estándares de calidad y precisión.</p>
         </div>
         <div class="gallery-tabs">
-          <button class="gallery-tab active" onclick="switchGalleryTab('city', this)" data-i18n="gal-tab-city">💧 Agua de Ciudad</button>
-          <button class="gallery-tab" onclick="switchGalleryTab('well', this)" data-i18n="gal-tab-well">🌿 Agua de Pozo</button>
+          <button class="gallery-tab active" onclick="switchGalleryTab('city', this)" data-i18n="gal-tab-city"><i class="fa fa-city"></i> Agua de Ciudad</button>
+          <button class="gallery-tab" onclick="switchGalleryTab('well', this)" data-i18n="gal-tab-well"><i class="fa fa-water"></i> Agua de Pozo</button>
         </div>
         <!-- City water panel -->
         <div class="gallery-panel active" id="gallery-city">
@@ -1151,7 +1170,12 @@
         'about-li7': 'Compatible con tanques hasta 21" de diámetro',
         'svc-tag': 'Nuestros Servicios',
         'svc-title': 'Soluciones Completas de<br/>Tratamiento de Agua',
-        'svc-sub': 'Dos sistemas complementarios para garantizar agua pura, suave y libre de contaminantes en todo tu hogar.',
+        'svc-sub': 'Tres sistemas especializados para agua de ciudad y agua de pozo — purificación profesional para cada necesidad.',
+        'ww-svc-title':'Well Water','ww-svc-desc':'Sistema completo para tratar agua de pozo. Elimina hierro, azufre, dureza y bacterias.',
+        'ww-f1':'Elimina olor a huevo podrido (sulfuro)','ww-f2':'Remueve hierro y manganeso',
+        'ww-f3':'Elimina dureza del agua (calcio y magnesio)','ww-f4':'Filtra sedimentos y partículas',
+        'ww-f5':'Sistema de inyección química incluido','ww-f6':'Tanque de contacto de alto rendimiento',
+        'ww-f7':'Garantía de por vida del fabricante',
         'ws-desc': 'Sistema de suavización para toda la casa. Elimina la dureza del agua y protege tus instalaciones.',
         'ws-f1':'Elimina incrustaciones de sarro y cal','ws-f2':'Protege tuberías y electrodomésticos',
         'ws-f3':'Agua más suave para piel y cabello','ws-f4':'Panel de control digital microprocesado',
@@ -1248,7 +1272,12 @@
         'about-li7': 'Compatible with tanks up to 21" diameter',
         'svc-tag': 'Our Services',
         'svc-title': 'Complete Water Treatment<br/>Solutions',
-        'svc-sub': 'Two complementary systems to guarantee pure, soft, and contaminant-free water throughout your home.',
+        'svc-sub': 'Three specialized systems for city and well water — professional purification for every need.',
+        'ww-svc-title':'Well Water','ww-svc-desc':'Complete system to treat well water. Removes iron, sulfur, hardness and bacteria.',
+        'ww-f1':'Eliminates rotten egg smell (sulfur)','ww-f2':'Removes iron and manganese',
+        'ww-f3':'Eliminates water hardness (calcium & magnesium)','ww-f4':'Filters sediment and particles',
+        'ww-f5':'Chemical injection system included','ww-f6':'High-performance contact tank',
+        'ww-f7':'Manufacturer lifetime warranty',
         'ws-desc': 'Whole-house water softening system. Eliminates water hardness and protects your plumbing.',
         'ws-f1':'Eliminates scale and calcium buildup','ws-f2':'Protects pipes and appliances',
         'ws-f3':'Softer water for skin and hair','ws-f4':'Microprocessed digital control panel',
