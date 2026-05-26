@@ -173,14 +173,14 @@
     .services-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 2rem; }
     .service-card { border-radius: 20px; box-shadow: var(--shadow); transition: transform var(--transition), box-shadow var(--transition); overflow: visible; }
     .service-card:hover { transform: translateY(-6px); box-shadow: 0 20px 60px rgba(0,0,0,.22); }
-    .service-card-top { border-radius: 20px 20px 0 0; background: linear-gradient(135deg, var(--black) 0%, #0d2137 100%); padding: 2rem 2rem 3.5rem; position: relative; overflow: visible; min-height: 190px; }
-    .svc-top-content { position: relative; z-index: 2; max-width: 65%; }
+    .service-card-top { border-radius: 20px 20px 0 0; background: linear-gradient(135deg, var(--black) 0%, #0d2137 100%); padding: 2rem; padding-bottom: 3.5rem; overflow: visible; min-height: 190px; display: flex; align-items: flex-start; gap: 1rem; }
+    .svc-top-content { flex: 1 1 0; min-width: 0; position: relative; z-index: 2; }
     .service-icon-big { width: 52px; height: 52px; background: linear-gradient(135deg, var(--blue), var(--blue-lt)); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; color: white; margin-bottom: 1rem; }
     .service-card-top h3 { color: var(--white); font-size: 1.3rem; font-weight: 800; }
     .service-card-top p { color: rgba(255,255,255,.6); font-size: .88rem; line-height: 1.6; margin-top: .4rem; }
-    .svc-product-img { position: absolute; right: 1rem; bottom: -45px; height: 185px; width: auto; filter: drop-shadow(-8px 12px 22px rgba(0,0,0,.75)); transform: perspective(600px) rotateY(-12deg) rotateX(4deg) rotate(-2deg); transition: transform .5s ease, filter .5s ease; z-index: 5; pointer-events: none; }
+    .svc-product-img { flex: 0 0 auto; align-self: flex-end; height: 175px; max-width: 44%; width: auto; filter: drop-shadow(-8px 12px 22px rgba(0,0,0,.75)); transform: perspective(600px) rotateY(-12deg) rotateX(4deg) rotate(-2deg); transition: transform .5s ease, filter .5s ease; z-index: 5; pointer-events: none; margin-bottom: -45px; }
     .service-card:hover .svc-product-img { transform: perspective(600px) rotateY(-7deg) rotateX(2deg) rotate(-1deg) translateY(-10px); filter: drop-shadow(-12px 18px 30px rgba(0,0,0,.85)); }
-    .service-card-body { background: var(--white); padding: 2rem 2rem 2rem; border-radius: 0 0 20px 20px; padding-top: 3rem; }
+    .service-card-body { background: var(--white); padding: 2rem; border-radius: 0 0 20px 20px; padding-top: 3.2rem; }
     .service-features { list-style: none; display: flex; flex-direction: column; gap: .7rem; }
     .service-features li { display: flex; align-items: center; gap: .65rem; font-size: .92rem; color: var(--text); }
     .service-features li i { width: 20px; color: var(--blue); flex-shrink: 0; }
@@ -431,8 +431,8 @@
       #about, #services, #process, #gallery, #benefits, #contact { padding: 4rem 0; }
       .section-title { font-size: clamp(1.5rem, 5vw, 2rem); }
       .services-grid { grid-template-columns: 1fr; }
-      .svc-top-content { padding: 1.8rem; }
-      .svc-top-photo { display: none; }
+      .svc-product-img { height: 130px; max-width: 40%; margin-bottom: -35px; }
+      .service-card-top { padding-bottom: 2.8rem; }
       .service-card-body { padding: 1.5rem; }
       .process-grid { grid-template-columns: 1fr; }
       .process-footer { flex-direction: column; text-align: center; gap: 1rem; padding: 1.5rem; }
@@ -489,7 +489,7 @@
 
   <!-- LIGHTBOX -->
   <div id="lightbox">
-    <button id="lightbox-close" aria-label="Cerrar"><i class="fa fa-times"></i></button>
+    <button id="lightbox-close" aria-label="Cerrar"><i class="fa-solid fa-xmark"></i></button>
     <img id="lightbox-img" src="" alt="PINA Water System" />
   </div>
 
@@ -552,12 +552,12 @@
       <div class="container">
         <div class="hero-grid">
           <div class="hero-content">
-            <div class="hero-badge"><i class="fa fa-shield-halved"></i> <span data-i18n="hero-badge">Made in USA · Garantía de por vida</span></div>
+            <div class="hero-badge"><i class="fa-solid fa-shield-halved"></i> <span data-i18n="hero-badge">Made in USA · Garantía de por vida</span></div>
             <h1 class="hero-title" data-i18n="hero-title">Agua Pura y Limpia<br/>para Tu <span class="accent">Hogar</span></h1>
             <p class="hero-desc" data-i18n="hero-desc">Sistemas de filtración certificados con instalación profesional y <strong>100% garantizado</strong>. Mismos resultados, sin el sobreprecio de las grandes marcas.</p>
             <div class="hero-actions">
-              <a href="#contact" class="btn btn-primary"><i class="fa fa-calendar-check"></i> <span data-i18n="hero-btn1">Solicitar Cotización</span></a>
-              <a href="#services" class="btn btn-outline"><i class="fa fa-arrow-down"></i> <span data-i18n="hero-btn2">Ver Servicios</span></a>
+              <a href="#contact" class="btn btn-primary"><i class="fa-solid fa-calendar-check"></i> <span data-i18n="hero-btn1">Solicitar Cotización</span></a>
+              <a href="#services" class="btn btn-outline"><i class="fa-solid fa-arrow-down"></i> <span data-i18n="hero-btn2">Ver Servicios</span></a>
             </div>
             <div class="hero-stats">
               <div class="stat-item"><div class="stat-number">A+</div><div class="stat-label">BBB Rating</div></div>
@@ -590,7 +590,7 @@
               <img src="https://lh3.googleusercontent.com/d/1KC4JU96JmBgje9AKrsqW9mMUL_cyt7Oa" alt="Sistema de agua" loading="lazy" />
               <img src="https://lh3.googleusercontent.com/d/16TgLbsiflVOpJaOwrlTxpfZWofLVkmNI" alt="Filtro instalado" loading="lazy" />
               <div class="about-float-card">
-                <div class="icon-circle"><i class="fa fa-award"></i></div>
+                <div class="icon-circle"><i class="fa-solid fa-award"></i></div>
                 <div><div class="card-label">BBB Rating</div><div class="card-value">A+ Certified</div></div>
               </div>
             </div>
@@ -600,19 +600,19 @@
             <h2 class="section-title" data-i18n="about-title">Líderes en Purificación de Agua en South Florida</h2>
             <p class="section-sub" data-i18n="about-sub">PINA Water System ofrece tecnología de punta <em>Made in USA</em> a precios justos — sin el sobreprecio de las grandes marcas. Tu agua, tu salud, nuestra prioridad.</p>
             <ul class="check-list">
-              <li><i class="fa fa-circle-check"></i><span data-i18n="about-li1">Instalación profesional con técnicos certificados</span></li>
-              <li><i class="fa fa-circle-check"></i><span data-i18n="about-li2">Garantía de por vida del fabricante</span></li>
-              <li><i class="fa fa-circle-check"></i><span data-i18n="about-li3">Satisfacción 100% garantizada</span></li>
-              <li><i class="fa fa-circle-check"></i><span data-i18n="about-li4">Panel de control digital microprocesado</span></li>
-              <li><i class="fa fa-circle-check"></i><span data-i18n="about-li5">Memoria no volátil y batería de respaldo de litio</span></li>
-              <li><i class="fa fa-circle-check"></i><span data-i18n="about-li6">36 ciclos de regeneración preprogramados</span></li>
-              <li><i class="fa fa-circle-check"></i><span data-i18n="about-li7">Compatible con tanques hasta 21" de diámetro</span></li>
+              <li><i class="fa-solid fa-circle-check"></i><span data-i18n="about-li1">Instalación profesional con técnicos certificados</span></li>
+              <li><i class="fa-solid fa-circle-check"></i><span data-i18n="about-li2">Garantía de por vida del fabricante</span></li>
+              <li><i class="fa-solid fa-circle-check"></i><span data-i18n="about-li3">Satisfacción 100% garantizada</span></li>
+              <li><i class="fa-solid fa-circle-check"></i><span data-i18n="about-li4">Panel de control digital microprocesado</span></li>
+              <li><i class="fa-solid fa-circle-check"></i><span data-i18n="about-li5">Memoria no volátil y batería de respaldo de litio</span></li>
+              <li><i class="fa-solid fa-circle-check"></i><span data-i18n="about-li6">36 ciclos de regeneración preprogramados</span></li>
+              <li><i class="fa-solid fa-circle-check"></i><span data-i18n="about-li7">Compatible con tanques hasta 21" de diámetro</span></li>
             </ul>
             <div class="certif-row">
-              <div class="certif-badge"><i class="fa fa-certificate"></i> NSF/ANSI 44</div>
-              <div class="certif-badge"><i class="fa fa-certificate"></i> NSF/ANSI 61</div>
-              <div class="certif-badge"><i class="fa fa-certificate"></i> NSF/ANSI 372</div>
-              <div class="certif-badge"><i class="fa fa-shield-halved"></i> BBB A+</div>
+              <div class="certif-badge"><i class="fa-solid fa-certificate"></i> NSF/ANSI 44</div>
+              <div class="certif-badge"><i class="fa-solid fa-certificate"></i> NSF/ANSI 61</div>
+              <div class="certif-badge"><i class="fa-solid fa-certificate"></i> NSF/ANSI 372</div>
+              <div class="certif-badge"><i class="fa-solid fa-shield-halved"></i> BBB A+</div>
             </div>
             <div class="trust-badges">
               <div class="trust-badge">
@@ -632,7 +632,7 @@
               </div>
             </div>
             <div style="margin-top:2rem;">
-              <a href="tel:7863424247" class="btn btn-primary"><i class="fa fa-phone"></i> 786-342-4247</a>
+              <a href="tel:7863424247" class="btn btn-primary"><i class="fa-solid fa-phone"></i> 786-342-4247</a>
             </div>
           </div>
         </div>
@@ -652,7 +652,7 @@
           <div class="service-card reveal">
             <div class="service-card-top">
               <div class="svc-top-content">
-                <div class="service-icon-big"><i class="fa fa-droplet"></i></div>
+                <div class="service-icon-big"><i class="fa-solid fa-droplet"></i></div>
                 <h3>Water Softener</h3>
                 <p data-i18n="ws-desc">Sistema de suavización para toda la casa. Elimina la dureza del agua y protege tus instalaciones.</p>
               </div>
@@ -660,13 +660,13 @@
             </div>
             <div class="service-card-body">
               <ul class="service-features">
-                <li><i class="fa fa-check-circle"></i><span data-i18n="ws-f1">Elimina incrustaciones de sarro y cal</span></li>
-                <li><i class="fa fa-check-circle"></i><span data-i18n="ws-f2">Protege tuberías y electrodomésticos</span></li>
-                <li><i class="fa fa-check-circle"></i><span data-i18n="ws-f3">Agua más suave para piel y cabello</span></li>
-                <li><i class="fa fa-check-circle"></i><span data-i18n="ws-f4">Panel de control digital microprocesado</span></li>
-                <li><i class="fa fa-check-circle"></i><span data-i18n="ws-f5">36 ciclos de regeneración preprogramados</span></li>
-                <li><i class="fa fa-check-circle"></i><span data-i18n="ws-f6">Double Backwash para limpieza óptima</span></li>
-                <li><i class="fa fa-check-circle"></i><span data-i18n="ws-f7">3 modos de operación programables</span></li>
+                <li><i class="fa-solid fa-circle-check"></i><span data-i18n="ws-f1">Elimina incrustaciones de sarro y cal</span></li>
+                <li><i class="fa-solid fa-circle-check"></i><span data-i18n="ws-f2">Protege tuberías y electrodomésticos</span></li>
+                <li><i class="fa-solid fa-circle-check"></i><span data-i18n="ws-f3">Agua más suave para piel y cabello</span></li>
+                <li><i class="fa-solid fa-circle-check"></i><span data-i18n="ws-f4">Panel de control digital microprocesado</span></li>
+                <li><i class="fa-solid fa-circle-check"></i><span data-i18n="ws-f5">36 ciclos de regeneración preprogramados</span></li>
+                <li><i class="fa-solid fa-circle-check"></i><span data-i18n="ws-f6">Double Backwash para limpieza óptima</span></li>
+                <li><i class="fa-solid fa-circle-check"></i><span data-i18n="ws-f7">3 modos de operación programables</span></li>
               </ul>
               <div class="service-tags">
                 <span class="service-tag" data-i18n="ws-t1">Grava</span><span class="service-tag">Garnet</span>
@@ -679,7 +679,7 @@
           <div class="service-card reveal">
             <div class="service-card-top" style="background:linear-gradient(135deg,#001f3f 0%,#003366 100%);">
               <div class="svc-top-content">
-                <div class="service-icon-big"><i class="fa fa-filter"></i></div>
+                <div class="service-icon-big"><i class="fa-solid fa-filter"></i></div>
                 <h3>Reverse Osmosis</h3>
                 <p data-i18n="ro-desc">Sistema de ósmosis inversa multietapa para agua alcalina, cristalina y libre de contaminantes.</p>
               </div>
@@ -687,13 +687,13 @@
             </div>
             <div class="service-card-body">
               <ul class="service-features">
-                <li><i class="fa fa-check-circle"></i><span data-i18n="ro-f1">Agua alcalina libre de contaminantes</span></li>
-                <li><i class="fa fa-check-circle"></i><span data-i18n="ro-f2">Mejora sabor y calidad del agua</span></li>
-                <li><i class="fa fa-check-circle"></i><span data-i18n="ro-f3">Ideal para beber y cocinar</span></li>
-                <li><i class="fa fa-check-circle"></i><span data-i18n="ro-f4">6 etapas de filtración avanzada</span></li>
-                <li><i class="fa fa-check-circle"></i><span data-i18n="ro-f5">Grifo de lujo incluido</span></li>
-                <li><i class="fa fa-check-circle"></i><span data-i18n="ro-f6">Membrana ROM de alto rendimiento</span></li>
-                <li><i class="fa fa-check-circle"></i><span data-i18n="ro-f7">Filtro alcalino remineralizador</span></li>
+                <li><i class="fa-solid fa-circle-check"></i><span data-i18n="ro-f1">Agua alcalina libre de contaminantes</span></li>
+                <li><i class="fa-solid fa-circle-check"></i><span data-i18n="ro-f2">Mejora sabor y calidad del agua</span></li>
+                <li><i class="fa-solid fa-circle-check"></i><span data-i18n="ro-f3">Ideal para beber y cocinar</span></li>
+                <li><i class="fa-solid fa-circle-check"></i><span data-i18n="ro-f4">6 etapas de filtración avanzada</span></li>
+                <li><i class="fa-solid fa-circle-check"></i><span data-i18n="ro-f5">Grifo de lujo incluido</span></li>
+                <li><i class="fa-solid fa-circle-check"></i><span data-i18n="ro-f6">Membrana ROM de alto rendimiento</span></li>
+                <li><i class="fa-solid fa-circle-check"></i><span data-i18n="ro-f7">Filtro alcalino remineralizador</span></li>
               </ul>
               <div class="service-tags">
                 <span class="service-tag">SED</span><span class="service-tag">GAC</span>
@@ -706,7 +706,7 @@
           <div class="service-card reveal">
             <div class="service-card-top" style="background:linear-gradient(135deg,#071a10 0%,#0a2e18 100%);">
               <div class="svc-top-content">
-                <div class="service-icon-big" style="background:linear-gradient(135deg,#1a6b3a,#2ecc71);"><i class="fa fa-water"></i></div>
+                <div class="service-icon-big" style="background:linear-gradient(135deg,#1a6b3a,#2ecc71);"><i class="fa-solid fa-water"></i></div>
                 <h3 data-i18n="ww-svc-title">Well Water</h3>
                 <p data-i18n="ww-svc-desc">Sistema completo para tratar agua de pozo. Elimina hierro, azufre, dureza y bacterias.</p>
               </div>
@@ -714,13 +714,13 @@
             </div>
             <div class="service-card-body">
               <ul class="service-features">
-                <li><i class="fa fa-check-circle"></i><span data-i18n="ww-f1">Elimina olor a huevo podrido (sulfuro)</span></li>
-                <li><i class="fa fa-check-circle"></i><span data-i18n="ww-f2">Remueve hierro y manganeso</span></li>
-                <li><i class="fa fa-check-circle"></i><span data-i18n="ww-f3">Elimina dureza del agua (calcio y magnesio)</span></li>
-                <li><i class="fa fa-check-circle"></i><span data-i18n="ww-f4">Filtra sedimentos y partículas</span></li>
-                <li><i class="fa fa-check-circle"></i><span data-i18n="ww-f5">Sistema de inyección química incluido</span></li>
-                <li><i class="fa fa-check-circle"></i><span data-i18n="ww-f6">Tanque de contacto de alto rendimiento</span></li>
-                <li><i class="fa fa-check-circle"></i><span data-i18n="ww-f7">Garantía de por vida del fabricante</span></li>
+                <li><i class="fa-solid fa-circle-check"></i><span data-i18n="ww-f1">Elimina olor a huevo podrido (sulfuro)</span></li>
+                <li><i class="fa-solid fa-circle-check"></i><span data-i18n="ww-f2">Remueve hierro y manganeso</span></li>
+                <li><i class="fa-solid fa-circle-check"></i><span data-i18n="ww-f3">Elimina dureza del agua (calcio y magnesio)</span></li>
+                <li><i class="fa-solid fa-circle-check"></i><span data-i18n="ww-f4">Filtra sedimentos y partículas</span></li>
+                <li><i class="fa-solid fa-circle-check"></i><span data-i18n="ww-f5">Sistema de inyección química incluido</span></li>
+                <li><i class="fa-solid fa-circle-check"></i><span data-i18n="ww-f6">Tanque de contacto de alto rendimiento</span></li>
+                <li><i class="fa-solid fa-circle-check"></i><span data-i18n="ww-f7">Garantía de por vida del fabricante</span></li>
               </ul>
               <div class="service-tags">
                 <span class="service-tag">Iron</span><span class="service-tag">Sulfur</span>
@@ -744,51 +744,51 @@
         <div class="process-grid">
           <div class="process-card reveal">
             <div class="process-step-num">1</div>
-            <div class="process-icon"><i class="fa fa-mountain"></i></div>
+            <div class="process-icon"><i class="fa-solid fa-mountain"></i></div>
             <div class="process-comp">Grava</div>
             <h4 data-i18n="p1-h">Clarificación</h4>
             <p data-i18n="p1-p">Retiene y separa sólidos suspendidos que no fueron removidos por sedimentación inicial.</p>
           </div>
           <div class="process-card reveal">
             <div class="process-step-num">2</div>
-            <div class="process-icon"><i class="fa fa-gem"></i></div>
+            <div class="process-icon"><i class="fa-solid fa-gem"></i></div>
             <div class="process-comp">Garnet</div>
             <h4 data-i18n="p2-h">Refinamiento</h4>
             <p data-i18n="p2-p">Retiene partículas muy finas que lograron pasar el primer lecho de grava.</p>
           </div>
           <div class="process-card reveal">
             <div class="process-step-num">3</div>
-            <div class="process-icon"><i class="fa fa-atom"></i></div>
+            <div class="process-icon"><i class="fa-solid fa-atom"></i></div>
             <div class="process-comp" data-i18n="p3-comp">Resina Catiónica</div>
             <h4 data-i18n="p3-h">Suavización</h4>
             <p data-i18n="p3-p">Esferas sintéticas que suavizan el agua mediante intercambio iónico, eliminando la dureza.</p>
           </div>
           <div class="process-card reveal">
             <div class="process-step-num">4</div>
-            <div class="process-icon"><i class="fa fa-flask"></i></div>
+            <div class="process-icon"><i class="fa-solid fa-flask"></i></div>
             <div class="process-comp" data-i18n="p4-comp">Resina Aniónica</div>
             <h4 data-i18n="p4-h">Acondicionamiento</h4>
             <p data-i18n="p4-p">Retiene sulfatos, nitratos y cloruros para acondicionar la calidad del agua.</p>
           </div>
           <div class="process-card reveal">
             <div class="process-step-num">5</div>
-            <div class="process-icon"><i class="fa fa-wind"></i></div>
+            <div class="process-icon"><i class="fa-solid fa-wind"></i></div>
             <div class="process-comp" data-i18n="p5-comp">Carbón Activado</div>
             <h4 data-i18n="p5-h">Filtración Profunda</h4>
             <p data-i18n="p5-p">Absorbe cloro, solventes, herbicidas y pesticidas. Elimina sabores y olores desagradables.</p>
           </div>
           <div class="process-card reveal">
             <div class="process-step-num">6</div>
-            <div class="process-icon"><i class="fa fa-shield-virus"></i></div>
+            <div class="process-icon"><i class="fa-solid fa-shield-virus"></i></div>
             <div class="process-comp">KDF</div>
             <h4 data-i18n="p6-h">Descontaminación</h4>
             <p data-i18n="p6-p">Elimina cloro, hierro, plomo, mercurio, carbonato de calcio, bacterias, algas y hongos.</p>
           </div>
         </div>
         <div class="process-footer reveal">
-          <i class="fa fa-recycle"></i>
+          <i class="fa-solid fa-recycle"></i>
           <p data-i18n="proc-footer"><strong>Regeneración inteligente:</strong> El tanque de cloruro de sodio o potasio realiza el intercambio iónico para eliminar los minerales de dureza. Sistema con <strong>batería de respaldo de litio</strong> que mantiene la configuración hasta 8 horas sin energía.</p>
-          <a href="#contact" class="btn btn-primary" style="flex-shrink:0;"><i class="fa fa-calendar-check"></i> <span data-i18n="proc-cta">Solicitar Instalación</span></a>
+          <a href="#contact" class="btn btn-primary" style="flex-shrink:0;"><i class="fa-solid fa-calendar-check"></i> <span data-i18n="proc-cta">Solicitar Instalación</span></a>
         </div>
       </div>
     </section>
@@ -812,19 +812,19 @@
           <p class="ww-banner-sub" data-i18n="ww-sub">¡Tenemos la Solución!</p>
           <div class="ww-problems">
             <div class="ww-problem reveal">
-              <div class="ww-problem-icon"><i class="fa fa-smog"></i></div>
+              <div class="ww-problem-icon"><i class="fa-solid fa-smog"></i></div>
               <p data-i18n="ww-p1">¿Olor a huevo podrido en tu agua?</p>
             </div>
             <div class="ww-problem reveal">
-              <div class="ww-problem-icon"><i class="fa fa-circle-exclamation" style="color:#f97316"></i></div>
+              <div class="ww-problem-icon"><i class="fa-solid fa-circle-exclamation" style="color:#f97316"></i></div>
               <p data-i18n="ww-p2">¿Manchas anaranjadas en lavabos y duchas?</p>
             </div>
             <div class="ww-problem reveal">
-              <div class="ww-problem-icon"><i class="fa fa-wrench"></i></div>
+              <div class="ww-problem-icon"><i class="fa-solid fa-wrench"></i></div>
               <p data-i18n="ww-p3">¿Agua dura dañando tus electrodomésticos?</p>
             </div>
             <div class="ww-problem reveal">
-              <div class="ww-problem-icon"><i class="fa fa-triangle-exclamation" style="color:#facc15"></i></div>
+              <div class="ww-problem-icon"><i class="fa-solid fa-triangle-exclamation" style="color:#facc15"></i></div>
               <p data-i18n="ww-p4">¿Agua de pozo sucia o insegura?</p>
             </div>
           </div>
@@ -839,50 +839,50 @@
         <div class="ww-process-grid">
           <div class="ww-step reveal">
             <div class="ww-step-num">1</div>
-            <div class="ww-step-icon"><i class="fa fa-flask"></i></div>
+            <div class="ww-step-icon"><i class="fa-solid fa-flask"></i></div>
             <div class="ww-step-label" data-i18n="ww-s1-label">Inyección Química</div>
             <h4 data-i18n="ww-s1-h">Inyección Química / Oxidación</h4>
             <p data-i18n="ww-s1-p">El tanque pequeño al frente inyecta cloro o peróxido directamente en la línea principal del pozo antes de los filtros.</p>
             <ul>
-              <li><i class="fa fa-check"></i><span data-i18n="ww-s1-f1">Elimina olor a huevo podrido (sulfuro)</span></li>
-              <li><i class="fa fa-check"></i><span data-i18n="ww-s1-f2">Oxida hierro y manganeso</span></li>
-              <li><i class="fa fa-check"></i><span data-i18n="ww-s1-f3">Desinfecta el agua del pozo</span></li>
+              <li><i class="fa-solid fa-check"></i><span data-i18n="ww-s1-f1">Elimina olor a huevo podrido (sulfuro)</span></li>
+              <li><i class="fa-solid fa-check"></i><span data-i18n="ww-s1-f2">Oxida hierro y manganeso</span></li>
+              <li><i class="fa-solid fa-check"></i><span data-i18n="ww-s1-f3">Desinfecta el agua del pozo</span></li>
             </ul>
           </div>
           <div class="ww-step reveal">
             <div class="ww-step-num">2</div>
-            <div class="ww-step-icon"><i class="fa fa-circle-nodes"></i></div>
+            <div class="ww-step-icon"><i class="fa-solid fa-diagram-project"></i></div>
             <div class="ww-step-label" data-i18n="ww-s2-label">Tanque de Contacto</div>
             <h4 data-i18n="ww-s2-h">Tanque de Contacto / Retención</h4>
             <p data-i18n="ww-s2-p">El tanque grande permite que el químico reaccione correctamente con el agua antes de continuar el proceso.</p>
             <ul>
-              <li><i class="fa fa-check"></i><span data-i18n="ww-s2-f1">Permite oxidación completa del hierro y azufre</span></li>
-              <li><i class="fa fa-check"></i><span data-i18n="ww-s2-f2">Mejora la eliminación de olores y bacterias</span></li>
-              <li><i class="fa fa-check"></i><span data-i18n="ww-s2-f3">Tratamiento inicial profundo del agua</span></li>
+              <li><i class="fa-solid fa-check"></i><span data-i18n="ww-s2-f1">Permite oxidación completa del hierro y azufre</span></li>
+              <li><i class="fa-solid fa-check"></i><span data-i18n="ww-s2-f2">Mejora la eliminación de olores y bacterias</span></li>
+              <li><i class="fa-solid fa-check"></i><span data-i18n="ww-s2-f3">Tratamiento inicial profundo del agua</span></li>
             </ul>
           </div>
           <div class="ww-step reveal">
             <div class="ww-step-num">3</div>
-            <div class="ww-step-icon"><i class="fa fa-filter"></i></div>
+            <div class="ww-step-icon"><i class="fa-solid fa-filter"></i></div>
             <div class="ww-step-label" data-i18n="ww-s3-label">Filtro Especializado</div>
             <h4 data-i18n="ww-s3-h">Filtro de Hierro y Azufre</h4>
             <p data-i18n="ww-s3-p">Tanque con medios especializados que captura partículas oxidadas y limpia visualmente el agua.</p>
             <ul>
-              <li><i class="fa fa-check"></i><span data-i18n="ww-s3-f1">Remueve hierro y manganeso</span></li>
-              <li><i class="fa fa-check"></i><span data-i18n="ww-s3-f2">Elimina azufre y sedimentos</span></li>
-              <li><i class="fa fa-check"></i><span data-i18n="ww-s3-f3">Agua visualmente limpia y clara</span></li>
+              <li><i class="fa-solid fa-check"></i><span data-i18n="ww-s3-f1">Remueve hierro y manganeso</span></li>
+              <li><i class="fa-solid fa-check"></i><span data-i18n="ww-s3-f2">Elimina azufre y sedimentos</span></li>
+              <li><i class="fa-solid fa-check"></i><span data-i18n="ww-s3-f3">Agua visualmente limpia y clara</span></li>
             </ul>
           </div>
           <div class="ww-step reveal">
             <div class="ww-step-num">4</div>
-            <div class="ww-step-icon"><i class="fa fa-droplet"></i></div>
+            <div class="ww-step-icon"><i class="fa-solid fa-droplet"></i></div>
             <div class="ww-step-label">Water Softener</div>
             <h4 data-i18n="ww-s4-h">Water Softener (Suavizador)</h4>
             <p data-i18n="ww-s4-p">Elimina la dureza del agua mediante intercambio iónico. El brine tank almacena sal para regeneración automática.</p>
             <ul>
-              <li><i class="fa fa-check"></i><span data-i18n="ww-s4-f1">Elimina calcio y magnesio (dureza)</span></li>
-              <li><i class="fa fa-check"></i><span data-i18n="ww-s4-f2">Protege tuberías y electrodomésticos</span></li>
-              <li><i class="fa fa-check"></i><span data-i18n="ww-s4-f3">Agua suave para piel, cabello y jabón</span></li>
+              <li><i class="fa-solid fa-check"></i><span data-i18n="ww-s4-f1">Elimina calcio y magnesio (dureza)</span></li>
+              <li><i class="fa-solid fa-check"></i><span data-i18n="ww-s4-f2">Protege tuberías y electrodomésticos</span></li>
+              <li><i class="fa-solid fa-check"></i><span data-i18n="ww-s4-f3">Agua suave para piel, cabello y jabón</span></li>
             </ul>
           </div>
         </div>
@@ -891,11 +891,11 @@
         <div class="ww-results reveal">
           <div class="ww-results-title" data-i18n="ww-result-title">Resultado Final</div>
           <div class="ww-results-grid">
-            <div class="ww-result-item"><div class="drop-icon"><i class="fa fa-droplet" style="color:#00b4d8"></i></div><span data-i18n="ww-r1">Agua más limpia</span></div>
-            <div class="ww-result-item"><div class="drop-icon"><i class="fa fa-wind" style="color:#6ee7f7"></i></div><span data-i18n="ww-r2">Sin malos olores</span></div>
-            <div class="ww-result-item"><div class="drop-icon"><i class="fa fa-ban" style="color:#f97316"></i></div><span data-i18n="ww-r3">Sin manchas de hierro</span></div>
-            <div class="ww-result-item"><div class="drop-icon"><i class="fa fa-house" style="color:#60a5fa"></i></div><span data-i18n="ww-r4">Agua suave para toda la casa</span></div>
-            <div class="ww-result-item"><div class="drop-icon"><i class="fa fa-shield-halved" style="color:#4ade80"></i></div><span data-i18n="ww-r5">Protección para tuberías</span></div>
+            <div class="ww-result-item"><div class="drop-icon"><i class="fa-solid fa-droplet" style="color:#00b4d8"></i></div><span data-i18n="ww-r1">Agua más limpia</span></div>
+            <div class="ww-result-item"><div class="drop-icon"><i class="fa-solid fa-wind" style="color:#6ee7f7"></i></div><span data-i18n="ww-r2">Sin malos olores</span></div>
+            <div class="ww-result-item"><div class="drop-icon"><i class="fa-solid fa-ban" style="color:#f97316"></i></div><span data-i18n="ww-r3">Sin manchas de hierro</span></div>
+            <div class="ww-result-item"><div class="drop-icon"><i class="fa-solid fa-house" style="color:#60a5fa"></i></div><span data-i18n="ww-r4">Agua suave para toda la casa</span></div>
+            <div class="ww-result-item"><div class="drop-icon"><i class="fa-solid fa-shield-halved" style="color:#4ade80"></i></div><span data-i18n="ww-r5">Protección para tuberías</span></div>
           </div>
         </div>
       </div>
@@ -910,27 +910,27 @@
           <p class="section-sub" style="margin:0 auto;" data-i18n="gal-sub">Cada instalación es realizada por técnicos certificados con los más altos estándares de calidad y precisión.</p>
         </div>
         <div class="gallery-tabs">
-          <button class="gallery-tab active" onclick="switchGalleryTab('city', this)" data-i18n="gal-tab-city"><i class="fa fa-city"></i> Agua de Ciudad</button>
-          <button class="gallery-tab" onclick="switchGalleryTab('well', this)" data-i18n="gal-tab-well"><i class="fa fa-water"></i> Agua de Pozo</button>
+          <button class="gallery-tab active" onclick="switchGalleryTab('city', this)" data-i18n="gal-tab-city"><i class="fa-solid fa-city"></i> Agua de Ciudad</button>
+          <button class="gallery-tab" onclick="switchGalleryTab('well', this)" data-i18n="gal-tab-well"><i class="fa-solid fa-water"></i> Agua de Pozo</button>
         </div>
         <!-- City water panel -->
         <div class="gallery-panel active" id="gallery-city">
           <div class="gallery-grid">
             <div class="gallery-item reveal" onclick="openLightbox('https://lh3.googleusercontent.com/d/1AfKvAihjbAIe7DkRECwcd_xnyujAUA2O')">
               <img src="https://lh3.googleusercontent.com/d/1AfKvAihjbAIe7DkRECwcd_xnyujAUA2O" alt="Water Softener installation" loading="lazy" />
-              <div class="gallery-overlay"><span><i class="fa fa-expand"></i> <span data-i18n="gal-view">Ver instalación</span></span></div>
+              <div class="gallery-overlay"><span><i class="fa-solid fa-expand"></i> <span data-i18n="gal-view">Ver instalación</span></span></div>
             </div>
             <div class="gallery-item reveal" onclick="openLightbox('https://lh3.googleusercontent.com/d/1KC4JU96JmBgje9AKrsqW9mMUL_cyt7Oa')">
               <img src="https://lh3.googleusercontent.com/d/1KC4JU96JmBgje9AKrsqW9mMUL_cyt7Oa" alt="Filtration system" loading="lazy" />
-              <div class="gallery-overlay"><span><i class="fa fa-expand"></i> <span data-i18n="gal-view">Ver instalación</span></span></div>
+              <div class="gallery-overlay"><span><i class="fa-solid fa-expand"></i> <span data-i18n="gal-view">Ver instalación</span></span></div>
             </div>
             <div class="gallery-item reveal" onclick="openLightbox('https://lh3.googleusercontent.com/d/16TgLbsiflVOpJaOwrlTxpfZWofLVkmNI')">
               <img src="https://lh3.googleusercontent.com/d/16TgLbsiflVOpJaOwrlTxpfZWofLVkmNI" alt="Reverse osmosis system" loading="lazy" />
-              <div class="gallery-overlay"><span><i class="fa fa-expand"></i> <span data-i18n="gal-view">Ver instalación</span></span></div>
+              <div class="gallery-overlay"><span><i class="fa-solid fa-expand"></i> <span data-i18n="gal-view">Ver instalación</span></span></div>
             </div>
             <div class="gallery-item reveal" onclick="openLightbox('https://lh3.googleusercontent.com/d/11nedCzsLs4ciInnQ11bfEdWew3SvyA6V')">
               <img src="https://lh3.googleusercontent.com/d/11nedCzsLs4ciInnQ11bfEdWew3SvyA6V" alt="Complete water system" loading="lazy" />
-              <div class="gallery-overlay"><span><i class="fa fa-expand"></i> <span data-i18n="gal-view">Ver instalación</span></span></div>
+              <div class="gallery-overlay"><span><i class="fa-solid fa-expand"></i> <span data-i18n="gal-view">Ver instalación</span></span></div>
             </div>
           </div>
         </div>
@@ -939,27 +939,27 @@
           <div class="gallery-grid">
             <div class="gallery-item reveal" onclick="openLightbox('https://lh3.googleusercontent.com/d/1DqKbHVM-42mGO0CHWZYaPaGSVcv_JtrU')">
               <img src="https://lh3.googleusercontent.com/d/1DqKbHVM-42mGO0CHWZYaPaGSVcv_JtrU" alt="Well Water system installation" loading="lazy" />
-              <div class="gallery-overlay"><span><i class="fa fa-expand"></i> <span data-i18n="gal-view">Ver instalación</span></span></div>
+              <div class="gallery-overlay"><span><i class="fa-solid fa-expand"></i> <span data-i18n="gal-view">Ver instalación</span></span></div>
             </div>
             <div class="gallery-item reveal" onclick="openLightbox('https://lh3.googleusercontent.com/d/1ZJlwKXKRBjRdI44w-eJJ-YNpFL2mUxJE')">
               <img src="https://lh3.googleusercontent.com/d/1ZJlwKXKRBjRdI44w-eJJ-YNpFL2mUxJE" alt="Well Water system installation" loading="lazy" />
-              <div class="gallery-overlay"><span><i class="fa fa-expand"></i> <span data-i18n="gal-view">Ver instalación</span></span></div>
+              <div class="gallery-overlay"><span><i class="fa-solid fa-expand"></i> <span data-i18n="gal-view">Ver instalación</span></span></div>
             </div>
             <div class="gallery-item reveal" onclick="openLightbox('https://lh3.googleusercontent.com/d/1V0ZBGS7NF40vtjE-fN6bxEoj6sNYXEby')">
               <img src="https://lh3.googleusercontent.com/d/1V0ZBGS7NF40vtjE-fN6bxEoj6sNYXEby" alt="Well Water system installation" loading="lazy" />
-              <div class="gallery-overlay"><span><i class="fa fa-expand"></i> <span data-i18n="gal-view">Ver instalación</span></span></div>
+              <div class="gallery-overlay"><span><i class="fa-solid fa-expand"></i> <span data-i18n="gal-view">Ver instalación</span></span></div>
             </div>
             <div class="gallery-item reveal" onclick="openLightbox('https://lh3.googleusercontent.com/d/1BPaYa6hCH_v7VTrEti9wvDd7oIE27k6x')">
               <img src="https://lh3.googleusercontent.com/d/1BPaYa6hCH_v7VTrEti9wvDd7oIE27k6x" alt="Well Water system installation" loading="lazy" />
-              <div class="gallery-overlay"><span><i class="fa fa-expand"></i> <span data-i18n="gal-view">Ver instalación</span></span></div>
+              <div class="gallery-overlay"><span><i class="fa-solid fa-expand"></i> <span data-i18n="gal-view">Ver instalación</span></span></div>
             </div>
             <div class="gallery-item reveal" onclick="openLightbox('https://lh3.googleusercontent.com/d/1TbqQF71lbu9yP6Vd31suo0LmI1LJbKn2')">
               <img src="https://lh3.googleusercontent.com/d/1TbqQF71lbu9yP6Vd31suo0LmI1LJbKn2" alt="Well Water system installation" loading="lazy" />
-              <div class="gallery-overlay"><span><i class="fa fa-expand"></i> <span data-i18n="gal-view">Ver instalación</span></span></div>
+              <div class="gallery-overlay"><span><i class="fa-solid fa-expand"></i> <span data-i18n="gal-view">Ver instalación</span></span></div>
             </div>
             <div class="gallery-item reveal" onclick="openLightbox('https://lh3.googleusercontent.com/d/1x1eS1O9ELibW8XBZ5NZriz7GnLpfvpwr')">
               <img src="https://lh3.googleusercontent.com/d/1x1eS1O9ELibW8XBZ5NZriz7GnLpfvpwr" alt="Well Water system installation" loading="lazy" />
-              <div class="gallery-overlay"><span><i class="fa fa-expand"></i> <span data-i18n="gal-view">Ver instalación</span></span></div>
+              <div class="gallery-overlay"><span><i class="fa-solid fa-expand"></i> <span data-i18n="gal-view">Ver instalación</span></span></div>
             </div>
           </div>
         </div>
@@ -976,41 +976,41 @@
         </div>
         <div class="benefits-grid">
           <div class="benefit-card reveal">
-            <div class="benefit-icon"><i class="fa fa-house-chimney-medical"></i></div>
+            <div class="benefit-icon"><i class="fa-solid fa-house-medical"></i></div>
             <h4 data-i18n="ben1-h">Protege tu Hogar</h4>
             <p data-i18n="ben1-p">Elimina el sarro que daña tuberías, calentadores, lavadoras y lavavajillas, prolongando su vida útil.</p>
           </div>
           <div class="benefit-card reveal">
-            <div class="benefit-icon"><i class="fa fa-spa"></i></div>
+            <div class="benefit-icon"><i class="fa-solid fa-spa"></i></div>
             <h4 data-i18n="ben2-h">Piel y Cabello</h4>
             <p data-i18n="ben2-p">El agua suave es gentil con tu piel y cabello, reduciendo resequedad e irritación causada por cloro y minerales.</p>
           </div>
           <div class="benefit-card reveal">
-            <div class="benefit-icon"><i class="fa fa-utensils"></i></div>
+            <div class="benefit-icon"><i class="fa-solid fa-utensils"></i></div>
             <h4 data-i18n="ben3-h">Agua para Beber</h4>
             <p data-i18n="ben3-p">La ósmosis inversa proporciona agua alcalina con sabor y calidad superior, ideal para beber y cocinar.</p>
           </div>
           <div class="benefit-card reveal">
-            <div class="benefit-icon"><i class="fa fa-leaf"></i></div>
+            <div class="benefit-icon"><i class="fa-solid fa-leaf"></i></div>
             <h4 data-i18n="ben4-h">Libre de Químicos</h4>
             <p data-i18n="ben4-p">Elimina cloro, herbicidas, pesticidas, plomo, mercurio, bacterias y hongos del agua de tu hogar.</p>
           </div>
           <div class="benefit-card reveal">
-            <div class="benefit-icon"><i class="fa fa-dollar-sign"></i></div>
+            <div class="benefit-icon"><i class="fa-solid fa-dollar-sign"></i></div>
             <h4 data-i18n="ben5-h">Sin Sobreprecio</h4>
             <p data-i18n="ben5-p">"Same results. No big brand markup." Calidad premium al precio justo, directamente del fabricante.</p>
           </div>
           <div class="benefit-card reveal">
-            <div class="benefit-icon"><i class="fa fa-wrench"></i></div>
+            <div class="benefit-icon"><i class="fa-solid fa-wrench"></i></div>
             <h4 data-i18n="ben6-h">Soporte Continuo</h4>
             <p data-i18n="ben6-p">Instalación profesional certificada y garantía de por vida del fabricante para tu total tranquilidad.</p>
           </div>
         </div>
         <div class="guarantee-strip reveal">
-          <div class="guarantee-item"><i class="fa fa-medal"></i><strong>Lifetime Warranty</strong><span data-i18n="gu1">Garantía de por vida del fabricante</span></div>
-          <div class="guarantee-item"><i class="fa fa-star"></i><strong>BBB A+ Rating</strong><span data-i18n="gu2">Calificación máxima del Better Business Bureau</span></div>
-          <div class="guarantee-item"><i class="fa fa-certificate"></i><strong data-i18n="gu3-h">NSF Certificado</strong><span>NSF/ANSI 44, 61 &amp; 372</span></div>
-          <div class="guarantee-item"><i class="fa fa-flag-usa"></i><strong>Made in USA</strong><span data-i18n="gu4">Fabricado con estándares americanos</span></div>
+          <div class="guarantee-item"><i class="fa-solid fa-medal"></i><strong>Lifetime Warranty</strong><span data-i18n="gu1">Garantía de por vida del fabricante</span></div>
+          <div class="guarantee-item"><i class="fa-solid fa-star"></i><strong>BBB A+ Rating</strong><span data-i18n="gu2">Calificación máxima del Better Business Bureau</span></div>
+          <div class="guarantee-item"><i class="fa-solid fa-certificate"></i><strong data-i18n="gu3-h">NSF Certificado</strong><span>NSF/ANSI 44, 61 &amp; 372</span></div>
+          <div class="guarantee-item"><i class="fa-solid fa-flag-usa"></i><strong>Made in USA</strong><span data-i18n="gu4">Fabricado con estándares americanos</span></div>
         </div>
       </div>
     </section>
@@ -1025,21 +1025,21 @@
             <p class="section-sub" data-i18n="con-sub">Solicita tu cotización gratuita hoy mismo. Nuestro equipo te asesorará y encontrará el sistema ideal para tu hogar.</p>
             <div class="contact-details">
               <div class="contact-item">
-                <div class="ci-icon"><i class="fa fa-phone"></i></div>
+                <div class="ci-icon"><i class="fa-solid fa-phone"></i></div>
                 <div class="ci-text"><strong data-i18n="con-phone">Teléfono / WhatsApp</strong><span>786-342-4247</span></div>
               </div>
               <div class="contact-item">
-                <div class="ci-icon"><i class="fa fa-location-dot"></i></div>
+                <div class="ci-icon"><i class="fa-solid fa-location-dot"></i></div>
                 <div class="ci-text"><strong data-i18n="con-area">Área de Servicio</strong><span>Miami &amp; South Florida</span></div>
               </div>
               <div class="contact-item">
-                <div class="ci-icon"><i class="fa fa-clock"></i></div>
+                <div class="ci-icon"><i class="fa-solid fa-clock"></i></div>
                 <div class="ci-text"><strong data-i18n="con-hours-label">Horario</strong><span data-i18n="con-hours">Lun–Sab: 8:00am – 6:00pm</span></div>
               </div>
             </div>
             <div class="contact-social">
               <a href="https://wa.me/17863424247" class="social-link"><i class="fa-brands fa-whatsapp"></i></a>
-              <a href="tel:7863424247" class="social-link"><i class="fa fa-phone"></i></a>
+              <a href="tel:7863424247" class="social-link"><i class="fa-solid fa-phone"></i></a>
               <a href="#" class="social-link"><i class="fa-brands fa-facebook-f"></i></a>
               <a href="#" class="social-link"><i class="fa-brands fa-instagram"></i></a>
             </div>
@@ -1088,11 +1088,11 @@
                 <textarea id="f-message" name="message" data-i18n-ph="ph-msg" placeholder="Cuéntanos sobre tu hogar, tipo de agua, dudas..."></textarea>
               </div>
               <button type="submit" class="btn btn-primary form-submit">
-                <i class="fa fa-paper-plane"></i> <span data-i18n="form-submit">Enviar Solicitud</span>
+                <i class="fa-solid fa-paper-plane"></i> <span data-i18n="form-submit">Enviar Solicitud</span>
               </button>
             </form>
             <div class="form-success" id="form-success">
-              <i class="fa fa-circle-check"></i>
+              <i class="fa-solid fa-circle-check"></i>
               <h4 data-i18n="form-ok-h">¡Solicitud Enviada!</h4>
               <p data-i18n="form-ok-p">Gracias por contactarnos. Nuestro equipo se comunicará contigo a la brevedad.</p>
               <a href="https://wa.me/17863424247" class="btn btn-primary" style="margin-top:1.2rem;width:100%;justify-content:center;">
@@ -1116,8 +1116,8 @@
           </div>
           <p class="footer-desc" data-i18n="foot-desc">"Tu agua, tu salud, nuestra prioridad." Sistemas de purificación de agua profesionales con tecnología certificada y garantía de por vida.</p>
           <div style="display:flex;gap:.6rem;flex-wrap:wrap;">
-            <span class="certif-badge" style="background:rgba(255,255,255,.06);border-color:rgba(0,119,182,.3);"><i class="fa fa-certificate"></i> NSF/ANSI 44</span>
-            <span class="certif-badge" style="background:rgba(255,255,255,.06);border-color:rgba(0,119,182,.3);"><i class="fa fa-shield-halved"></i> BBB A+</span>
+            <span class="certif-badge" style="background:rgba(255,255,255,.06);border-color:rgba(0,119,182,.3);"><i class="fa-solid fa-certificate"></i> NSF/ANSI 44</span>
+            <span class="certif-badge" style="background:rgba(255,255,255,.06);border-color:rgba(0,119,182,.3);"><i class="fa-solid fa-shield-halved"></i> BBB A+</span>
           </div>
         </div>
         <div class="footer-col">
@@ -1141,8 +1141,8 @@
         </div>
         <div class="footer-col">
           <h5 data-i18n="nav-contact">Contacto</h5>
-          <div class="footer-contact-item"><i class="fa fa-phone"></i><a href="tel:7863424247">Teléfono / WhatsApp: 786-342-4247</a></div>
-          <div class="footer-contact-item"><i class="fa fa-location-dot"></i><span>Miami &amp; South Florida</span></div>
+          <div class="footer-contact-item"><i class="fa-solid fa-phone"></i><a href="tel:7863424247">Teléfono / WhatsApp: 786-342-4247</a></div>
+          <div class="footer-contact-item"><i class="fa-solid fa-location-dot"></i><span>Miami &amp; South Florida</span></div>
           <div style="display:flex;gap:.5rem;margin-top:1rem;">
             <a href="https://wa.me/17863424247" class="social-link"><i class="fa-brands fa-whatsapp"></i></a>
             <a href="#" class="social-link"><i class="fa-brands fa-facebook-f"></i></a>
@@ -1160,7 +1160,7 @@
   </footer>
 
   <a href="https://wa.me/17863424247" class="wa-float" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
-  <button id="back-top" aria-label="Volver arriba"><i class="fa fa-chevron-up"></i></button>
+  <button id="back-top" aria-label="Volver arriba"><i class="fa-solid fa-chevron-up"></i></button>
 
   <script>
     /* ===== TRANSLATIONS ===== */
