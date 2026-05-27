@@ -271,6 +271,9 @@
     .form-group select option { background: #0a1628; color: white; }
     .form-group textarea { resize: vertical; min-height: 110px; }
     .form-submit { width: 100%; justify-content: center; padding: 1rem; font-size: 1rem; }
+    .form-actions { display: flex; flex-direction: column; gap: .75rem; margin-top: .5rem; }
+    .btn-whatsapp { display:inline-flex; align-items:center; justify-content:center; gap:.6rem; width:100%; padding:1rem; font-size:1rem; font-family:'Montserrat',sans-serif; font-weight:700; border-radius:var(--radius); border:none; cursor:pointer; background:#25d366; color:#fff; transition:var(--transition); }
+    .btn-whatsapp:hover { background:#1da851; transform:translateY(-2px); box-shadow:0 10px 32px rgba(37,211,102,.4); }
     .form-success { display: none; text-align: center; padding: 2rem; }
     .form-success i { font-size: 3rem; color: #22c55e; margin-bottom: 1rem; display: block; }
     .form-success h4 { color: white; font-size: 1.2rem; margin-bottom: .5rem; }
@@ -1082,9 +1085,14 @@
                 <label for="f-message" data-i18n="form-msg">Mensaje (opcional)</label>
                 <textarea id="f-message" name="message" data-i18n-ph="ph-msg" placeholder="Cuéntanos sobre tu hogar, tipo de agua, dudas..."></textarea>
               </div>
-              <button type="submit" class="btn btn-primary form-submit">
-                <i class="fa-solid fa-paper-plane"></i> <span data-i18n="form-submit">Enviar Solicitud</span>
-              </button>
+              <div class="form-actions">
+                <button type="button" id="btn-email" class="btn btn-primary form-submit">
+                  <i class="fa-solid fa-envelope"></i> <span data-i18n="form-submit-email">Enviar por Email</span>
+                </button>
+                <button type="button" id="btn-whatsapp" class="btn-whatsapp">
+                  <i class="fa-brands fa-whatsapp"></i> <span data-i18n="form-submit-wa">Enviar por WhatsApp</span>
+                </button>
+              </div>
             </form>
             <div class="form-success" id="form-success">
               <i class="fa-solid fa-circle-check"></i>
@@ -1228,7 +1236,7 @@
         'form-title':'Solicita tu Cotización Gratuita',
         'form-name':'Nombre','form-lastname':'Apellido','form-phone':'Teléfono *',
         'form-service':'Servicio de Interés','form-city':'Ciudad / Zona','form-msg':'Mensaje (opcional)',
-        'form-submit':'Enviar Solicitud',
+        'form-submit':'Enviar Solicitud','form-submit-email':'Enviar por Email','form-submit-wa':'Enviar por WhatsApp',
         'form-ok-h':'¡Solicitud Enviada!','form-ok-p':'Gracias por contactarnos. Nuestro equipo se comunicará contigo a la brevedad.',
         'form-ok-wa':'Escríbenos por WhatsApp',
         'ph-name':'Tu nombre','ph-lastname':'Tu apellido','ph-email':'correo@email.com',
@@ -1330,7 +1338,7 @@
         'form-title':'Request Your Free Quote',
         'form-name':'First Name','form-lastname':'Last Name','form-phone':'Phone *',
         'form-service':'Service of Interest','form-city':'City / Area','form-msg':'Message (optional)',
-        'form-submit':'Send Request',
+        'form-submit':'Send Request','form-submit-email':'Send by Email','form-submit-wa':'Send via WhatsApp',
         'form-ok-h':'Request Sent!','form-ok-p':'Thank you for contacting us. Our team will get back to you shortly.',
         'form-ok-wa':'Message us on WhatsApp',
         'ph-name':'Your first name','ph-lastname':'Your last name','ph-email':'email@example.com',
@@ -1452,23 +1460,67 @@
     }
 
     /* Form → WhatsApp */
-    document.getElementById('contact-form').addEventListener('submit', e => {
-      e.preventDefault();
-      const name  = document.getElementById('f-name').value.trim();
-      const phone = document.getElementById('f-phone').value.trim();
-      if (!name || !phone) { alert(T[currentLang]['form-alert']); return; }
-      const lastname = document.getElementById('f-lastname').value.trim();
-      const email    = document.getElementById('f-email').value.trim();
-      const service  = document.getElementById('f-service').value;
-      const city     = document.getElementById('f-city').value.trim();
-      const message  = document.getElementById('f-message').value.trim();
-      const text = encodeURIComponent(
-        `*New Request — PINA Water System*\n\n` +
-        `👤 Name: ${name} ${lastname}\n📞 Phone: ${phone}\n📧 Email: ${email||'N/A'}\n` +
-        `🔧 Service: ${service||'N/A'}\n📍 City: ${city||'N/A'}\n💬 Message: ${message||'N/A'}`
-      );
+    function getFormValues() {
+      return {
+        name:     document.getElementById('f-name').value.trim(),
+        lastname: document.getElementById('f-lastname').value.trim(),
+        phone:    document.getElementById('f-phone').value.trim(),
+        email:    document.getElementById('f-email').value.trim(),
+        service:  document.getElementById('f-service').value,
+        city:     document.getElementById('f-city').value.trim(),
+        message:  document.getElementById('f-message').value.trim()
+      };
+    }
+    function validateForm(d) {
+      if (!d.name || !d.phone) { alert(T[currentLang]['form-alert']); return false; }
+      return true;
+    }
+    function showFormSuccess() {
       document.getElementById('contact-form').style.display = 'none';
       document.getElementById('form-success').style.display = 'block';
+    }
+
+    // Email via Formspree
+    document.getElementById('btn-email').addEventListener('click', async () => {
+      const d = getFormValues();
+      if (!validateForm(d)) return;
+      const btn = document.getElementById('btn-email');
+      const orig = btn.innerHTML;
+      btn.disabled = true;
+      btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Enviando...';
+      try {
+        const res = await fetch('https://formspree.io/f/mredojwq', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify({
+            name: `${d.name} ${d.lastname}`.trim(),
+            phone: d.phone,
+            email: d.email || '',
+            service: d.service || '',
+            city: d.city || '',
+            message: d.message || '',
+            _replyto: d.email || '',
+            _subject: `Nueva solicitud PINA Water — ${d.name} ${d.lastname}`
+          })
+        });
+        if (res.ok) { showFormSuccess(); }
+        else { btn.disabled = false; btn.innerHTML = orig; alert('Error al enviar. Por favor intenta de nuevo.'); }
+      } catch(err) {
+        btn.disabled = false; btn.innerHTML = orig;
+        alert('Error de conexión. Por favor intenta de nuevo.');
+      }
+    });
+
+    // WhatsApp
+    document.getElementById('btn-whatsapp').addEventListener('click', () => {
+      const d = getFormValues();
+      if (!validateForm(d)) return;
+      const text = encodeURIComponent(
+        `*New Request — PINA Water System*\n\n` +
+        `👤 Name: ${d.name} ${d.lastname}\n📞 Phone: ${d.phone}\n📧 Email: ${d.email||'N/A'}\n` +
+        `🔧 Service: ${d.service||'N/A'}\n📍 City: ${d.city||'N/A'}\n💬 Message: ${d.message||'N/A'}`
+      );
+      showFormSuccess();
       setTimeout(() => window.open(`https://wa.me/17863424247?text=${text}`, '_blank'), 800);
     });
   </script>
